@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Small Business Services - Dr. Data</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy: #2C3E50; --teal: #4ECDC4; --coral: #FF6B6B; --cream: #FFFCF5; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--navy); }
+    .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid #e0e0e0; }
+    .site-nav-inner { max-width: 72rem; margin: 0 auto; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .site-nav a { color: var(--navy); font-weight: 500; text-decoration: none; transition: color 0.2s; }
+    .site-nav a:hover { color: var(--teal); }
+    .site-nav-links { display: flex; align-items: center; gap: 2rem; }
+    .site-nav .cta-btn { background: var(--navy); color: white; padding: 0.5rem 1.25rem; border-radius: 0.5rem; font-weight: 600; }
+    .site-nav .cta-btn:hover { background: #243342; color: white; }
+    .container { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 4rem 0; }
+    h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; margin-bottom: 1rem; }
+    h2 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 700; margin-bottom: 1.5rem; text-align: center; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--navy); color: white; padding: 1rem 2rem; border-radius: 0.5rem; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+    .btn:hover { background: #243342; color: white; }
+    .btn-teal { background: var(--teal); color: var(--navy); }
+    .btn-teal:hover { background: #3db8b0; color: var(--navy); }
+    .hero { padding-top: 6rem; padding-bottom: 4rem; text-align: center; }
+    .hero p { font-size: 1.25rem; color: rgba(44,62,80,0.8); max-width: 36rem; margin: 0 auto 2rem; }
+    .check { color: var(--teal); }
+    .x-mark { color: var(--coral); }
+    .packages { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .package { background: white; border: 1px solid #e0e0e0; border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column; }
+    .package.popular { border: 2px solid var(--teal); position: relative; }
+    .package .badge { position: absolute; top: -0.75rem; left: 50%; transform: translateX(-50%); background: var(--teal); color: var(--navy); font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 9999px; }
+    .package h3 { font-size: 1.25rem; margin-bottom: 0.25rem; }
+    .package .price { font-size: 1.125rem; font-weight: 700; color: var(--teal); margin-bottom: 1rem; }
+    .package ul { list-style: none; margin-bottom: 1.5rem; flex: 1; }
+    .package li { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.875rem; color: rgba(44,62,80,0.8); }
+    .package li::before { content: "✓"; color: var(--teal); font-weight: bold; }
+    .section-white { background: white; }
+    .section-navy { background: var(--navy); color: white; }
+    .section-navy h2 { color: white; }
+    .section-navy p { color: rgba(255,255,255,0.8); }
+    .section-teal-light { background: rgba(78,205,196,0.1); }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+    .card { background: white; border: 1px solid #e0e0e0; border-radius: 0.75rem; padding: 1.5rem; }
+    .card-navy { background: rgba(255,255,255,0.1); border: none; }
+    .card-navy p { color: white; }
+    .steps { max-width: 36rem; margin: 0 auto; }
+    .step-item { display: flex; gap: 1.5rem; margin-bottom: 2rem; align-items: flex-start; }
+    .step-num { width: 3rem; height: 3rem; border-radius: 50%; background: var(--teal); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+    .what-not { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+    .what-not span { color: var(--coral); font-weight: bold; } 
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="site-nav-inner">
+      <a href="/" style="font-weight: 700; font-size: 1.25rem;">Dr. Data</a>
+      <div class="site-nav-links">
+        <a href="/#services">Enterprise Services</a>
+        <a href="/small-business.html">Small Business Services</a>
+        <a href="/#contact">Contact</a>
+        <a href="https://calendly.com/zubiaml4l/15min" target="_blank" rel="noopener noreferrer" class="cta-btn">Book a Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Stop Guessing. Start Prioritizing.</h1>
+      <p>We turn your messy spreadsheets and CRM data into a simple weekly decision dashboard that tells you what to act on next.</p>
+      <a href="https://calendly.com/zubiaml4l/15min" target="_blank" rel="noopener noreferrer" class="btn">Book a 15-Minute Clarity Call →</a>
+      <p style="margin-top: 1rem;"><a href="#how-it-works" style="color: var(--navy); text-decoration: none;">See How It Works →</a></p>
+    </div>
+  </section>
+
+  <section class="section-white">
+    <div class="container">
+      <h2>Built for Small Businesses That Want Clarity</h2>
+      <div class="grid-2" style="margin-bottom: 1.5rem;">
+        <div class="card"><p>1–10 employee businesses</p></div>
+        <div class="card"><p>Coaches and consultants</p></div>
+        <div class="card"><p>Professional service firms</p></div>
+        <div class="card"><p>Local agencies</p></div>
+        <div class="card"><p>Owners managing data in spreadsheets or simple CRMs</p></div>
+        <div class="card"><p>Teams that want better decisions without complex AI</p></div>
+      </div>
+      <div style="background: rgba(78,205,196,0.1); border-radius: 0.75rem; padding: 1rem; text-align: center;">
+        <p style="font-weight: 500;">If you do not have an IT department, this is designed for you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Why Most Small Businesses Struggle with Data</h2>
+      <p style="text-align: center; color: rgba(44,62,80,0.8); max-width: 36rem; margin: 0 auto 2rem;">You have reports. You have dashboards. You have spreadsheets. But you still rely on instinct when making decisions because the numbers do not translate into clear actions.</p>
+      <div class="grid-2">
+        <div class="card"><p>Leads pile up without prioritization</p></div>
+        <div class="card"><p>Clients leave without early warning</p></div>
+        <div class="card"><p>Forecasts do not connect to workflow</p></div>
+        <div class="card"><p>Reports do not drive behavior</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-navy">
+    <div class="container">
+      <h2>A Simple Decision Dashboard</h2>
+      <p style="text-align: center; max-width: 36rem; margin: 0 auto 2rem;">We build a transparent scoring system that highlights what matters now.</p>
+      <div class="grid-2" style="--col: 3;">
+        <div class="card card-navy"><p>Green / Yellow / Red priority bands</p></div>
+        <div class="card card-navy"><p>Early risk signals</p></div>
+        <div class="card card-navy"><p>Revenue opportunity ranking</p></div>
+        <div class="card card-navy"><p>Weekly action prompts</p></div>
+        <div class="card card-navy"><p>Confidence level indicators</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="section-white">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div><h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Export Your Data</h3><p style="color: rgba(44,62,80,0.8);">If you can export a CSV from your CRM, we can start.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div><h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">We Structure and Score</h3><p style="color: rgba(44,62,80,0.8);">We organize your data and build a transparent scoring model tied to your business outcomes.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div><h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">You Get a Secure Dashboard</h3><p style="color: rgba(44,62,80,0.8);">Log in and see what needs attention this week.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div><h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Ongoing Monitoring</h3><p style="color: rgba(44,62,80,0.8);">We keep it updated and calibrated.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Packages</h2>
+      <div class="packages">
+        <div class="package">
+          <span style="font-size: 0.875rem; color: rgba(44,62,80,0.5);">2 Weeks</span>
+          <h3>Data Clarity Sprint</h3>
+          <p class="price">Starting at $3,500</p>
+          <ul>
+            <li>Data audit</li>
+            <li>Cleaned dataset</li>
+            <li>KPI definitions</li>
+            <li>Data dictionary</li>
+            <li>Decision mapping</li>
+          </ul>
+          <a href="https://calendly.com/zubiaml4l/15min" target="_blank" rel="noopener noreferrer" class="btn" style="text-align: center; justify-content: center;">Start Here</a>
+        </div>
+        <div class="package popular">
+          <span class="badge">MOST POPULAR</span>
+          <span style="font-size: 0.875rem; color: rgba(44,62,80,0.5);">3 Weeks</span>
+          <h3>Decision Dashboard Build</h3>
+          <p class="price">Starting at $5,000</p>
+          <ul>
+            <li>Transparent scoring model</li>
+            <li>Green / Yellow / Red prioritization</li>
+            <li>Hosted secure dashboard</li>
+            <li>Training session</li>
+          </ul>
+          <a href="https://calendly.com/zubiaml4l/15min" target="_blank" rel="noopener noreferrer" class="btn btn-teal" style="text-align: center; justify-content: center;">Build My Dashboard</a>
+        </div>
+        <div class="package">
+          <span style="font-size: 0.875rem; color: rgba(44,62,80,0.5);">Monthly</span>
+          <h3>Managed Intelligence</h3>
+          <p class="price">$600–$900/mo</p>
+          <ul>
+            <li>Hosting</li>
+            <li>Data refresh</li>
+            <li>Minor refinements</li>
+            <li>Monthly decision summary</li>
+          </ul>
+          <a href="https://calendly.com/zubiaml4l/15min" target="_blank" rel="noopener noreferrer" class="btn" style="text-align: center; justify-content: center;">Ongoing Support</a>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 2rem;"><a href="https://calendly.com/zubiaml4l/15min" target="_blank" rel="noopener noreferrer" class="btn">Book a 15-Minute Clarity Call →</a></p>
+    </div>
+  </section>
+
+  <section class="section-white">
+    <div class="container">
+      <h2>What This Is Not</h2>
+      <div class="what-not"><span>✕</span> <p>Not enterprise AI transformation</p></div>
+      <div class="what-not"><span>✕</span> <p>Not deep learning research</p></div>
+      <div class="what-not"><span>✕</span> <p>Not complex infrastructure</p></div>
+      <div class="what-not"><span>✕</span> <p>Not experimental modeling</p></div>
+    </div>
+  </section>
+
+  <section class="section-teal-light">
+    <div class="container" style="text-align: center;">
+      <h2>How It Pays for Itself</h2>
+      <p style="max-width: 36rem; margin: 0 auto; color: rgba(44,62,80,0.8);">If this system helps you close one additional client per quarter or prevent one avoidable churn event, it likely pays for itself.</p>
+    </div>
+  </section>
+
+  <section class="section-navy">
+    <div class="container" style="text-align: center;">
+      <h2>Ready for Clarity?</h2>
+      <a href="https://calendly.com/zubiaml4l/15min" target="_blank" rel="noopener noreferrer" class="btn btn-teal" style="margin-top: 1rem;">Book a 15-Minute Clarity Call →</a>
+      <p style="margin-top: 1rem; font-size: 0.875rem; opacity: 0.6;">If it is not a fit, we will tell you.</p>
+    </div>
+  </section>
+
+  <footer id="contact" style="background: var(--navy); color: white; padding: 3rem 0; text-align: center;">
+    <div class="container">
+      <p><a href="mailto:zubiam@drdatadecisionintelligence.com" style="color: rgba(255,255,255,0.8);">zubiam@drdatadecisionintelligence.com</a> · <a href="tel:4145447777" style="color: rgba(255,255,255,0.8);">414 544 7777</a></p>
+      <p style="margin-top: 1rem;"><a href="https://calendly.com/zubiaml4l/15min" target="_blank" rel="noopener noreferrer" style="color: var(--teal);">Book a Call</a></p>
+      <p style="margin-top: 2rem; font-size: 0.875rem; opacity: 0.6;">© 2026 Dr. Data - Decision Intelligence. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
