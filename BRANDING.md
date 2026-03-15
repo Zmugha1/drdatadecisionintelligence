@@ -101,10 +101,13 @@ font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-s
 
 ---
 
-## CTA Links
+## CTA Links (Single Source of Truth)
 
-- **Discovery call:** `mailto:zubiamL4L@gmail.com`
+All "Book a Discovery Call" / "BOOK A DISCOVERY CALL" buttons must use:
+
+- **Discovery call (primary CTA):** `https://calendly.com/zubiaml4l/15min`
 - **Phone:** `tel:+14145447777`
+- **Email (contact only, not for booking):** `mailto:zubiamL4L@gmail.com`
 - **Homepage:** `https://drdatadecisionintelligence.com`
 
 ---
