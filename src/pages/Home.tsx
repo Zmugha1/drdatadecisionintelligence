@@ -122,11 +122,11 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Make $ Section */}
+      {/* Make $$ Section */}
       <section className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#4ECDC4] mb-8">
-            Make $ With Your Data Faster
+            Make $$ With Your Data Faster
           </h2>
           
           <a
@@ -290,7 +290,7 @@ const Home = () => {
 
           {/* Journey Items */}
           <div className="mb-12">
-            <h3 className="text-xl sm:text-2xl font-bold text-[#4ECDC4] mb-2 text-center">Make $ With Your Data Faster</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-[#4ECDC4] mb-2 text-center">Make $$ With Your Data Faster</h3>
             <p className="text-base text-[#2C3E50]/70 mb-6 text-center">Where are you on your journey?</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {journeyItems.map((item, index) => (
@@ -440,7 +440,7 @@ const Home = () => {
           </h3>
           
           <h4 className="text-xl sm:text-2xl font-bold text-white mb-8">
-            Make $ With Your Data
+            Make $$ With Your Data
           </h4>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
