@@ -399,9 +399,8 @@ def main() -> None:
     engine = AdminAIEngine()
     contacts_df = recalculate_contacts(engine, get_all_contacts())
 
-    if "integration_manager" not in st.session_state:
-        st.session_state["integration_manager"] = IntegrationManager(get_connection())
-    manager = st.session_state["integration_manager"]
+    # Build a fresh manager each run so SQLite connections stay in-thread.
+    manager = IntegrationManager(get_connection())
 
     page = st.sidebar.radio(
         "Go to:",
