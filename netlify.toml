@@ -1,8 +1,10 @@
-# Build from repo root so "Publish directory" stays unambiguous: dashboard-react/dist
-# In Netlify UI: clear custom base directory if set, or set Publish to dashboard-react/dist
+# Netlify runs the command from [build].base (dashboard-react).
+# Do NOT add "cd dashboard-react" here — if the UI also sets Base directory
+# to dashboard-react, a second "cd" breaks the build.
 
 [build]
-  command = "cd dashboard-react && npm ci && npm run build"
+  base = "dashboard-react"
+  command = "npm ci && npm run build"
   publish = "dashboard-react/dist"
 
 [build.environment]
