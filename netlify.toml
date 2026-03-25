@@ -1,14 +1,14 @@
-# Build from repository root. Leave "Base directory" EMPTY in Netlify UI
-# so this file is the single source of truth (avoids dashboard-react/dashboard-react/dist).
-
 [build]
-  command = "cd dashboard-react && npm ci && npm run build"
-  publish = "dashboard-react/dist"
-
-[build.environment]
-  NODE_VERSION = "20"
+  base = "bni-chapter-app"
+  command = "npm run build"
+  publish = "bni-chapter-app/dist"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/bni/*"
+  to = "/bni/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/bni"
+  to = "/bni/index.html"
   status = 200
