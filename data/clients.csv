@@ -1,9 +1,0 @@
-id,name,industry,location,website,monthly_retainer,services,start_date,contact_name,contact_email,status
-client_001,ABC Electric,Electrical Services,"Milwaukee, WI",abcelectric.com,1500,"['SEO', 'Google Reviews', 'Live Leads']",2023-06-15,Mike Johnson,mike@abcelectric.com,active
-client_002,Smith Dental Care,Dental,"Waukesha, WI",smithdental.com,2000,"['SEO', 'Google Reviews']",2023-08-01,Dr. Sarah Smith,sarah@smithdental.com,active
-client_003,Johnson Law Firm,Legal Services,"Brookfield, WI",johnsonlaw.com,2500,"['SEO', 'Authority Visibility', 'Google Reviews']",2023-03-10,David Johnson,david@johnsonlaw.com,active
-client_004,Metro Plumbing,Plumbing,"Milwaukee, WI",metropolitanplumbing.com,1200,"['SEO', 'Live Leads']",2024-01-05,Tom Rodriguez,tom@metroplumbing.com,active
-client_005,Green Roofing Solutions,Roofing,"Racine, WI",greenroofing.com,1800,"['SEO', 'Google Reviews', 'Live Leads']",2023-09-20,Lisa Green,lisa@greenroofing.com,active
-client_006,Rapid Restoration,Property Restoration,"Milwaukee, WI",rapidrestore.com,2200,"['SEO', 'Authority Visibility', 'Google Reviews', 'Live Leads']",2023-05-12,Chris Williams,chris@rapidrestore.com,active
-client_007,Elite HVAC Services,HVAC,"Wauwatosa, WI",elitehvac.com,1400,"['SEO', 'Google Reviews']",2024-02-01,Mark Davis,mark@elitehvac.com,active
-client_008,Premier Fence Company,Fence Installation,"Menomonee Falls, WI",premierfence.com,1100,"['SEO', 'Live Leads']",2023-11-15,Jennifer Adams,jennifer@premierfence.com,attention
