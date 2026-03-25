@@ -1,15 +1,13 @@
-# Netlify: connect this repo and use default settings; this file fills in build details.
-# Dashboard lives in dashboard-react/; site is served at the root of your *.netlify.app URL (base: "/").
+# Build from repo root so "Publish directory" stays unambiguous: dashboard-react/dist
+# In Netlify UI: clear custom base directory if set, or set Publish to dashboard-react/dist
 
 [build]
-  base = "dashboard-react"
-  command = "npm ci && npm run build"
+  command = "cd dashboard-react && npm ci && npm run build"
   publish = "dashboard-react/dist"
 
 [build.environment]
   NODE_VERSION = "20"
 
-# SPA fallback if you add client-side routes later
 [[redirects]]
   from = "/*"
   to = "/index.html"
