@@ -1,0 +1,30 @@
+---
+description: Dr. Data Decision Intelligence branding (BNI Chapter app)
+---
+
+# Dr. Data branding
+
+Use these tokens everywhere. No generic grays as primary surfaces; no default system fonts for headings.
+
+## Colors
+
+- **Navy** `#1E2A3A` — text, primary buttons, headers
+- **Teal** `#2DD4BF` — accents, selected states, secondary CTAs
+- **Coral** `#F87171` — alerts, delete/warning actions, errors
+- **Cream** `#F5EDD8` — page background
+
+## Typography
+
+- **Headings / display:** Space Grotesk (`font-display`)
+- **Body:** Inter (`font-sans`)
+
+Load from Google Fonts: Inter + Space Grotesk.
+
+## Layout
+
+- Mobile-first. Minimum **16px** font size on inputs. Minimum **48px** touch targets on buttons and primary inputs.
+- No hover-only affordances; active/focus states must work on touch.
+
+## References
+
+- Live site: https://drdatadecisionintelligence.com
