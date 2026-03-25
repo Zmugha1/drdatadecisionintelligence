@@ -1,10 +1,8 @@
-# Netlify runs the command from [build].base (dashboard-react).
-# Do NOT add "cd dashboard-react" here — if the UI also sets Base directory
-# to dashboard-react, a second "cd" breaks the build.
+# Build from repository root. Leave "Base directory" EMPTY in Netlify UI
+# so this file is the single source of truth (avoids dashboard-react/dashboard-react/dist).
 
 [build]
-  base = "dashboard-react"
-  command = "npm ci && npm run build"
+  command = "cd dashboard-react && npm ci && npm run build"
   publish = "dashboard-react/dist"
 
 [build.environment]
