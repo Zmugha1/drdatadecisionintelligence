@@ -1,0 +1,9 @@
+client_id,client_name,industry,monthly_retainer,health_score,status,latest_sessions,session_trend,latest_conversions,conversion_trend,latest_rating,review_count,total_feedback_value,roi_percentage
+client_001,ABC Electric,Electrical Services,1500,95,on_track,1561,19.8,116,136.7,4.5,34,18500,103.0
+client_002,Smith Dental Care,Dental,2000,95,on_track,2517,25.8,196,58.1,4.3,34,25500,106.0
+client_003,Johnson Law Firm,Legal Services,2500,95,on_track,1257,38.6,80,56.9,4.7,34,40100,134.0
+client_004,Metro Plumbing,Plumbing,1200,70,attention,1580,30.9,53,-33.8,4.5,34,15800,110.0
+client_005,Green Roofing Solutions,Roofing,1800,55,action_required,1074,3.2,61,-15.3,4.8,35,22000,102.0
+client_006,Rapid Restoration,Property Restoration,2200,95,on_track,898,27.9,54,50.0,4.6,36,40450,153.0
+client_007,Elite HVAC Services,HVAC,1400,95,on_track,1318,17.9,81,30.6,4.8,37,50500,301.0
+client_008,Premier Fence Company,Fence Installation,1100,35,action_required,381,-6.6,17,-37.0,4.9,36,7100,54.0
