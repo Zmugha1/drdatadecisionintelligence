@@ -6,40 +6,26 @@ import { APPS_SCRIPT_URL } from './constants.js';
  */
 export async function submitContribution(data) {
   try {
-    const res = await fetch(APPS_SCRIPT_URL, {
-      method: 'POST',
-      mode: 'cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        member_name: data.member_name,
-        company: data.company ?? '',
-        type: data.type,
-        content: data.content,
-        link: data.link ?? '',
-      }),
+    const params = new URLSearchParams({
+      action: 'submit',
+      member_name: data.member_name || '',
+      company: data.company || '',
+      type: data.type || '',
+      content: data.content || '',
+      link: data.link || ''
     });
-    const text = await res.text();
-    let parsed = null;
-    try {
-      parsed = text ? JSON.parse(text) : null;
-    } catch {
-      parsed = null;
-    }
-    if (!res.ok) {
-      return {
-        success: false,
-        error: parsed?.error || text || `Request failed (${res.status})`,
-      };
-    }
-    if (parsed && parsed.ok === false) {
-      return { success: false, error: parsed.error || 'Submission rejected' };
-    }
+
+    const res = await fetch(
+      APPS_SCRIPT_URL + '?' + params.toString(),
+      {
+        method: 'GET',
+        mode: 'no-cors'
+      }
+    );
+
     return { success: true };
-  } catch (e) {
-    return {
-      success: false,
-      error: e instanceof Error ? e.message : 'Network error',
-    };
+  } catch (err) {
+    return { success: false, error: err.message };
   }
 }
 
