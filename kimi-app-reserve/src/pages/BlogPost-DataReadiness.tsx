@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import PageShell from '@/components/PageShell';
 import { 
   ClipboardCheck, 
   Database, 
@@ -118,9 +119,8 @@ const BlogPostDataReadiness = () => {
   const allAnswered = questions.every(q => scores[q.id] !== undefined);
 
   return (
-    <div className="min-h-screen bg-cream">
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+    <PageShell>
+      <section className="px-4 pb-16 pt-6 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           {/* SEO Tags */}
           <div className="flex flex-wrap gap-2 mb-6">
@@ -433,7 +433,7 @@ const BlogPostDataReadiness = () => {
                 Book Your Free Discovery Call
               </a>
               <a
-                href="/?page=services"
+                href="/#services"
                 className="inline-flex items-center gap-2 text-white hover:text-teal transition-colors"
               >
                 Explore Services <ArrowRight className="w-5 h-5" />
@@ -442,7 +442,7 @@ const BlogPostDataReadiness = () => {
           </div>
         </div>
       </section>
-    </div>
+    </PageShell>
   );
 };
 

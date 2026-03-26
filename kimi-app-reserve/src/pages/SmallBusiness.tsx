@@ -1,13 +1,10 @@
-import { useEffect } from 'react';
+import PageShell from '@/components/PageShell';
 import { ArrowRight, CheckCircle, XCircle } from 'lucide-react';
 
 const SmallBusiness = () => {
-  useEffect(() => { window.scrollTo(0, 0); }, []);
-
   return (
-    <div className="min-h-screen bg-cream">
-      {/* HERO */}
-      <section className="pt-24 pb-16 px-4 text-center">
+    <PageShell>
+      <section className="px-4 pb-16 pt-6 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy mb-6 font-display">Stop Guessing. Start Prioritizing.</h1>
           <p className="text-xl text-navy/70 max-w-2xl mx-auto mb-10">We turn your messy spreadsheets and CRM data into a simple weekly decision dashboard that tells you what to act on next.</p>
@@ -143,7 +140,7 @@ const SmallBusiness = () => {
           <p className="text-white/60 text-sm">If it is not a fit, we will tell you.</p>
         </div>
       </section>
-    </div>
+    </PageShell>
   );
 };
 

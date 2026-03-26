@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import PageShell from '@/components/PageShell';
 import { ArrowRight, TrendingUp, AlertTriangle, DollarSign, BarChart3, Lock, Calendar } from 'lucide-react';
 
 const steps = [
@@ -61,9 +62,8 @@ const BlogPostDataToMoney = () => {
   }, [discountCap, shippingOpt]);
 
   return (
-    <div className="min-h-screen bg-cream">
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+    <PageShell>
+      <section className="px-4 pb-16 pt-6 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           {/* SEO Tags */}
           <div className="flex flex-wrap gap-2 mb-6">
@@ -326,7 +326,7 @@ const BlogPostDataToMoney = () => {
 
         </div>
       </section>
-    </div>
+    </PageShell>
   );
 };
 

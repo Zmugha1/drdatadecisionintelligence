@@ -1,14 +1,10 @@
-import { useEffect } from 'react';
+import PageShell from '@/components/PageShell';
 import { Lock, TrendingUp, Shield, Zap } from 'lucide-react';
 
 const DataToDemo = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
-    <div className="min-h-screen bg-cream">
-      <section className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+    <PageShell>
+      <section className="px-4 pb-20 pt-6 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-navy/10 text-navy text-sm mb-6">
@@ -125,7 +121,7 @@ const DataToDemo = () => {
           </div>
         </div>
       </section>
-    </div>
+    </PageShell>
   );
 };
 

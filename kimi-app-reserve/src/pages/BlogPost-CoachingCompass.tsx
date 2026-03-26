@@ -1,15 +1,11 @@
-import { useEffect } from 'react';
+import PageShell from '@/components/PageShell';
 import { ArrowRight, Calendar, Compass, Brain, Eye, UserCheck, Target, Quote, CheckCircle, AlertCircle } from 'lucide-react';
 
 const BlogPostCoachingCompass = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
-    <div className="min-h-screen bg-cream">
+    <PageShell>
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+      <section className="pt-6 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mb-6">
@@ -438,7 +434,7 @@ const BlogPostCoachingCompass = () => {
           </div>
         </div>
       </section>
-    </div>
+    </PageShell>
   );
 };
 

@@ -11,11 +11,22 @@ import BNIReferral from './pages/BNIReferral';
 import AIReadinessAssessment from './pages/AIReadinessAssessment';
 import AskChatGPT from './pages/AskChatGPT';
 import AskClaude from './pages/AskClaude';
+import BlogPostDataToMoney from './pages/BlogPost-DataToMoney';
+import BlogPostDataReadiness from './pages/BlogPost-DataReadiness';
+import BlogPostCoachingCompass from './pages/BlogPost-CoachingCompass';
+import DataToDemo from './pages/DataToDemo';
+import SmallBusiness from './pages/SmallBusiness';
 
 function resolvePageFromLocation(): string {
   const path = window.location.pathname.replace(/\/$/, '') || '/';
   if (path === '/ask-chatgpt') return 'ask-chatgpt';
   if (path === '/ask-claude') return 'ask-claude';
+  if (path === '/blog') return 'blog';
+  if (path === '/blog/data-to-money') return 'blog-data-to-money';
+  if (path === '/blog/data-readiness') return 'blog-data-readiness';
+  if (path === '/blog/coaching-compass') return 'blog-coaching-compass';
+  if (path === '/data-to-demo') return 'data-to-demo';
+  if (path === '/small-business') return 'small-business';
   const pageParam = new URLSearchParams(window.location.search).get('page');
   return pageParam || 'home';
 }
@@ -53,6 +64,16 @@ function App() {
       return <AskChatGPT />;
     case 'ask-claude':
       return <AskClaude />;
+    case 'blog-data-to-money':
+      return <BlogPostDataToMoney />;
+    case 'blog-data-readiness':
+      return <BlogPostDataReadiness />;
+    case 'blog-coaching-compass':
+      return <BlogPostCoachingCompass />;
+    case 'data-to-demo':
+      return <DataToDemo />;
+    case 'small-business':
+      return <SmallBusiness />;
     case 'home':
     default:
       return <Home />;
