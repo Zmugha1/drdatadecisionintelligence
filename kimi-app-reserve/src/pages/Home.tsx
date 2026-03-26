@@ -15,6 +15,10 @@ import Footer from '@/sections/Footer';
  */
 export default function Home() {
   useEffect(() => {
+    // Avoid landing in the middle of the page if the URL has #cta or another hash
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
     window.scrollTo(0, 0);
   }, []);
 

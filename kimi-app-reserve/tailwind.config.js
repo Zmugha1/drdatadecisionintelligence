@@ -2,6 +2,14 @@
 module.exports = {
   darkMode: ["class"],
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  /** Ensures @keyframes are emitted for inline animation names + section utilities */
+  safelist: [
+    'animate-float',
+    'animate-bounce-in',
+    'animate-gradient-shift',
+    'animate-pulse-glow-coral',
+    'animate-slide-up',
+  ],
   theme: {
     extend: {
       colors: {
@@ -48,6 +56,16 @@ module.exports = {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        /** Dr. Data brand (sections + UniversalNav rely on these) */
+        navy: "#2C3E50",
+        teal: "#4ECDC4",
+        coral: "#E07A5F",
+        cream: "#FFFCF5",
+        mint: "#F0FDF9",
+      },
+      fontFamily: {
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ['"Space Grotesk"', "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",
@@ -58,6 +76,11 @@ module.exports = {
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        card: "0 4px 14px 0 rgb(44 62 80 / 0.08)",
+        "card-hover": "0 20px 40px -12px rgb(44 62 80 / 0.15)",
+      },
+      transitionDuration: {
+        800: "800ms",
       },
       keyframes: {
         "accordion-down": {
@@ -72,11 +95,36 @@ module.exports = {
           "0%,70%,100%": { opacity: "1" },
           "20%,50%": { opacity: "0" },
         },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "bounce-in": {
+          from: { opacity: "0", transform: "scale(0.3)" },
+          to: { opacity: "1", transform: "scale(1)" },
+        },
+        "gradient-shift": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
+        "pulse-glow-coral": {
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(224, 122, 95, 0.45)" },
+          "50%": { boxShadow: "0 0 0 14px rgba(224, 122, 95, 0)" },
+        },
+        "slide-up": {
+          from: { opacity: "0", transform: "translateY(12px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "caret-blink": "caret-blink 1.25s ease-out infinite",
+        float: "float 4s ease-in-out infinite",
+        "bounce-in": "bounce-in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards",
+        "gradient-shift": "gradient-shift 8s ease infinite",
+        "pulse-glow-coral": "pulse-glow-coral 2s ease-in-out infinite",
+        "slide-up": "slide-up 0.45s ease-out forwards",
       },
     },
   },
