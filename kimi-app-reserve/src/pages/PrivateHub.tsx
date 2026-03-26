@@ -1,33 +1,31 @@
-import { useEffect } from 'react';
-import Navigation from '../sections/Navigation';
+import PageShell from '@/components/PageShell';
 import { Shield, Lock, Eye, FileCheck, Server, Database, BarChart3, CheckCircle } from 'lucide-react';
 
 const PrivateHub = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const pillars = [
     {
       icon: Server,
       number: '01',
       title: 'Zero-Cloud Residency',
-      description: 'Your client interactions are your most valuable asset. In the Private Hub, the AI "brain" runs locally on a dedicated office server.',
+      description:
+        'Your client interactions are your most valuable asset. In the Private Hub, the AI "brain" runs locally on a dedicated office server.',
       benefit: 'No data is sent to OpenAI, Google, or Microsoft. Your secrets stay yours.',
     },
     {
       icon: Eye,
       number: '02',
       title: '"Truth-Link" Auditability',
-      description: 'Every insight on your dashboard is backed by a digital receipt. If the system flags a "High-Risk Customer," you can click a single button to see the exact timestamp and transcript line that triggered the alert.',
+      description:
+        'Every insight on your dashboard is backed by a digital receipt. If the system flags a "High-Risk Customer," you can click a single button to see the exact timestamp and transcript line that triggered the alert.',
       benefit: 'Total confidence during audits or legal reviews. No "black box" logic.',
     },
     {
       icon: Lock,
       number: '03',
       title: 'Deterministic Governance',
-      description: 'Standard AI is unpredictable. Dr. Data is prescriptive. We hard-code your specific business rules and compliance policies (GDPR, HIPAA, or internal standards) directly into the processing engine.',
-      benefit: 'The AI is forced to follow your rules, redacting sensitive info automatically before it\'s even analyzed.',
+      description:
+        'Standard AI is unpredictable. Dr. Data is prescriptive. We hard-code your specific business rules and compliance policies (GDPR, HIPAA, or internal standards) directly into the processing engine.',
+      benefit: "The AI is forced to follow your rules, redacting sensitive info automatically before it's even analyzed.",
     },
   ];
 
@@ -49,44 +47,37 @@ const PrivateHub = () => {
     },
   ];
 
-  const prescriptionPoints = [
-    'One-time hardware setup.',
-    'Zero per-user monthly fees.',
-    '100% Audit-ready.',
-  ];
+  const prescriptionPoints = ['One-time hardware setup.', 'Zero per-user monthly fees.', '100% Audit-ready.'];
 
   return (
-    <div className="min-h-screen bg-[#FFFCF5]">
-      <Navigation />
-
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-[#4ECDC4]/10 text-[#4ECDC4] px-4 py-2 rounded-full text-sm font-medium mb-8">
-            <Shield className="w-4 h-4" />
+    <PageShell>
+      <section className="px-4 pb-12 pt-6 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl text-center">
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-teal/10 px-4 py-2 text-sm font-medium text-teal">
+            <Shield className="h-4 w-4" />
             For Small Businesses (1-30 Employees)
           </div>
-          
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#2C3E50] leading-tight mb-6">
-            Finally: AI That Doesn&apos;t Leak Your{' '}
-            <span className="text-[#4ECDC4]">Business Secrets</span>
+
+          <h1 className="mb-6 font-display text-4xl font-bold leading-tight text-navy sm:text-5xl lg:text-6xl">
+            Finally: AI That Doesn&apos;t Leak Your <span className="text-teal">Business Secrets</span>
           </h1>
-          
-          <p className="text-lg sm:text-xl text-[#2C3E50]/70 max-w-2xl mx-auto mb-8">
-            You&apos;ve heard the AI hype, but you&apos;ve also heard the warnings. Most AI tools &quot;borrow&quot; your data to train their systems. For a small business, that&apos;s not just a risk—it&apos;s a liability.
+
+          <p className="mx-auto mb-8 max-w-2xl text-lg text-navy/70 sm:text-xl">
+            You&apos;ve heard the AI hype, but you&apos;ve also heard the warnings. Most AI tools &quot;borrow&quot; your
+            data to train their systems. For a small business, that&apos;s not just a risk—it&apos;s a liability.
           </p>
-          
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-[#4ECDC4]/20 max-w-3xl mx-auto">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-[#4ECDC4] rounded-xl flex items-center justify-center flex-shrink-0">
-                <Database className="w-6 h-6 text-white" />
+
+          <div className="mx-auto max-w-3xl rounded-2xl border border-teal/30 bg-white/90 p-8 shadow-card backdrop-blur-sm">
+            <div className="flex items-start gap-4 text-left">
+              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-teal">
+                <Database className="h-6 w-6 text-white" />
               </div>
-              <div className="text-left">
-                <h3 className="text-xl font-bold text-[#2C3E50] mb-2">
-                  The Dr. Data Private Hub
-                </h3>
-                <p className="text-[#2C3E50]/70">
-                  A decision-ready intelligence system built inside your own four walls. We connect your &quot;dark silos&quot;—Zoom calls, emails, and phone transcripts—into a single, auditable dashboard that lives on your hardware.
+              <div>
+                <h3 className="mb-2 text-xl font-bold text-navy">The Dr. Data Private Hub</h3>
+                <p className="text-navy/70">
+                  A decision-ready intelligence system built inside your own four walls. We connect your &quot;dark
+                  silos&quot;—Zoom calls, emails, and phone transcripts—into a single, auditable dashboard that lives on
+                  your hardware.
                 </p>
               </div>
             </div>
@@ -94,47 +85,35 @@ const PrivateHub = () => {
         </div>
       </section>
 
-      {/* Three Pillars Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-[#4ECDC4] font-semibold tracking-wider uppercase text-sm mb-3">
-              Core Features
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#2C3E50]">
-              The Three Pillars of Your Private Hub
-            </h2>
+      <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-16 text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-teal">Core Features</p>
+            <h2 className="font-display text-3xl font-bold text-navy sm:text-4xl">The Three Pillars of Your Private Hub</h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid gap-8 md:grid-cols-3">
             {pillars.map((pillar, index) => (
               <div
                 key={index}
-                className="bg-[#FFFCF5] rounded-2xl p-8 border border-[#2C3E50]/10 hover:border-[#4ECDC4] transition-all hover:shadow-lg"
+                className="rounded-2xl border border-navy/10 bg-cream p-8 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-teal/40 hover:shadow-card-hover"
               >
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-14 h-14 bg-[#4ECDC4] rounded-xl flex items-center justify-center">
-                    <pillar.icon className="w-7 h-7 text-white" />
+                <div className="mb-6 flex items-center justify-between">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-teal">
+                    <pillar.icon className="h-7 w-7 text-white" />
                   </div>
-                  <span className="text-5xl font-bold text-[#2C3E50]/10">
-                    {pillar.number}
-                  </span>
+                  <span className="text-5xl font-bold text-navy/10">{pillar.number}</span>
                 </div>
-                
-                <h3 className="text-xl font-bold text-[#2C3E50] mb-4">
-                  {pillar.title}
-                </h3>
-                
-                <p className="text-[#2C3E50]/70 mb-6 leading-relaxed">
-                  {pillar.description}
-                </p>
-                
-                <div className="bg-[#4ECDC4]/10 rounded-lg p-4">
+
+                <h3 className="mb-4 text-xl font-bold text-navy">{pillar.title}</h3>
+
+                <p className="mb-6 leading-relaxed text-navy/70">{pillar.description}</p>
+
+                <div className="rounded-lg bg-teal/10 p-4">
                   <div className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#4ECDC4] flex-shrink-0 mt-0.5" />
-                    <p className="text-sm text-[#2C3E50] font-medium">
-                      <span className="text-[#4ECDC4]">The Benefit:</span>{' '}
-                      {pillar.benefit}
+                    <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" />
+                    <p className="text-sm font-medium text-navy">
+                      <span className="text-teal">The Benefit:</span> {pillar.benefit}
                     </p>
                   </div>
                 </div>
@@ -144,44 +123,30 @@ const PrivateHub = () => {
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#2C3E50]">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-[#4ECDC4] font-semibold tracking-wider uppercase text-sm mb-3">
-              Process
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">
-              How It Works for You
-            </h2>
+      <section className="bg-navy px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-16 text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-teal">Process</p>
+            <h2 className="font-display text-3xl font-bold text-white sm:text-4xl">How It Works for You</h2>
           </div>
 
           <div className="overflow-hidden rounded-2xl border border-white/10">
             <table className="w-full">
               <thead>
                 <tr className="bg-white/10">
-                  <th className="text-left py-4 px-6 text-[#4ECDC4] font-semibold">
-                    Phase
-                  </th>
-                  <th className="text-left py-4 px-6 text-[#4ECDC4] font-semibold">
-                    What Dr. Data Does
-                  </th>
-                  <th className="text-left py-4 px-6 text-[#4ECDC4] font-semibold">
-                    What You Get
-                  </th>
+                  <th className="px-6 py-4 text-left font-semibold text-teal">Phase</th>
+                  <th className="px-6 py-4 text-left font-semibold text-teal">What Dr. Data Does</th>
+                  <th className="px-6 py-4 text-left font-semibold text-teal">What You Get</th>
                 </tr>
               </thead>
               <tbody>
                 {phases.map((phase, index) => (
-                  <tr
-                    key={index}
-                    className="border-t border-white/10 hover:bg-white/5 transition-colors"
-                  >
-                    <td className="py-5 px-6">
-                      <span className="text-[#4ECDC4] font-bold">{phase.phase}</span>
+                  <tr key={index} className="border-t border-white/10 transition-colors hover:bg-white/5">
+                    <td className="px-6 py-5">
+                      <span className="font-bold text-teal">{phase.phase}</span>
                     </td>
-                    <td className="py-5 px-6 text-white/80">{phase.action}</td>
-                    <td className="py-5 px-6 text-white/80">{phase.result}</td>
+                    <td className="px-6 py-5 text-white/80">{phase.action}</td>
+                    <td className="px-6 py-5 text-white/80">{phase.result}</td>
                   </tr>
                 ))}
               </tbody>
@@ -190,77 +155,39 @@ const PrivateHub = () => {
         </div>
       </section>
 
-      {/* Prescription Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#FFFCF5]">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-[#2C3E50] to-[#2C3E50]/90 rounded-3xl p-8 sm:p-12 text-center">
-            <div className="w-16 h-16 bg-[#4ECDC4] rounded-2xl flex items-center justify-center mx-auto mb-8">
-              <FileCheck className="w-8 h-8 text-white" />
+      <section className="bg-cream px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl">
+          <div className="rounded-3xl bg-gradient-to-br from-navy to-navy/90 p-8 text-center sm:p-12">
+            <div className="mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-teal">
+              <FileCheck className="h-8 w-8 text-white" />
             </div>
-            
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              The Dr. Data &quot;Prescription&quot;
-            </h2>
-            
-            <p className="text-xl text-[#4ECDC4] font-medium mb-10">
-              Stop renting &quot;best-effort&quot; AI. Own your intelligence.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-10">
+
+            <h2 className="mb-4 font-display text-3xl font-bold text-white sm:text-4xl">The Dr. Data &quot;Prescription&quot;</h2>
+
+            <p className="mb-10 text-xl font-medium text-teal">Stop renting &quot;best-effort&quot; AI. Own your intelligence.</p>
+
+            <div className="mb-10 flex flex-col items-center justify-center gap-6 sm:flex-row">
               {prescriptionPoints.map((point, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-2 text-white/90"
-                >
-                  <CheckCircle className="w-5 h-5 text-[#4ECDC4]" />
+                <div key={index} className="flex items-center gap-2 text-white/90">
+                  <CheckCircle className="h-5 w-5 text-teal" />
                   <span>{point}</span>
                 </div>
               ))}
             </div>
-            
+
             <a
               href="https://calendly.com/zubiaml4l/15min"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#E07A5F] hover:bg-[#d46a4e] text-white font-semibold py-4 px-10 rounded-full text-lg transition-colors shadow-lg hover:shadow-xl"
+              className="inline-flex items-center gap-2 rounded-full bg-coral px-10 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:bg-coral/90 hover:shadow-xl"
             >
-              <BarChart3 className="w-5 h-5" />
+              <BarChart3 className="h-5 w-5" />
               Get Your AI Readiness Score
             </a>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-12 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#2C3E50]/10">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-2">
-              <span className="text-lg font-bold text-[#2C3E50]">Dr. Data</span>
-            </div>
-            
-            <p className="text-sm text-[#2C3E50]/60 text-center">
-              Decision Intelligence for Small Businesses. Private. Secure. Yours.
-            </p>
-            
-            <a
-              href="https://calendly.com/zubiaml4l/15min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-[#4ECDC4] hover:text-[#2C3E50] font-medium transition-colors"
-            >
-              Book a Discovery Call
-            </a>
-          </div>
-          
-          <div className="mt-8 pt-8 border-t border-[#2C3E50]/10 text-center">
-            <p className="text-xs text-[#2C3E50]/40">
-              &copy; {new Date().getFullYear()} Dr. Data Decision Intelligence. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </PageShell>
   );
 };
 

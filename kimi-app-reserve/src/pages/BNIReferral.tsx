@@ -1,12 +1,8 @@
-import { useEffect, useState } from 'react';
-import Navigation from '../sections/Navigation';
+import { useState } from 'react';
+import PageShell from '@/components/PageShell';
 import { Copy, Check, Users, Ear, MessageSquare, Shield, Server, FileCheck, DollarSign, ArrowRight, ArrowLeft } from 'lucide-react';
 
 const BNIReferral = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const [showBack, setShowBack] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -50,11 +46,9 @@ const BNIReferral = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFFCF5]">
-      <Navigation />
-
+    <PageShell>
       {/* Hero Section */}
-      <section className="pt-28 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#2C3E50] to-[#003366]">
+      <section className="bg-gradient-to-br from-navy to-[#003366] px-4 pb-12 pt-6 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-[#4ECDC4]/20 text-[#4ECDC4] px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Shield className="w-4 h-4" />
@@ -313,24 +307,21 @@ const BNIReferral = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 px-4 sm:px-6 lg:px-8 bg-[#2C3E50]">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-white/60 mb-4">
-            Thank you for being a referral partner!
-          </p>
+      <section className="bg-navy px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="mb-4 text-white/60">Thank you for being a referral partner!</p>
           <a
             href="https://calendly.com/zubiaml4l/15min"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#E07A5F] hover:bg-[#d46a4e] text-white font-semibold py-3 px-8 rounded-full transition-colors"
+            className="inline-flex items-center gap-2 rounded-full bg-coral px-8 py-3 font-semibold text-white transition-colors hover:bg-coral/90"
           >
             Book a Call with Dr. Data
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="h-4 w-4" />
           </a>
         </div>
-      </footer>
-    </div>
+      </section>
+    </PageShell>
   );
 };
 

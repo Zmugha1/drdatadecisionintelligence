@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import Navigation from '../sections/Navigation';
+import { useState } from 'react';
+import PageShell from '@/components/PageShell';
 import { CheckCircle, XCircle, AlertTriangle, ChevronRight, ChevronLeft, RefreshCw, Send } from 'lucide-react';
 
 interface QuestionOption {
@@ -23,10 +23,6 @@ interface Phase {
 }
 
 const AIReadinessAssessment = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const [currentPhase, setCurrentPhase] = useState(0);
   const [answers, setAnswers] = useState<Record<string, { value: string | number; score: number }>>({});
   const [showResults, setShowResults] = useState(false);
@@ -326,10 +322,8 @@ const AIReadinessAssessment = () => {
     const recommendation = getRecommendation(totalScore, killSwitchFails);
 
     return (
-      <div className="min-h-screen bg-[#FFFCF5]">
-        <Navigation />
-
-        <section className="pt-28 pb-20 px-4 sm:px-6 lg:px-8">
+      <PageShell>
+        <section className="px-4 pb-20 pt-6 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
               <h1 className="text-3xl sm:text-4xl font-bold text-[#2C3E50] mb-4">
@@ -423,35 +417,21 @@ const AIReadinessAssessment = () => {
             </div>
           </div>
         </section>
-
-        {/* Footer */}
-        <footer className="py-12 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#2C3E50]/10">
-          <div className="max-w-6xl mx-auto text-center">
-            <p className="text-sm text-[#2C3E50]/60">
-              Decision Intelligence for Small Businesses
-            </p>
-            <p className="text-xs text-[#2C3E50]/40 mt-4">
-              &copy; {new Date().getFullYear()} Dr. Data Decision Intelligence. All rights reserved.
-            </p>
-          </div>
-        </footer>
-      </div>
+      </PageShell>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#FFFCF5]">
-      <Navigation />
-
-      {/* Progress Bar */}
-      <div className="fixed top-[70px] left-0 right-0 h-1 bg-[#2C3E50]/10 z-40">
+    <PageShell>
+      {/* Progress Bar — below fixed UniversalNav (h-16) */}
+      <div className="fixed left-0 right-0 top-16 z-40 h-1 bg-navy/10">
         <div
-          className="h-full bg-[#4ECDC4] transition-all duration-500"
+          className="h-full bg-teal transition-all duration-500"
           style={{ width: `${progress}%` }}
         />
       </div>
 
-      <section className="pt-28 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="px-4 pb-20 pt-6 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           {/* Header */}
           <div className="text-center mb-10">
@@ -569,19 +549,7 @@ const AIReadinessAssessment = () => {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-12 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#2C3E50]/10">
-        <div className="max-w-6xl mx-auto text-center">
-          <p className="text-sm text-[#2C3E50]/60">
-            Decision Intelligence for Small Businesses
-          </p>
-          <p className="text-xs text-[#2C3E50]/40 mt-4">
-            &copy; {new Date().getFullYear()} Dr. Data Decision Intelligence. All rights reserved.
-          </p>
-        </div>
-      </footer>
-    </div>
+    </PageShell>
   );
 };
 
