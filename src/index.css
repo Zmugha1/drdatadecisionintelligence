@@ -84,3 +84,44 @@ body {
     transform: translateY(-10px);
   }
 }
+
+/* Transform-only entrance (no opacity:0 — avoids hidden content if CSS fails) */
+@keyframes site-reveal-up {
+  from {
+    transform: translateY(18px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .site-reveal {
+    animation: site-reveal-up 0.65s ease forwards;
+  }
+  .site-reveal-delay-1 {
+    animation-delay: 0.08s;
+  }
+  .site-reveal-delay-2 {
+    animation-delay: 0.16s;
+  }
+  .site-reveal-delay-3 {
+    animation-delay: 0.24s;
+  }
+  .site-reveal-delay-4 {
+    animation-delay: 0.32s;
+  }
+  .site-reveal-delay-5 {
+    animation-delay: 0.4s;
+  }
+  .site-reveal-delay-6 {
+    animation-delay: 0.48s;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .site-reveal-mascot {
+    animation: hero-float 4s ease-in-out infinite;
+  }
+}
+

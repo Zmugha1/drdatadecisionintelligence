@@ -1,14 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
-  const [isVisible, setIsVisible] = useState(false);
+  /** Start visible so above-the-fold content never stays at opacity-0 if JS is slow (see DEPLOYMENT.md). */
+  const [isVisible] = useState(true);
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -120,7 +117,7 @@ export default function Hero() {
             <Button
               size="lg"
               className="bg-coral hover:bg-coral/90 text-white font-display font-semibold px-8 py-6 text-base rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
-              onClick={() => window.open('https://calendly.com', '_blank')}
+              onClick={() => window.open('https://calendly.com/zubiaml4l/15min', '_blank')}
             >
               BOOK A DISCOVERY CALL
             </Button>

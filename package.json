@@ -4,10 +4,13 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build && node -e \"const fs=require('fs');fs.renameSync('dist/index-build.html','dist/index.html')\" && cd bni-chapter-app && npm install && npm run build && cd .. && cp -r bni-chapter-app/dist dist/bni",
+    "dev": "npm run dev --prefix kimi-app-reserve",
+    "build:kimi": "npm install --prefix kimi-app-reserve && npm run build --prefix kimi-app-reserve",
+    "build:bni": "npm install --prefix bni-chapter-app && npm run build --prefix bni-chapter-app",
+    "build": "npm run build:kimi && node scripts/copy-kimi-to-dist.mjs && npm run build:bni && node scripts/copy-bni-to-dist.mjs && node scripts/sync-root-static.mjs",
+    "build:legacy-root-vite": "tsc && vite build && node -e \"const fs=require('fs');fs.renameSync('dist/index-build.html','dist/index.html')\" && npm run build:bni && node scripts/copy-bni-to-dist.mjs && node scripts/sync-root-static.mjs",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "npm run preview --prefix kimi-app-reserve"
   },
   "dependencies": {
     "lucide-react": "^0.344.0",

@@ -9,17 +9,26 @@ import Survey from './pages/Survey';
 import PrivateHub from './pages/PrivateHub';
 import BNIReferral from './pages/BNIReferral';
 import AIReadinessAssessment from './pages/AIReadinessAssessment';
+import AskChatGPT from './pages/AskChatGPT';
+import AskClaude from './pages/AskClaude';
+
+function resolvePageFromLocation(): string {
+  const path = window.location.pathname.replace(/\/$/, '') || '/';
+  if (path === '/ask-chatgpt') return 'ask-chatgpt';
+  if (path === '/ask-claude') return 'ask-claude';
+  const pageParam = new URLSearchParams(window.location.search).get('page');
+  return pageParam || 'home';
+}
 
 function App() {
-  const [page, setPage] = useState('home');
+  const [page, setPage] = useState(resolvePageFromLocation);
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const pageParam = params.get('page');
-    if (pageParam) {
-      setPage(pageParam);
-    }
-  }, [window.location.search]);
+    const sync = () => setPage(resolvePageFromLocation());
+    sync();
+    window.addEventListener('popstate', sync);
+    return () => window.removeEventListener('popstate', sync);
+  }, []);
 
   switch (page) {
     case 'about':
@@ -40,6 +49,10 @@ function App() {
       return <BNIReferral />;
     case 'ai-readiness':
       return <AIReadinessAssessment />;
+    case 'ask-chatgpt':
+      return <AskChatGPT />;
+    case 'ask-claude':
+      return <AskClaude />;
     case 'home':
     default:
       return <Home />;

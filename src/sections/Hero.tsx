@@ -1,18 +1,21 @@
 import { ArrowRight } from 'lucide-react';
+import { publicUrl } from '../lib/publicUrl';
 
 type HeroProps = {
-  onOpenDecisionIntel: () => void;
+  decisionIntelOpen: boolean;
+  onToggleDecisionIntel: () => void;
 };
 
 /**
- * Hero is always visible in the DOM (no opacity-0-before-JS pattern).
- * Relying on hidden-then-reveal caused blank regions when transitions
- * or Tailwind arbitrary min-heights failed in production.
+ * Motion uses CSS only (site-reveal-*): transform-based stagger, no JS-gated opacity.
+ * Images use publicUrl() so /public assets resolve with Vite base.
  */
-export default function Hero({ onOpenDecisionIntel }: HeroProps) {
+export default function Hero({ decisionIntelOpen, onToggleDecisionIntel }: HeroProps) {
   const scrollToHowItWorks = () => {
     document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const mascotSrc = publicUrl('mascot-hero.png');
 
   return (
     <section className="relative w-full min-h-screen bg-[#FFFCF5] pb-20 pt-24">
@@ -30,19 +33,21 @@ export default function Hero({ onOpenDecisionIntel }: HeroProps) {
       <div className="relative z-10 flex flex-col items-center px-4 pb-16 pt-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl text-center">
           {/* Mascot */}
-          <div
-            className="relative mb-8"
-            style={{ animation: 'hero-float 4s ease-in-out infinite' }}
-          >
-            <img
-              src="/mascot-hero.png"
-              alt="Dr. Data Mascot"
-              className="mx-auto h-48 w-48 object-contain drop-shadow-2xl sm:h-56 sm:w-56 md:h-64 md:w-64"
-            />
+          <div className="site-reveal site-reveal-delay-1 mb-8 flex justify-center">
+            <div className="site-reveal-mascot">
+              <img
+                src={mascotSrc}
+                alt="Dr. Data Mascot"
+                className="mx-auto h-48 w-48 object-contain drop-shadow-2xl sm:h-56 sm:w-56 md:h-64 md:w-64"
+                width={256}
+                height={256}
+                fetchPriority="high"
+              />
+            </div>
           </div>
 
-          {/* Headlines — always visible (no JS-gated opacity) */}
-          <div className="mb-6 space-y-2">
+          {/* Headlines */}
+          <div className="site-reveal site-reveal-delay-2 mb-6 space-y-2">
             <h1
               className="text-[#2C3E50]"
               style={{
@@ -70,25 +75,27 @@ export default function Hero({ onOpenDecisionIntel }: HeroProps) {
             </p>
           </div>
 
-          <p className="mx-auto mb-10 max-w-2xl text-base text-[#2C3E50]/80 sm:text-lg">
+          <p className="site-reveal site-reveal-delay-3 mx-auto mb-10 max-w-2xl text-base text-[#2C3E50]/80 sm:text-lg">
             Stop searching for answers in scattered spreadsheets. Start making confident decisions. Dr. Data
             organizes your information into clear, actionable insights you can trust.
           </p>
 
-          <p className="mb-8 text-xl font-bold text-[#4ECDC4] sm:text-2xl">Make $$ With Your Data Faster</p>
+          <p className="site-reveal site-reveal-delay-4 mb-8 text-xl font-bold text-[#4ECDC4] sm:text-2xl">
+            Make $$ With Your Data Faster
+          </p>
 
-          <div className="flex flex-col items-center justify-center gap-6">
+          <div className="site-reveal site-reveal-delay-5 flex flex-col items-center justify-center gap-6">
             <a
               href="https://calendly.com/zubiaml4l/15min"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block rounded-full bg-[#E07A5F] px-10 py-4 text-base font-semibold text-white shadow-lg transition-all hover:scale-[1.02] hover:bg-[#d46a4e] hover:shadow-xl"
+              className="inline-block rounded-full bg-[#E07A5F] px-10 py-4 text-base font-semibold text-white shadow-lg transition-transform duration-200 hover:scale-[1.03] hover:bg-[#d46a4e] hover:shadow-xl active:scale-[0.99]"
             >
               BOOK A DISCOVERY CALL
             </a>
 
             <div className="mx-auto max-w-xl">
-              <div className="rounded-xl border border-[#2C3E50]/10 bg-white/70 p-5 text-center shadow-sm backdrop-blur-sm">
+              <div className="rounded-xl border border-[#2C3E50]/10 bg-white/70 p-5 text-center shadow-sm backdrop-blur-sm transition-shadow duration-300 hover:shadow-md">
                 <p className="mb-2 text-xs font-medium uppercase tracking-wide text-[#2C3E50]/50">
                   Who&apos;s behind this
                 </p>
@@ -102,7 +109,7 @@ export default function Hero({ onOpenDecisionIntel }: HeroProps) {
                   className="inline-flex items-center gap-2 text-sm font-medium text-[#4ECDC4] transition-colors hover:text-[#2C3E50]"
                 >
                   Meet Dr. Zubia Mughal
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </a>
               </div>
             </div>
@@ -110,10 +117,10 @@ export default function Hero({ onOpenDecisionIntel }: HeroProps) {
             <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
               <button
                 type="button"
-                onClick={onOpenDecisionIntel}
-                className="rounded-xl border-2 border-[#2C3E50] bg-white px-8 py-3 font-semibold text-[#2C3E50] transition-colors hover:bg-[#2C3E50] hover:text-white"
+                onClick={onToggleDecisionIntel}
+                className="rounded-xl border-2 border-[#2C3E50] bg-white px-8 py-3 font-semibold text-[#2C3E50] transition-all duration-200 hover:bg-[#2C3E50] hover:text-white active:scale-[0.98]"
               >
-                What&apos;s Decision Intelligence?
+                {decisionIntelOpen ? 'Close' : 'What\u2019s Decision Intelligence?'}
               </button>
               <button
                 type="button"

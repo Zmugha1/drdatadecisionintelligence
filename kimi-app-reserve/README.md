@@ -33,3 +33,5 @@ Use this when you need to:
 ## Note
 
 The main project’s `src/` is a different structure (from dr-data-source). Building from that produces a different layout. Use this reserve when you need the full dynamic layout.
+
+**Home page:** `src/pages/Home.tsx` must **compose** the modules under `src/sections/` and `src/components/` (e.g. `UniversalNav`, `Hero`, `Problem`, `HowItWorks`, `Services`, …). A monolithic copy-paste of the marketing page in `Home.tsx` will ignore those files and look like a flat, simplified site even after a correct build.

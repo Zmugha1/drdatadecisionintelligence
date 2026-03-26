@@ -51,6 +51,8 @@ Thumbs.db
 # Data (keep sample data, ignore real data)
 # data/real/
 
+# Node (all apps)
+node_modules/
+
 # React dashboard (dashboard-react/)
-dashboard-react/node_modules/
 dashboard-react/dist/

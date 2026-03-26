@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Navigation from '../sections/Navigation';
 import Hero from '../sections/Hero';
+import { publicUrl } from '../lib/publicUrl';
 import { ArrowRight, CheckCircle, Search, Share2, Target } from 'lucide-react';
 
 const Home = () => {
@@ -109,33 +110,49 @@ const Home = () => {
       <Navigation />
 
       <Hero
-        onOpenDecisionIntel={() => {
-          setShowDecisionIntel(true);
-          setTimeout(() => {
-            document.getElementById('decision-intelligence')?.scrollIntoView({ behavior: 'smooth' });
-          }, 50);
+        decisionIntelOpen={showDecisionIntel}
+        onToggleDecisionIntel={() => {
+          setShowDecisionIntel((prev) => {
+            const next = !prev;
+            if (next) {
+              setTimeout(() => {
+                document.getElementById('decision-intelligence')?.scrollIntoView({ behavior: 'smooth' });
+              }, 120);
+            }
+            return next;
+          });
         }}
       />
 
-      {/* What's Decision Intelligence - Expandable */}
-      <section id="decision-intelligence" className="py-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <button
-            onClick={() => setShowDecisionIntel(!showDecisionIntel)}
-            className="inline-flex items-center gap-2 bg-white border-2 border-[#2C3E50] text-[#2C3E50] font-semibold px-8 py-3 rounded-xl hover:bg-[#2C3E50] hover:text-white transition-colors"
+      {/* What's Decision Intelligence — content only; toggle lives in Hero */}
+      <section
+        id="decision-intelligence"
+        className="scroll-mt-24 px-4 py-2 sm:px-6 lg:px-8"
+        aria-label="Decision Intelligence"
+      >
+        <div className="mx-auto max-w-4xl">
+          <div
+            className={`overflow-hidden transition-[max-height] duration-300 ease-out ${
+              showDecisionIntel ? 'max-h-[28rem]' : 'max-h-0'
+            }`}
           >
-            What&apos;s Decision Intelligence?
-          </button>
-          
-          {showDecisionIntel && (
-            <div className="mt-6 p-6 bg-white rounded-xl border border-[#4ECDC4]/20 text-left max-w-2xl mx-auto">
-              <p className="text-[#2C3E50]/70 leading-relaxed">
-                Decision Intelligence is the discipline of turning data into better decisions at scale. 
-                It combines data science, behavioral science, and management science to help organizations 
+            <div className="mx-auto mt-2 max-w-2xl rounded-xl border border-[#4ECDC4]/20 bg-white p-6 text-center sm:text-left">
+              <p className="leading-relaxed text-[#2C3E50]/70">
+                Decision Intelligence is the discipline of turning data into better decisions at scale.
+                It combines data science, behavioral science, and management science to help organizations
                 make consistently better choices—faster and with more confidence.
               </p>
+              <div className="mt-6 flex justify-center sm:justify-end">
+                <button
+                  type="button"
+                  onClick={() => setShowDecisionIntel(false)}
+                  className="rounded-xl border-2 border-[#2C3E50] bg-white px-6 py-2 text-sm font-semibold text-[#2C3E50] transition-all duration-200 hover:bg-[#2C3E50] hover:text-white active:scale-[0.98]"
+                >
+                  Close
+                </button>
+              </div>
             </div>
-          )}
+          </div>
         </div>
       </section>
 
@@ -176,7 +193,7 @@ const Home = () => {
               return (
                 <div
                   key={index}
-                  className="rounded-2xl border border-[#2C3E50]/10 bg-[#FFFCF5] p-6 text-center shadow-sm transition-shadow hover:shadow-md"
+                  className="rounded-2xl border border-[#2C3E50]/10 bg-[#FFFCF5] p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#4ECDC4]/30 hover:shadow-lg"
                 >
                   <div className="mb-4 flex justify-center">
                     <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#4ECDC4]/15 text-[#4ECDC4]">
@@ -193,7 +210,7 @@ const Home = () => {
 
           <div className="mt-12 flex justify-center px-2">
             <img
-              src="/service-icons.png"
+              src={publicUrl('service-icons.png')}
               alt="Service areas"
               className="h-auto max-h-28 w-full max-w-2xl object-contain md:max-h-32"
               width={560}
@@ -269,7 +286,10 @@ const Home = () => {
             <p className="text-base text-[#2C3E50]/70 mb-6 text-center">Where are you on your journey?</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {journeyItems.map((item, index) => (
-                <div key={index} className="flex items-center gap-2 text-[#2C3E50]">
+                <div
+                  key={index}
+                  className="-m-2 flex items-center gap-2 rounded-lg p-2 text-[#2C3E50] transition-colors duration-200 hover:bg-[#4ECDC4]/10"
+                >
                   <ArrowRight className="w-4 h-4 text-[#4ECDC4] flex-shrink-0" />
                   <div>
                     <span className="text-sm font-medium">{item.text}</span>
@@ -299,7 +319,7 @@ const Home = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl border border-[#2C3E50]/10 overflow-hidden shadow-sm"
+                className="overflow-hidden rounded-2xl border border-[#2C3E50]/10 bg-white shadow-sm transition-all duration-300 hover:border-[#4ECDC4]/25 hover:shadow-lg"
               >
                 <div className="p-6 sm:p-8">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">

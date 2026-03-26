@@ -2,21 +2,16 @@
 ## CRITICAL — Read Before Any Build Changes
 
 ### Build Command (never modify without reading this first)
-tsc && vite build && node -e "const fs=require('fs');
-fs.renameSync('dist/index-build.html','dist/index.html')" 
-&& cd bni-chapter-app && npm install && npm run build 
-&& cd .. && cp -r bni-chapter-app/dist dist/bni
+`npm run build` at repo root — see `package.json`.
 
 ### Why Each Step Exists
-1. tsc — TypeScript check, fails build if type errors exist
-2. vite build — builds Dr. Data main site to dist/
-3. node rename — CRITICAL: vite outputs index-build.html 
-   but Netlify needs index.html — this renames it
-   NEVER REMOVE THIS STEP
-4. cd bni-chapter-app && npm install && npm run build 
-   — builds BNI app to bni-chapter-app/dist/
-5. cp -r bni-chapter-app/dist dist/bni 
-   — copies BNI build INTO main dist folder at dist/bni/
+1. **kimi-app-reserve** — `npm run build` (tsc + vite) produces the **full dynamic** main site (React Router, sections, modals, etc.) into `kimi-app-reserve/dist/`.
+2. **scripts/copy-kimi-to-dist.mjs** — copies that output to **`dist/`** (Netlify publish dir).
+3. **bni-chapter-app** — builds the BNI member app to `bni-chapter-app/dist/`.
+4. **scripts/copy-bni-to-dist.mjs** — copies that output to **`dist/bni/`**.
+5. **scripts/sync-root-static.mjs** — mirrors `dist/index.html` and `dist/assets/` to repo root **`./index.html`** and **`./assets/`** (for README / static hosting parity).
+
+**Note:** `src/` at repo root (legacy Vite app) is **not** used in production. Use **`npm run dev --prefix kimi-app-reserve`** (or `npm run dev` from root) to edit the live layout. **Legacy:** `npm run build:legacy-root-vite` uses the old root `src/` build if you ever need it.
 
 ### Netlify Settings
 - Base directory: (blank — leave empty)

@@ -94,7 +94,7 @@ export default function CTA() {
           <Button
             size="lg"
             className="bg-coral hover:bg-coral/90 text-white font-display font-semibold px-6 py-5 text-base rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 animate-pulse-glow-coral w-full sm:w-auto"
-            onClick={() => window.open('https://calendly.com', '_blank')}
+            onClick={() => window.open('https://calendly.com/zubiaml4l/15min', '_blank')}
           >
             <Calendar className="mr-2" size={20} />
             Book a Discovery Call

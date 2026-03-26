@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 
 const navLinks = [
   { label: 'Home', href: '/' },
+  { label: 'Private Hub', href: '/?page=private-hub' },
   { label: 'Services', href: '/#services' },
   { label: 'Case Studies', href: '/?page=case-studies' },
   { label: 'About', href: '/?page=about' },

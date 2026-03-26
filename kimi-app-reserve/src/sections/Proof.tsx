@@ -146,7 +146,7 @@ export default function Proof() {
 
             {/* Attribution */}
             <cite className="not-italic text-white/60 text-sm">
-              , Professional Services Firm, Milwaukee
+              — Professional Services Firm, Milwaukee
             </cite>
           </div>
         </div>

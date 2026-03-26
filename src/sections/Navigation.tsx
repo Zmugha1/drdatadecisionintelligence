@@ -63,6 +63,9 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
+            type="button"
+            aria-expanded={isOpen}
+            aria-controls="mobile-nav-panel"
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 text-[#2C3E50]"
           >
@@ -70,33 +73,35 @@ const Navigation = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden py-4 border-t border-[#2C3E50]/10">
-            <div className="flex flex-col gap-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`text-sm font-medium ${
-                    isActive(item) ? 'text-[#4ECDC4]' : 'text-[#2C3E50]'
-                  }`}
-                >
-                  {item.label}
-                </a>
-              ))}
+        <div
+          id="mobile-nav-panel"
+          className={`md:hidden overflow-hidden border-[#2C3E50]/10 transition-[max-height] duration-300 ease-out ${
+            isOpen ? 'max-h-[28rem] border-t py-4' : 'max-h-0 border-t-0'
+          }`}
+        >
+          <div className="flex flex-col gap-4">
+            {navItems.map((item) => (
               <a
-                href="https://calendly.com/zubiaml4l/15min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#E07A5F] text-white text-sm font-medium px-5 py-2 rounded-full text-center"
+                key={item.label}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className={`text-sm font-medium transition-colors ${
+                  isActive(item) ? 'text-[#4ECDC4]' : 'text-[#2C3E50] hover:text-[#4ECDC4]'
+                }`}
               >
-                Book a Call
+                {item.label}
               </a>
-            </div>
+            ))}
+            <a
+              href="https://calendly.com/zubiaml4l/15min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-[#E07A5F] px-5 py-2 text-center text-sm font-medium text-white transition-colors hover:bg-[#d46a4e]"
+            >
+              Book a Call
+            </a>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
