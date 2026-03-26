@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Navigation from '../sections/Navigation';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import Hero from '../sections/Hero';
+import { ArrowRight, CheckCircle, Search, Share2, Target } from 'lucide-react';
 
 const Home = () => {
   useEffect(() => {
@@ -12,9 +13,24 @@ const Home = () => {
   const [email, setEmail] = useState('');
 
   const howItWorks = [
-    { number: '01', title: 'DISCOVER', description: 'Map your data universe' },
-    { number: '02', title: 'CONNECT', description: 'Build your knowledge graph' },
-    { number: '03', title: 'DECIDE', description: 'Act with confidence' },
+    {
+      number: '01',
+      title: 'DISCOVER',
+      description: 'Map your data universe',
+      Icon: Search,
+    },
+    {
+      number: '02',
+      title: 'CONNECT',
+      description: 'Build your knowledge graph',
+      Icon: Share2,
+    },
+    {
+      number: '03',
+      title: 'DECIDE',
+      description: 'Act with confidence',
+      Icon: Target,
+    },
   ];
 
   const services = [
@@ -92,79 +108,17 @@ const Home = () => {
     <div className="min-h-screen bg-[#FFFCF5]">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Mascot */}
-          <div className="mb-8">
-            <img 
-              src="/mascot-hero.png" 
-              alt="Dr. Data Mascot" 
-              className="w-48 h-48 sm:w-56 sm:h-56 mx-auto object-contain"
-            />
-          </div>
-          
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2C3E50] leading-tight mb-4">
-            <span className="text-[#4ECDC4]">&ldquo;</span>OUR DATA IS PERFECTLY ORGANIZED
-            <br />
-            AND WE USE ALL OF IT!<span className="text-[#4ECDC4]">&rdquo;</span>
-          </h1>
-          
-          <p className="text-lg sm:text-xl text-[#E07A5F] font-medium italic mb-8">
-            Said no business leader, ever
-          </p>
-          
-          <p className="text-base sm:text-lg text-[#2C3E50]/70 max-w-2xl mx-auto mb-10">
-            Stop searching for answers in scattered spreadsheets. Start making confident
-            decisions. Dr. Data organizes your information into clear, actionable insights
-            you can trust.
-          </p>
-        </div>
-      </section>
-
-      {/* Make $$ Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#4ECDC4] mb-8">
-            Make $$ With Your Data Faster
-          </h2>
-          
-          <a
-            href="https://calendly.com/zubiaml4l/15min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-[#E07A5F] hover:bg-[#d46a4e] text-white font-semibold py-4 px-10 rounded-full text-lg transition-colors shadow-lg"
-          >
-            BOOK A DISCOVERY CALL
-          </a>
-        </div>
-      </section>
-
-      {/* Who's Behind This */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto">
-          <div className="bg-white rounded-2xl p-8 shadow-sm border border-[#2C3E50]/10 text-center">
-            <p className="text-xs text-[#2C3E50]/50 uppercase tracking-wider mb-4">
-              Who&apos;s behind this
-            </p>
-            <p className="text-[#2C3E50]/70 leading-relaxed mb-6">
-              Built by an enterprise AI and data research leader specializing in reliable machine learning, 
-              decision intelligence, and organizational adoption. Providing applied research and advisory 
-              for decision-ready AI systems.
-            </p>
-            <a
-              href="/?page=about"
-              className="inline-flex items-center gap-2 text-[#4ECDC4] font-medium hover:text-[#2C3E50] transition-colors"
-            >
-              Meet Dr. Zubia Mughal
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-      </section>
+      <Hero
+        onOpenDecisionIntel={() => {
+          setShowDecisionIntel(true);
+          setTimeout(() => {
+            document.getElementById('decision-intelligence')?.scrollIntoView({ behavior: 'smooth' });
+          }, 50);
+        }}
+      />
 
       {/* What's Decision Intelligence - Expandable */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8">
+      <section id="decision-intelligence" className="py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <button
             onClick={() => setShowDecisionIntel(!showDecisionIntel)}
@@ -206,26 +160,44 @@ const Home = () => {
             <p>Extract and structure signals automatically</p>
             <p>Better forecasting, fewer surprises</p>
           </div>
+          <div className="mt-10 flex justify-center">
+            <img
+              src="/service-icons.png"
+              alt=""
+              className="max-w-full object-contain"
+              width={560}
+              height={120}
+            />
+          </div>
         </div>
       </section>
 
       {/* How It Works */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="how-it-works" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#2C3E50] text-center mb-12">
             How It Works
           </h2>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            {howItWorks.map((step, index) => (
-              <div key={index} className="text-center">
-                <div className="text-5xl font-bold text-[#4ECDC4]/20 mb-4">
-                  {step.number}
+          <div className="grid gap-8 md:grid-cols-3">
+            {howItWorks.map((step, index) => {
+              const Icon = step.Icon;
+              return (
+                <div
+                  key={index}
+                  className="rounded-2xl border border-[#2C3E50]/10 bg-[#FFFCF5] p-6 text-center shadow-sm transition-shadow hover:shadow-md"
+                >
+                  <div className="mb-4 flex justify-center">
+                    <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#4ECDC4]/15 text-[#4ECDC4]">
+                      <Icon className="h-7 w-7" strokeWidth={2} aria-hidden />
+                    </span>
+                  </div>
+                  <div className="mb-2 text-4xl font-bold text-[#4ECDC4]/30">{step.number}</div>
+                  <h3 className="mb-2 text-lg font-bold text-[#2C3E50]">{step.title}</h3>
+                  <p className="text-[#2C3E50]/70">{step.description}</p>
                 </div>
-                <h3 className="text-lg font-bold text-[#2C3E50] mb-2">{step.title}</h3>
-                <p className="text-[#2C3E50]/70">{step.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

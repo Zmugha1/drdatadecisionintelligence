@@ -73,3 +73,14 @@ body {
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease forwards;
 }
+
+/* Hero mascot subtle float (used by Hero section) */
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
