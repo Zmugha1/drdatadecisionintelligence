@@ -44,3 +44,9 @@ Each client gets their own separate repo and Netlify project.
 ### Recovery
 If site breaks: git log --oneline to find last good commit
 Recover a file: git checkout [commit] -- [filepath]
+
+### Homepage / Hero — do not repeat this mistake
+- **Never** hide above-the-fold hero content behind `opacity-0` until `useEffect` runs. If JS is slow, blocked, or transitions fail, users see a **blank band** under the nav.
+- Avoid `overflow-hidden` on the hero wrapper unless you have tested production builds; it can clip content with transforms.
+- Prefer simple Tailwind classes like `min-h-screen` over exotic arbitrary values like `min-h-[min(100dvh,920px)]` that may not emit CSS consistently across builds.
+- Large images in `public/` (e.g. `service-icons.png`) must use explicit `max-h-*` / `object-contain` so they cannot dominate the viewport.

@@ -160,15 +160,6 @@ const Home = () => {
             <p>Extract and structure signals automatically</p>
             <p>Better forecasting, fewer surprises</p>
           </div>
-          <div className="mt-10 flex justify-center">
-            <img
-              src="/service-icons.png"
-              alt=""
-              className="max-w-full object-contain"
-              width={560}
-              height={120}
-            />
-          </div>
         </div>
       </section>
 
@@ -198,6 +189,18 @@ const Home = () => {
                 </div>
               );
             })}
+          </div>
+
+          <div className="mt-12 flex justify-center px-2">
+            <img
+              src="/service-icons.png"
+              alt="Service areas"
+              className="h-auto max-h-28 w-full max-w-2xl object-contain md:max-h-32"
+              width={560}
+              height={120}
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
       </section>
