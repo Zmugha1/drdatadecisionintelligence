@@ -16,6 +16,16 @@ import BlogPostDataReadiness from './pages/BlogPost-DataReadiness';
 import BlogPostCoachingCompass from './pages/BlogPost-CoachingCompass';
 import DataToDemo from './pages/DataToDemo';
 import SmallBusiness from './pages/SmallBusiness';
+import CaseStudyDetail from './pages/CaseStudyDetail';
+import { CASE_STUDY_ORDER } from './data/caseStudiesData';
+
+const PATH_TO_CASE_STUDY: Record<string, string> = {
+  '/case-studies/milwaukee': 'case-study-milwaukee',
+  '/case-studies/austin': 'case-study-austin',
+  '/case-studies/madison': 'case-study-madison',
+  '/case-studies/chicago': 'case-study-chicago',
+  '/case-studies/new-york': 'case-study-new-york',
+};
 
 function resolvePageFromLocation(): string {
   const path = window.location.pathname.replace(/\/$/, '') || '/';
@@ -27,6 +37,7 @@ function resolvePageFromLocation(): string {
   if (path === '/blog/coaching-compass') return 'blog-coaching-compass';
   if (path === '/data-to-demo') return 'data-to-demo';
   if (path === '/small-business') return 'small-business';
+  if (PATH_TO_CASE_STUDY[path]) return PATH_TO_CASE_STUDY[path];
   const pageParam = new URLSearchParams(window.location.search).get('page');
   return pageParam || 'home';
 }
@@ -40,6 +51,10 @@ function App() {
     window.addEventListener('popstate', sync);
     return () => window.removeEventListener('popstate', sync);
   }, []);
+
+  if (CASE_STUDY_ORDER.includes(page)) {
+    return <CaseStudyDetail pageKey={page} />;
+  }
 
   switch (page) {
     case 'about':
