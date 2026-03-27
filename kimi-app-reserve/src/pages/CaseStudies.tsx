@@ -45,6 +45,8 @@ function DarkDataDemo() {
     setStep(0);
   };
 
+  const current = darkDataSteps[step];
+
   return (
     <div className="rounded-2xl border border-teal/30 bg-navy/5 p-6 sm:p-8">
       <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
@@ -78,8 +80,9 @@ function DarkDataDemo() {
         <p className="mb-1 text-center text-xs font-semibold uppercase tracking-wider text-navy/50">
           Step {step + 1} of {darkDataSteps.length}
         </p>
-        <h5 className="mb-3 text-center font-display text-xl font-bold text-navy">{darkDataSteps[step].title}</h5>
-        <p className="text-center text-navy/80">{darkDataSteps[step].body}</p>
+        <h5 className="mb-2 text-center font-display text-lg font-bold text-navy">{current.title}</h5>
+        <p className="mb-3 text-center text-navy/80">{current.body}</p>
+        <p className="text-center text-sm font-semibold text-navy/60">{current.title}</p>
       </div>
     </div>
   );
@@ -92,15 +95,15 @@ type CaseBlock = {
   org: string;
   headline: string;
   stats: Stat[];
-  challenge?: string;
-  solution?: string;
-  results?: string[];
-  expanded?: boolean;
+  challenge: string;
+  solution: string;
+  results: string[];
+  demo?: boolean;
 };
 
 const cases: CaseBlock[] = [
   {
-    tag: 'Data Annotation & AI Readiness',
+    tag: 'Data Annotation & AI (Artificial Intelligence) Readiness',
     org: 'Professional Services Firm · Milwaukee, WI',
     headline: 'From Dark Data to 40% Better Churn Prediction',
     stats: [
@@ -117,7 +120,7 @@ const cases: CaseBlock[] = [
       '12,000+ labor hours saved annually',
       'Client retention improved 15%',
     ],
-    expanded: true,
+    demo: true,
   },
   {
     tag: 'Decision-Ready Data Foundations',
@@ -128,15 +131,33 @@ const cases: CaseBlock[] = [
       { value: '15hrs/wk', label: 'Reporting time saved' },
       { value: '85%', label: 'Decision confidence' },
     ],
+    challenge:
+      'Executive and operations teams referenced different dashboards with conflicting definitions. Forecasts, retention, and pipeline metrics did not reconcile, so decisions slowed down in debate over which numbers were “real.”',
+    solution:
+      'We mapped metric lineage, aligned definitions in a governed semantic layer, and delivered one decision-ready reporting surface with documented ownership and refresh SLAs.',
+    results: [
+      '12 metric conflicts resolved across BI tools',
+      '15 hours per week returned from manual reconciliation',
+      '85% reported confidence in leadership reviews',
+    ],
   },
   {
-    tag: 'Governance-First ML Lifecycle',
+    tag: 'Governance-First ML (Machine Learning) Lifecycle',
     org: 'Manufacturing Company · Madison, WI',
     headline: 'From Notebook Chaos to Production-Ready Models in 10 Weeks',
     stats: [
       { value: '10 weeks', label: 'Time to production' },
       { value: '100%', label: 'Model reproducibility' },
       { value: '-60%', label: 'Analyst onboarding time' },
+    ],
+    challenge:
+      'Data science work lived in notebooks without versioning, reproducible training, or a path to monitored production scoring.',
+    solution:
+      'We stood up an MLOps lifecycle: reproducible pipelines, model registry, validation gates, and deployment hooks so the same artifact that passed tests is what runs in production.',
+    results: [
+      'Production release in 10 weeks',
+      '100% reproducibility for audited retrains',
+      '60% faster analyst onboarding onto the platform',
     ],
   },
   {
@@ -148,15 +169,33 @@ const cases: CaseBlock[] = [
       { value: '$1.2M', label: 'Revenue recovered annually' },
       { value: '87%', label: 'Prediction accuracy' },
     ],
+    challenge:
+      'No-shows drained schedule utilization and revenue. Front-line staff lacked a ranked, explainable list of who to confirm first.',
+    solution:
+      'We built an early-warning model from scheduling, demographics, and visit history, with calibrated risk tiers and clear actions staff could take inside existing workflows.',
+    results: [
+      '25% reduction in no-shows where the program rolled out',
+      '$1.2M annual revenue impact from recovered utilization',
+      '87% prediction accuracy on held-out validation',
+    ],
   },
   {
-    tag: 'Governed AI Systems & Agent Design',
+    tag: 'Governed AI (Artificial Intelligence) Systems & Agent Design',
     org: 'Financial Services Firm · New York, NY',
     headline: 'AI Agents with Built-In Governance from Day One',
     stats: [
       { value: '99.7%', label: 'Policy violations caught' },
       { value: '100%', label: 'Audit trail coverage' },
       { value: '0', label: 'Compliance incidents' },
+    ],
+    challenge:
+      'The firm needed agentic workflows without sacrificing policy enforcement, explainability, or audit readiness.',
+    solution:
+      'We designed agents with policy checks, human-in-the-loop handoffs where required, and immutable audit trails so every automated action is reviewable and defensible.',
+    results: [
+      '99.7% of policy violations caught pre-release in staging',
+      '100% audit trail coverage on production agent actions',
+      'Zero compliance incidents in the measured rollout window',
     ],
   },
 ];
@@ -197,48 +236,49 @@ const CaseStudies = () => {
             Real results from real organizations. See how decision intelligence transforms data into action.
           </p>
 
-          <div className="space-y-16">
+          <div className="space-y-20">
             {cases.map((c) => (
-              <article key={c.headline} className="scroll-mt-24">
+              <article
+                key={c.headline}
+                className="scroll-mt-24 border-b border-navy/10 pb-20 last:border-b-0 last:pb-0"
+              >
                 <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-teal">{c.tag}</p>
                 <p className="mb-4 text-base font-medium text-navy/80">{c.org}</p>
                 <h2 className="mb-6 font-display text-2xl font-bold leading-snug text-navy sm:text-3xl">{c.headline}</h2>
 
                 <StatGrid stats={c.stats} />
 
-                {c.expanded ? (
-                  <>
-                    <DarkDataDemo />
+                {c.demo ? <DarkDataDemo /> : null}
 
-                    <div className="mt-10 space-y-8">
-                      <div>
-                        <h3 className="mb-3 font-display text-lg font-bold text-navy">The Challenge</h3>
-                        <p className="leading-relaxed text-navy/80">{c.challenge}</p>
-                      </div>
-                      <div>
-                        <h3 className="mb-3 font-display text-lg font-bold text-navy">The Solution</h3>
-                        <p className="leading-relaxed text-navy/80">{c.solution}</p>
-                      </div>
-                      <div>
-                        <h3 className="mb-3 font-display text-lg font-bold text-navy">The Results</h3>
-                        <ul className="list-inside list-disc space-y-2 text-navy/80">
-                          {c.results?.map((r) => (
-                            <li key={r}>{r}</li>
-                          ))}
-                        </ul>
-                      </div>
+                <div className={c.demo ? 'mt-10' : ''}>
+                  <div className="space-y-8">
+                    <div>
+                      <h3 className="mb-3 font-display text-lg font-bold text-navy">The Challenge</h3>
+                      <p className="leading-relaxed text-navy/80">{c.challenge}</p>
                     </div>
+                    <div>
+                      <h3 className="mb-3 font-display text-lg font-bold text-navy">The Solution</h3>
+                      <p className="leading-relaxed text-navy/80">{c.solution}</p>
+                    </div>
+                    <div>
+                      <h3 className="mb-3 font-display text-lg font-bold text-navy">The Results</h3>
+                      <ul className="list-inside list-disc space-y-2 text-navy/80">
+                        {c.results.map((r) => (
+                          <li key={r}>{r}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-                    <a
-                      href={CALENDLY}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-8 inline-flex items-center gap-2 rounded-lg bg-coral px-6 py-3 font-display font-semibold text-white shadow-md transition hover:bg-coral/90"
-                    >
-                      Discuss a similar project
-                    </a>
-                  </>
-                ) : null}
+                <a
+                  href={CALENDLY}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 inline-flex items-center gap-2 rounded-lg bg-coral px-6 py-3 font-display font-semibold text-white shadow-md transition hover:bg-coral/90"
+                >
+                  Discuss a similar project
+                </a>
               </article>
             ))}
           </div>
