@@ -5,6 +5,7 @@ import { ArrowLeft, Play, RotateCcw } from 'lucide-react';
 
 const CALENDLY = 'https://calendly.com/zubiaml4l/15min';
 
+/** Matches live kimi page: only step 1 body is in the fetch; other steps complete the pipeline. */
 const darkDataSteps = [
   {
     title: 'Raw Data Ingestion',
@@ -12,19 +13,19 @@ const darkDataSteps = [
   },
   {
     title: 'Semantic Chunking',
-    body: 'Communications are split into meaningful units so models can learn from real language.',
+    body: 'Communications are split into semantic units for embedding and labeling.',
   },
   {
     title: 'Embedding Generation',
-    body: 'Vectors capture intent and sentiment so similar client behavior clusters together.',
+    body: 'Vectors capture meaning so similar client behavior clusters together.',
   },
   {
     title: 'Pattern Detection',
-    body: 'Churn signals surface from unified history across CRM, email, and support.',
+    body: 'Churn signals are detected across email, CRM, and support history.',
   },
   {
     title: 'Structured Intelligence',
-    body: 'Scores and explanations flow into workflows teams already use every day.',
+    body: 'Scores and explanations feed the models and teams that act on them.',
   },
 ];
 
@@ -48,25 +49,29 @@ function DarkDataDemo() {
   const current = darkDataSteps[step];
 
   return (
-    <div className="rounded-2xl border border-teal/30 bg-navy/5 p-6 sm:p-8">
-      <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+    <div className="rounded-2xl border border-teal/25 bg-white p-6 shadow-card sm:p-8">
+      <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h4 className="font-display text-lg font-bold text-navy">Live Demo: Dark Data to Structured Intelligence</h4>
-          <p className="text-sm text-navy/60">See how unstructured documents become machine-interpretable</p>
+          <h4 className="font-display text-base font-bold text-navy sm:text-lg">
+            Live Demo: Dark Data to Structured Intelligence
+          </h4>
+          <p className="mt-1 text-sm text-navy/60">
+            See how unstructured documents become machine-interpretable
+          </p>
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-shrink-0 gap-2">
           <button
             type="button"
             onClick={() => setPlaying((p) => !p)}
-            className="inline-flex items-center gap-2 rounded-lg bg-teal px-4 py-2 text-sm font-semibold text-navy transition hover:bg-teal/90"
+            className="inline-flex items-center gap-2 rounded-lg bg-teal px-4 py-2.5 text-sm font-semibold text-navy shadow-sm transition hover:bg-teal/90"
           >
             <Play className="h-4 w-4" />
-            {playing ? 'Pause' : 'Play'}
+            Play
           </button>
           <button
             type="button"
             onClick={reset}
-            className="inline-flex items-center gap-2 rounded-lg border border-navy/20 bg-white px-4 py-2 text-sm font-semibold text-navy transition hover:bg-cream"
+            className="inline-flex items-center gap-2 rounded-lg border border-navy/15 bg-cream px-4 py-2.5 text-sm font-semibold text-navy transition hover:bg-cream/80"
           >
             <RotateCcw className="h-4 w-4" />
             Reset
@@ -74,15 +79,17 @@ function DarkDataDemo() {
         </div>
       </div>
 
-      <p className="mb-4 text-center font-display text-2xl font-bold text-teal">2,847 unstructured documents</p>
+      <p className="mb-6 text-center font-display text-xl font-bold text-teal sm:text-2xl">
+        2,847 unstructured documents
+      </p>
 
-      <div className="rounded-xl border border-navy/10 bg-white p-6 shadow-inner">
-        <p className="mb-1 text-center text-xs font-semibold uppercase tracking-wider text-navy/50">
+      <div className="rounded-xl border border-navy/10 bg-cream/40 p-6 sm:p-8">
+        <p className="mb-2 text-center text-[11px] font-semibold uppercase tracking-widest text-navy/45">
           Step {step + 1} of {darkDataSteps.length}
         </p>
-        <h5 className="mb-2 text-center font-display text-lg font-bold text-navy">{current.title}</h5>
-        <p className="mb-3 text-center text-navy/80">{current.body}</p>
-        <p className="text-center text-sm font-semibold text-navy/60">{current.title}</p>
+        <h5 className="mb-3 text-center font-display text-base font-bold text-navy sm:text-lg">{current.title}</h5>
+        <p className="mb-4 text-center text-sm leading-relaxed text-navy/80 sm:text-base">{current.body}</p>
+        <p className="text-center text-xs font-semibold uppercase tracking-wide text-navy/50">{current.title}</p>
       </div>
     </div>
   );
@@ -90,38 +97,32 @@ function DarkDataDemo() {
 
 type Stat = { value: string; label: string };
 
-type CaseBlock = {
+const milwaukee = {
+  tag: 'Data Annotation & AI (Artificial Intelligence) Readiness',
+  org: 'Professional Services Firm · Milwaukee, WI',
+  headline: 'From Dark Data to 40% Better Churn Prediction',
+  stats: [
+    { value: '40%', label: 'Churn prediction improvement' },
+    { value: '12,000+', label: 'Labor hours saved annually' },
+    { value: '8', label: 'Client data sources unified' },
+  ] as Stat[],
+  challenge:
+    'A professional services firm had years of client communications scattered across emails, support tickets, and CRM notes. They knew patterns existed, why some clients stayed, why others left, but had no way to extract meaning from the chaos.',
+  solution:
+    'We implemented a comprehensive data annotation pipeline: semantic chunking of communications, embedding generation for meaning extraction, and pattern detection to identify churn signals. The dark data became structured intelligence.',
+  results: [
+    'Churn prediction accuracy improved 40%',
+    '12,000+ labor hours saved annually',
+    'Client retention improved 15%',
+  ],
+};
+
+const compactCases: {
   tag: string;
   org: string;
   headline: string;
   stats: Stat[];
-  challenge: string;
-  solution: string;
-  results: string[];
-  demo?: boolean;
-};
-
-const cases: CaseBlock[] = [
-  {
-    tag: 'Data Annotation & AI (Artificial Intelligence) Readiness',
-    org: 'Professional Services Firm · Milwaukee, WI',
-    headline: 'From Dark Data to 40% Better Churn Prediction',
-    stats: [
-      { value: '40%', label: 'Churn prediction improvement' },
-      { value: '12,000+', label: 'Labor hours saved annually' },
-      { value: '8', label: 'Client data sources unified' },
-    ],
-    challenge:
-      'A professional services firm had years of client communications scattered across emails, support tickets, and CRM notes. They knew patterns existed, why some clients stayed, why others left, but had no way to extract meaning from the chaos.',
-    solution:
-      'We implemented a comprehensive data annotation pipeline: semantic chunking of communications, embedding generation for meaning extraction, and pattern detection to identify churn signals. The dark data became structured intelligence.',
-    results: [
-      'Churn prediction accuracy improved 40%',
-      '12,000+ labor hours saved annually',
-      'Client retention improved 15%',
-    ],
-    demo: true,
-  },
+}[] = [
   {
     tag: 'Decision-Ready Data Foundations',
     org: 'SaaS Company · Austin, TX',
@@ -130,15 +131,6 @@ const cases: CaseBlock[] = [
       { value: '12', label: 'Metric conflicts resolved' },
       { value: '15hrs/wk', label: 'Reporting time saved' },
       { value: '85%', label: 'Decision confidence' },
-    ],
-    challenge:
-      'Executive and operations teams referenced different dashboards with conflicting definitions. Forecasts, retention, and pipeline metrics did not reconcile, so decisions slowed down in debate over which numbers were “real.”',
-    solution:
-      'We mapped metric lineage, aligned definitions in a governed semantic layer, and delivered one decision-ready reporting surface with documented ownership and refresh SLAs.',
-    results: [
-      '12 metric conflicts resolved across BI tools',
-      '15 hours per week returned from manual reconciliation',
-      '85% reported confidence in leadership reviews',
     ],
   },
   {
@@ -150,15 +142,6 @@ const cases: CaseBlock[] = [
       { value: '100%', label: 'Model reproducibility' },
       { value: '-60%', label: 'Analyst onboarding time' },
     ],
-    challenge:
-      'Data science work lived in notebooks without versioning, reproducible training, or a path to monitored production scoring.',
-    solution:
-      'We stood up an MLOps lifecycle: reproducible pipelines, model registry, validation gates, and deployment hooks so the same artifact that passed tests is what runs in production.',
-    results: [
-      'Production release in 10 weeks',
-      '100% reproducibility for audited retrains',
-      '60% faster analyst onboarding onto the platform',
-    ],
   },
   {
     tag: 'Predictive Decision Intelligence',
@@ -168,15 +151,6 @@ const cases: CaseBlock[] = [
       { value: '25%', label: 'No-show reduction' },
       { value: '$1.2M', label: 'Revenue recovered annually' },
       { value: '87%', label: 'Prediction accuracy' },
-    ],
-    challenge:
-      'No-shows drained schedule utilization and revenue. Front-line staff lacked a ranked, explainable list of who to confirm first.',
-    solution:
-      'We built an early-warning model from scheduling, demographics, and visit history, with calibrated risk tiers and clear actions staff could take inside existing workflows.',
-    results: [
-      '25% reduction in no-shows where the program rolled out',
-      '$1.2M annual revenue impact from recovered utilization',
-      '87% prediction accuracy on held-out validation',
     ],
   },
   {
@@ -188,28 +162,19 @@ const cases: CaseBlock[] = [
       { value: '100%', label: 'Audit trail coverage' },
       { value: '0', label: 'Compliance incidents' },
     ],
-    challenge:
-      'The firm needed agentic workflows without sacrificing policy enforcement, explainability, or audit readiness.',
-    solution:
-      'We designed agents with policy checks, human-in-the-loop handoffs where required, and immutable audit trails so every automated action is reviewable and defensible.',
-    results: [
-      '99.7% of policy violations caught pre-release in staging',
-      '100% audit trail coverage on production agent actions',
-      'Zero compliance incidents in the measured rollout window',
-    ],
   },
 ];
 
-function StatGrid({ stats }: { stats: Stat[] }) {
+function StatGrid({ stats, className = '' }: { stats: Stat[]; className?: string }) {
   return (
-    <div className="mb-8 grid gap-4 sm:grid-cols-3">
+    <div className={`grid gap-3 sm:grid-cols-3 sm:gap-4 ${className}`}>
       {stats.map((s) => (
         <div
           key={s.label}
-          className="rounded-xl border border-navy/10 bg-cream/50 px-4 py-5 text-center"
+          className="rounded-xl border border-navy/10 bg-cream/60 px-3 py-4 text-center sm:px-4 sm:py-5"
         >
-          <p className="font-display text-2xl font-bold text-teal sm:text-3xl">{s.value}</p>
-          <p className="mt-2 text-sm font-medium leading-snug text-navy/70">{s.label}</p>
+          <p className="font-display text-xl font-bold leading-tight text-teal sm:text-2xl md:text-3xl">{s.value}</p>
+          <p className="mt-2 text-xs font-medium leading-snug text-navy/70 sm:text-sm">{s.label}</p>
         </div>
       ))}
     </div>
@@ -219,7 +184,7 @@ function StatGrid({ stats }: { stats: Stat[] }) {
 const CaseStudies = () => {
   return (
     <PageShell>
-      <section className="px-4 pb-8 pt-6 sm:px-6 lg:px-8">
+      <section className="px-4 pb-10 pt-6 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <a
             href="/"
@@ -229,56 +194,65 @@ const CaseStudies = () => {
             Back to home
           </a>
 
-          <h1 className="mb-4 text-center font-display text-4xl font-bold text-navy sm:text-left sm:text-5xl">
-            Case Studies
-          </h1>
-          <p className="mb-12 text-center text-lg leading-relaxed text-navy/70 sm:text-left">
+          <h1 className="mb-4 font-display text-4xl font-bold text-navy sm:text-5xl">Case Studies</h1>
+          <p className="mb-14 max-w-2xl text-lg leading-relaxed text-navy/70">
             Real results from real organizations. See how decision intelligence transforms data into action.
           </p>
 
-          <div className="space-y-20">
-            {cases.map((c) => (
+          {/* Featured case (Milwaukee): matches live — stats, demo, challenge/solution/results, one CTA */}
+          <article className="mb-20">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-teal">{milwaukee.tag}</p>
+            <p className="mb-4 text-base font-medium text-navy/85">{milwaukee.org}</p>
+            <h2 className="mb-8 font-display text-2xl font-bold leading-snug text-navy sm:text-3xl lg:text-[1.75rem]">
+              {milwaukee.headline}
+            </h2>
+
+            <StatGrid stats={milwaukee.stats} className="mb-10" />
+
+            <DarkDataDemo />
+
+            <div className="mt-12 space-y-10">
+              <div>
+                <h3 className="mb-3 font-display text-base font-bold text-navy">The Challenge</h3>
+                <p className="leading-relaxed text-navy/80">{milwaukee.challenge}</p>
+              </div>
+              <div>
+                <h3 className="mb-3 font-display text-base font-bold text-navy">The Solution</h3>
+                <p className="leading-relaxed text-navy/80">{milwaukee.solution}</p>
+              </div>
+              <div>
+                <h3 className="mb-3 font-display text-base font-bold text-navy">The Results</h3>
+                <ul className="list-disc space-y-2 pl-5 text-navy/80">
+                  {milwaukee.results.map((r) => (
+                    <li key={r}>{r}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <a
+              href={CALENDLY}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-10 inline-flex rounded-lg bg-coral px-6 py-3 font-display font-semibold text-white shadow-md transition hover:bg-coral/90"
+            >
+              Discuss a similar project
+            </a>
+          </article>
+
+          {/* Compact cases: stats only (no challenge/solution/CTA per live) */}
+          <div className="space-y-12 border-t border-navy/10 pt-16">
+            {compactCases.map((c) => (
               <article
                 key={c.headline}
-                className="scroll-mt-24 border-b border-navy/10 pb-20 last:border-b-0 last:pb-0"
+                className="rounded-2xl border border-navy/10 bg-white/95 p-6 shadow-card sm:p-8"
               >
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-teal">{c.tag}</p>
-                <p className="mb-4 text-base font-medium text-navy/80">{c.org}</p>
-                <h2 className="mb-6 font-display text-2xl font-bold leading-snug text-navy sm:text-3xl">{c.headline}</h2>
-
+                <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-teal">{c.tag}</p>
+                <p className="mb-3 text-sm font-medium text-navy/85 sm:text-base">{c.org}</p>
+                <h2 className="mb-8 font-display text-xl font-bold leading-snug text-navy sm:text-2xl">
+                  {c.headline}
+                </h2>
                 <StatGrid stats={c.stats} />
-
-                {c.demo ? <DarkDataDemo /> : null}
-
-                <div className={c.demo ? 'mt-10' : ''}>
-                  <div className="space-y-8">
-                    <div>
-                      <h3 className="mb-3 font-display text-lg font-bold text-navy">The Challenge</h3>
-                      <p className="leading-relaxed text-navy/80">{c.challenge}</p>
-                    </div>
-                    <div>
-                      <h3 className="mb-3 font-display text-lg font-bold text-navy">The Solution</h3>
-                      <p className="leading-relaxed text-navy/80">{c.solution}</p>
-                    </div>
-                    <div>
-                      <h3 className="mb-3 font-display text-lg font-bold text-navy">The Results</h3>
-                      <ul className="list-inside list-disc space-y-2 text-navy/80">
-                        {c.results.map((r) => (
-                          <li key={r}>{r}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <a
-                  href={CALENDLY}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-8 inline-flex items-center gap-2 rounded-lg bg-coral px-6 py-3 font-display font-semibold text-white shadow-md transition hover:bg-coral/90"
-                >
-                  Discuss a similar project
-                </a>
               </article>
             ))}
           </div>
@@ -294,7 +268,7 @@ const CaseStudies = () => {
             href={CALENDLY}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-display font-semibold text-teal underline-offset-4 hover:underline"
+            className="font-display font-semibold text-teal underline-offset-4 hover:underline"
           >
             Let&apos;s talk about your situation →
           </a>
