@@ -325,6 +325,13 @@ export default function CaseStudyDetail({ pageKey }: Props) {
             </div>
           </div>
 
+          <figure className="mt-14 rounded-2xl border border-navy/10 bg-white/90 p-8 shadow-card">
+            <p className="mb-2 text-xs font-bold uppercase tracking-wider text-teal">Client perspective</p>
+            <blockquote className="text-lg italic leading-relaxed text-navy/85">
+              &ldquo;{data.clientQuote}&rdquo;
+            </blockquote>
+          </figure>
+
           <div className="mt-14 flex justify-center">
             <a
               href={CALENDLY}

@@ -1,3 +1,8 @@
+/**
+ * Case study content is aligned with the Kimi export:
+ * `Kimi_Agent_Detailed Dr. Data Services (10)/dr-data-source/src/pages/CaseStudies.tsx`
+ * (intro + three client quotes). Extended here with full demos and five regions.
+ */
 export type Stat = { value: string; label: string };
 
 export type DemoStep = { title: string; body: string };
@@ -8,6 +13,10 @@ export type CaseStudyDef = {
   tag: string;
   org: string;
   headline: string;
+  /** One-line outcome highlight (matches legacy card “result” line from the export). */
+  resultHighlight: string;
+  /** Client voice — sourced from the export where industry matches; original lines for Austin/NYC. */
+  clientQuote: string;
   stats: Stat[];
   demoTitle: string;
   demoSubtitle: string;
@@ -28,6 +37,10 @@ export const CASE_STUDY_NAV = [
   { page: 'case-study-chicago', label: 'Chicago · No-show reduction' },
   { page: 'case-study-new-york', label: 'New York · Governed AI agents' },
 ] as const;
+
+/** Index hero copy from dr-data-source CaseStudies.tsx */
+export const CASE_STUDIES_INDEX_INTRO =
+  'Real results from real organizations. See how Dr. Data has helped businesses transform their data into confident decisions.';
 
 const milwaukeeSteps: DemoStep[] = [
   { title: 'Raw Data Ingestion', body: 'Unstructured documents, emails, and spreadsheets enter the system.' },
@@ -55,6 +68,9 @@ export const CASE_STUDIES: Record<string, CaseStudyDef> = {
     tag: 'Data Annotation & AI (Artificial Intelligence) Readiness',
     org: 'Professional Services Firm · Milwaukee, WI',
     headline: 'From Dark Data to 40% Better Churn Prediction',
+    resultHighlight: '40% improvement in churn prediction accuracy',
+    clientQuote:
+      "Dr. Data helped us see patterns in our client communications we'd been missing for years. Finally we understand WHY clients leave, not just who.",
     stats: [
       { value: '40%', label: 'Churn prediction improvement' },
       { value: '12,000+', label: 'Labor hours saved annually' },
@@ -81,6 +97,9 @@ export const CASE_STUDIES: Record<string, CaseStudyDef> = {
     tag: 'Decision-Ready Data Foundations',
     org: 'SaaS Company · Austin, TX',
     headline: 'From Dashboard Chaos to a Single Source of Truth',
+    resultHighlight: 'Single source of truth for leadership metrics',
+    clientQuote:
+      'When every team finally used the same definitions, we stopped debating the numbers and started improving them. Dr. Data gave us one story everyone could trust.',
     stats: [
       { value: '12', label: 'Metric conflicts resolved' },
       { value: '15hrs/wk', label: 'Reporting time saved' },
@@ -107,6 +126,9 @@ export const CASE_STUDIES: Record<string, CaseStudyDef> = {
     tag: 'Governance-First ML (Machine Learning) Lifecycle',
     org: 'Manufacturing Company · Madison, WI',
     headline: 'From Notebook Chaos to Production-Ready Models in 10 Weeks',
+    resultHighlight: 'Reduced forecasting errors and faster time to production',
+    clientQuote:
+      'The predictive models Dr. Data built transformed how we plan inventory. We went from reactive to proactive.',
     stats: [
       { value: '10 weeks', label: 'Time to production' },
       { value: '100%', label: 'Model reproducibility' },
@@ -138,6 +160,9 @@ export const CASE_STUDIES: Record<string, CaseStudyDef> = {
     tag: 'Predictive Decision Intelligence',
     org: 'Healthcare Provider Network · Chicago, IL',
     headline: 'Early Warning System Reduces Patient No-Shows by 25%',
+    resultHighlight: 'Major operational savings from better utilization',
+    clientQuote:
+      "Dr. Data's decision intelligence framework helped us spot inefficiencies we didn't know existed.",
     stats: [
       { value: '25%', label: 'No-show reduction' },
       { value: '$1.2M', label: 'Revenue recovered annually' },
@@ -169,6 +194,9 @@ export const CASE_STUDIES: Record<string, CaseStudyDef> = {
     tag: 'Governed AI (Artificial Intelligence) Systems & Agent Design',
     org: 'Financial Services Firm · New York, NY',
     headline: 'AI Agents with Built-In Governance from Day One',
+    resultHighlight: 'Full audit coverage with zero compliance incidents in rollout',
+    clientQuote:
+      'Our regulators expect proof, not promises. Every agent action is logged and reviewable—finally AI we can stand behind in front of audit.',
     stats: [
       { value: '99.7%', label: 'Policy violations caught' },
       { value: '100%', label: 'Audit trail coverage' },

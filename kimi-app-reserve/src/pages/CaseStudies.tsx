@@ -1,6 +1,6 @@
 import PageShell from '@/components/PageShell';
 import SurveyCTA from '@/components/SurveyCTA';
-import { CASE_STUDY_ORDER, getCaseStudy } from '@/data/caseStudiesData';
+import { CASE_STUDIES_INDEX_INTRO, CASE_STUDY_ORDER, getCaseStudy } from '@/data/caseStudiesData';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 const CALENDLY = 'https://calendly.com/zubiaml4l/15min';
@@ -35,9 +35,7 @@ const CaseStudies = () => {
           </a>
 
           <h1 className="mb-4 font-display text-4xl font-bold text-navy sm:text-5xl">Case Studies</h1>
-          <p className="mb-14 max-w-2xl text-lg leading-relaxed text-navy/70">
-            Real results from real organizations. See how decision intelligence transforms data into action.
-          </p>
+          <p className="mb-14 max-w-2xl text-lg leading-relaxed text-navy/70">{CASE_STUDIES_INDEX_INTRO}</p>
 
           <div className="space-y-10">
             {CASE_STUDY_ORDER.map((page) => {
@@ -50,8 +48,12 @@ const CaseStudies = () => {
                 >
                   <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-teal">{c.tag}</p>
                   <p className="mb-3 text-sm font-medium text-navy/85 sm:text-base">{c.org}</p>
-                  <h2 className="mb-8 font-display text-xl font-bold leading-snug text-navy sm:text-2xl">{c.headline}</h2>
+                  <h2 className="mb-4 font-display text-xl font-bold leading-snug text-navy sm:text-2xl">{c.headline}</h2>
+                  <p className="mb-8 font-semibold text-teal">{c.resultHighlight}</p>
                   <StatGrid stats={c.stats} />
+                  <blockquote className="mt-8 border-l-4 border-teal/40 pl-4 text-base italic leading-relaxed text-navy/75">
+                    &ldquo;{c.clientQuote}&rdquo;
+                  </blockquote>
                   <a
                     href={`/?page=${c.page}`}
                     className="mt-6 inline-flex items-center gap-2 font-display font-semibold text-teal hover:underline"
