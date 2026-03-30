@@ -3,9 +3,12 @@
   Clone or update the STZ_Training repo and open the folder for work.
 
 .DESCRIPTION
-  Use this after the repo exists at https://github.com/Zmugha1/STZ_Training
-  GitHub Codespaces: open the repo in the browser, click Code -> Codespaces -> Create codespace on main
-  (uses .devcontainer in the repo).
+  STZ_Training is a separate product space from drdatadecisionintelligence.com.
+  Use only https://github.com/Zmugha1/STZ_Training as origin for this work; do not add or push to the Dr Data repo.
+
+  Typical setup: run this script once so your local project lives at Documents\STZ_Training, then open that folder in Cursor.
+
+  GitHub Codespaces: on the STZ_Training repo, Code -> Codespaces -> Create codespace on main (uses .devcontainer).
 
 .PARAMETER ParentPath
   Directory that will contain the project folder (default: Documents).
