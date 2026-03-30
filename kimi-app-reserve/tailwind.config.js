@@ -56,12 +56,24 @@ module.exports = {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        /** Dr. Data brand (sections + UniversalNav rely on these) */
-        navy: "#2C3E50",
-        teal: "#4ECDC4",
-        coral: "#E07A5F",
-        cream: "#FFFCF5",
-        mint: "#F0FDF9",
+        brand: {
+          navy: "#2D4459",
+          teal: "#3BBFBF",
+          mint: "#C8E8E5",
+          coral: "#F05F57",
+          burnt: "#C8613F",
+          blush: "#E8A99A",
+          slate: "#7A8F95",
+          cream: "#FEFAF5",
+          offwhite: "#F4F7F8",
+          white: "#ffffff",
+        },
+        /** Top-level aliases: same tokens as brand (existing utilities bg-navy, text-teal, …) */
+        navy: "#2D4459",
+        teal: "#3BBFBF",
+        coral: "#F05F57",
+        cream: "#FEFAF5",
+        mint: "#C8E8E5",
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
@@ -76,8 +88,8 @@ module.exports = {
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-        card: "0 4px 14px 0 rgb(44 62 80 / 0.08)",
-        "card-hover": "0 20px 40px -12px rgb(44 62 80 / 0.15)",
+        card: "0 4px 14px 0 rgb(45 68 89 / 0.08)",
+        "card-hover": "0 20px 40px -12px rgb(45 68 89 / 0.15)",
       },
       transitionDuration: {
         800: "800ms",
@@ -108,8 +120,8 @@ module.exports = {
           "50%": { backgroundPosition: "100% 50%" },
         },
         "pulse-glow-coral": {
-          "0%, 100%": { boxShadow: "0 0 0 0 rgba(224, 122, 95, 0.45)" },
-          "50%": { boxShadow: "0 0 0 14px rgba(224, 122, 95, 0)" },
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(240, 95, 87, 0.45)" },
+          "50%": { boxShadow: "0 0 0 14px rgba(240, 95, 87, 0)" },
         },
         "slide-up": {
           from: { opacity: "0", transform: "translateY(12px)" },

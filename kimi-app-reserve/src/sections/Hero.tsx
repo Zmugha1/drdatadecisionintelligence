@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { hrefPage } from '@/lib/sitePaths';
 import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
@@ -130,8 +131,11 @@ export default function Hero() {
                   Built by an enterprise AI and data research leader specializing in reliable machine learning, decision intelligence, and organizational adoption. Providing applied research and advisory for decision-ready AI systems.
                 </p>
                 <a 
-                  href="/?page=about" 
-                  onClick={(e) => { e.preventDefault(); window.location.href = '/?page=about'; }}
+                  href={hrefPage('about')}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = hrefPage('about');
+                  }}
                   className="inline-flex items-center gap-1 text-teal text-sm font-medium hover:underline"
                 >
                   Meet Dr. Zubia Mughal <ArrowRight size={14} />

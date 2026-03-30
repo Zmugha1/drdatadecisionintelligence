@@ -1,12 +1,37 @@
+import { useEffect } from 'react';
 import PageShell from '@/components/PageShell';
-import { ArrowRight, Calendar, Compass, Brain, Eye, UserCheck, Target, Quote, CheckCircle, AlertCircle } from 'lucide-react';
+import { hrefPage } from '@/lib/sitePaths';
+import {
+  ArrowLeft,
+  ArrowRight,
+  Calendar,
+  Compass,
+  Brain,
+  Eye,
+  UserCheck,
+  Target,
+  Quote,
+  CheckCircle,
+  AlertCircle,
+} from 'lucide-react';
 
 const BlogPostCoachingCompass = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <PageShell>
       {/* Hero Section */}
       <section className="pt-6 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
+          <a
+            href={hrefPage('blog')}
+            className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-teal transition hover:underline"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to blog
+          </a>
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mb-6">
             <span className="px-3 py-1 bg-teal/10 text-teal text-xs font-medium rounded-full">Coaching</span>
@@ -406,7 +431,7 @@ const BlogPostCoachingCompass = () => {
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a
-                href="/?page=survey"
+                href={hrefPage('survey')}
                 className="inline-flex items-center gap-2 text-white hover:text-teal transition-colors"
               >
                 Take the Data Assessment <ArrowRight className="w-5 h-5" />

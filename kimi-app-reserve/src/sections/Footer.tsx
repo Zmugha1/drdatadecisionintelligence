@@ -1,53 +1,57 @@
 import { useEffect, useRef, useState } from 'react';
 import { Linkedin, Twitter, Github } from 'lucide-react';
+import { hrefHomeHash, hrefPage } from '@/lib/sitePaths';
 
-const footerLinks = [
-  {
-    title: 'Services',
-    links: [
-      { label: 'Services', href: '/#services' },
-      { label: 'Pricing', href: '/#services' },
-      { label: 'Case Studies', href: '/?page=case-studies' },
-      { label: 'Data Assessment', href: '/?page=survey' },
-    ],
-  },
-  {
-    title: 'Company',
-    links: [
-      { label: 'About', href: '/?page=about' },
-      { label: 'Blog', href: '/?page=blog' },
-      { label: 'FAQ', href: '/?page=faq' },
-      { label: 'Contact', href: '/#cta' },
-    ],
-  },
-  {
-    title: 'Governance',
-    links: [
-      { label: 'Governance & Responsibility', href: '/?page=governance' },
-      { label: 'Deployment Checklist', href: '/?page=governance#checklist' },
-      { label: 'Standards Alignment', href: '/?page=governance#standards' },
-    ],
-  },
-  {
-    title: 'Connect',
-    links: [
-      { label: 'LinkedIn', href: 'https://linkedin.com', icon: Linkedin },
-      { label: 'Twitter', href: 'https://twitter.com', icon: Twitter },
-      { label: 'GitHub', href: 'https://github.com', icon: Github },
-    ],
-  },
-  {
-    title: 'Legal',
-    links: [
-      { label: 'Privacy Policy', href: '/privacy-policy' },
-      { label: 'Terms of Service', href: '/terms-of-service' },
-    ],
-  },
-];
+function buildFooterLinks() {
+  return [
+    {
+      title: 'Services',
+      links: [
+        { label: 'Services', href: hrefHomeHash('services') },
+        { label: 'Pricing', href: hrefHomeHash('services') },
+        { label: 'Case Studies', href: hrefPage('case-studies') },
+        { label: 'Data Assessment', href: hrefPage('survey') },
+      ],
+    },
+    {
+      title: 'Company',
+      links: [
+        { label: 'About', href: hrefPage('about') },
+        { label: 'Blog', href: hrefPage('blog') },
+        { label: 'FAQ', href: hrefPage('faq') },
+        { label: 'Contact', href: hrefHomeHash('cta') },
+      ],
+    },
+    {
+      title: 'Governance',
+      links: [
+        { label: 'Governance & Responsibility', href: hrefPage('governance') },
+        { label: 'Deployment Checklist', href: `${hrefPage('governance')}#checklist` },
+        { label: 'Standards Alignment', href: `${hrefPage('governance')}#standards` },
+      ],
+    },
+    {
+      title: 'Connect',
+      links: [
+        { label: 'LinkedIn', href: 'https://linkedin.com', icon: Linkedin },
+        { label: 'Twitter', href: 'https://twitter.com', icon: Twitter },
+        { label: 'GitHub', href: 'https://github.com', icon: Github },
+      ],
+    },
+    {
+      title: 'Legal',
+      links: [
+        { label: 'Privacy Policy', href: '/privacy-policy' },
+        { label: 'Terms of Service', href: '/terms-of-service' },
+      ],
+    },
+  ];
+}
 
 export default function Footer() {
   const [isVisible, setIsVisible] = useState(false);
   const footerRef = useRef<HTMLElement>(null);
+  const footerLinks = buildFooterLinks();
 
   useEffect(() => {
     const observer = new IntersectionObserver(

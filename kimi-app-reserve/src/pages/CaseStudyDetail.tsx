@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import PageShell from '@/components/PageShell';
 import { getCaseStudy, type CaseStudyDef } from '@/data/caseStudiesData';
+import { hrefPage } from '@/lib/sitePaths';
 import { ArrowLeft, ArrowRight, BarChart3, CheckCircle2, Play, RotateCcw, TrendingUp } from 'lucide-react';
 
 const CALENDLY = 'https://calendly.com/zubiaml4l/15min';
@@ -253,7 +254,7 @@ export default function CaseStudyDetail({ pageKey }: Props) {
         <section className="px-4 py-20 pt-6 sm:px-6">
           <div className="mx-auto max-w-lg text-center">
             <p className="text-navy/80">Case study not found.</p>
-            <a href="/?page=case-studies" className="mt-4 inline-block font-semibold text-teal hover:underline">
+            <a href={hrefPage('case-studies')} className="mt-4 inline-block font-semibold text-teal hover:underline">
               Back to all case studies
             </a>
           </div>
@@ -281,7 +282,7 @@ export default function CaseStudyDetail({ pageKey }: Props) {
       <section className="px-4 pb-16 pt-6 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
           <a
-            href="/?page=case-studies"
+            href={hrefPage('case-studies')}
             className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-teal transition hover:underline"
           >
             <ArrowLeft className="h-4 w-4" />

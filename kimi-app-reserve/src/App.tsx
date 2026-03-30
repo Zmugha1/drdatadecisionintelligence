@@ -17,6 +17,7 @@ import BlogPostCoachingCompass from './pages/BlogPost-CoachingCompass';
 import DataToDemo from './pages/DataToDemo';
 import SmallBusiness from './pages/SmallBusiness';
 import CaseStudyDetail from './pages/CaseStudyDetail';
+import Pulse from './pages/Pulse';
 import { CASE_STUDY_ORDER } from './data/caseStudiesData';
 
 const PATH_TO_CASE_STUDY: Record<string, string> = {
@@ -29,6 +30,7 @@ const PATH_TO_CASE_STUDY: Record<string, string> = {
 
 function resolvePageFromLocation(): string {
   const path = window.location.pathname.replace(/\/$/, '') || '/';
+  if (path === '/pulse') return 'pulse';
   if (path === '/ask-chatgpt') return 'ask-chatgpt';
   if (path === '/ask-claude') return 'ask-claude';
   if (path === '/blog') return 'blog';
@@ -89,6 +91,8 @@ function App() {
       return <DataToDemo />;
     case 'small-business':
       return <SmallBusiness />;
+    case 'pulse':
+      return <Pulse />;
     case 'home':
     default:
       return <Home />;

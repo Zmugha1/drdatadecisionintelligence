@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import PageShell from '@/components/PageShell';
-import { ArrowRight, TrendingUp, AlertTriangle, DollarSign, BarChart3, Lock, Calendar } from 'lucide-react';
+import { hrefPage } from '@/lib/sitePaths';
+import { ArrowLeft, ArrowRight, TrendingUp, AlertTriangle, DollarSign, BarChart3, Lock, Calendar } from 'lucide-react';
 
 const steps = [
   {
@@ -65,6 +66,13 @@ const BlogPostDataToMoney = () => {
     <PageShell>
       <section className="px-4 pb-16 pt-6 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
+          <a
+            href={hrefPage('blog')}
+            className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-teal transition hover:underline"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to blog
+          </a>
           {/* SEO Tags */}
           <div className="flex flex-wrap gap-2 mb-6">
             <span className="px-3 py-1 bg-teal/10 text-teal text-xs font-medium rounded-full">Decision Intelligence</span>
@@ -208,7 +216,7 @@ const BlogPostDataToMoney = () => {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="/?page=data-to-demo"
+                href={hrefPage('data-to-demo')}
                 className="inline-flex items-center gap-2 bg-teal text-navy px-8 py-4 rounded-lg font-display font-semibold text-lg hover:bg-teal/90 transition-colors"
               >
                 <Lock className="w-5 h-5" />

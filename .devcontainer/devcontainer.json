@@ -1,0 +1,17 @@
+{
+  "name": "STZ Training",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+  "customizations": {
+    "vscode": {
+      "extensions": ["dbaeumer.vscode-eslint"]
+    }
+  },
+  "postCreateCommand": "npm install && npm install --prefix kimi-app-reserve && npm install --prefix bni-chapter-app",
+  "forwardPorts": [5173],
+  "portsAttributes": {
+    "5173": {
+      "label": "Vite (kimi-app-reserve)",
+      "onAutoForward": "notify"
+    }
+  }
+}

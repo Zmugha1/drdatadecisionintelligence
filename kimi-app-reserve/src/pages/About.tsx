@@ -1,7 +1,10 @@
+import { useEffect } from 'react';
 import PageShell from '@/components/PageShell';
 import SurveyCTA from '@/components/SurveyCTA';
-import { Button } from '@/components/ui/button';
+import { hrefPage } from '@/lib/sitePaths';
 import {
+  ArrowLeft,
+  ArrowRight,
   BarChart3,
   Brain,
   Briefcase,
@@ -9,6 +12,7 @@ import {
   Code2,
   Cpu,
   GraduationCap,
+  Quote,
   Rocket,
   Scale,
   Shield,
@@ -16,6 +20,8 @@ import {
   UserCheck,
   Users,
 } from 'lucide-react';
+
+const CALENDLY = 'https://calendly.com/zubiaml4l/15min';
 
 const featureCards = [
   {
@@ -145,7 +151,7 @@ function JourneyRow({
 }: (typeof journey)[number]) {
   const cardInner = (
     <div
-      className={`rounded-2xl border border-navy/10 bg-white p-6 shadow-card ${
+      className={`rounded-2xl border border-navy/10 border-l-[4px] border-l-teal bg-white p-6 shadow-card transition-shadow hover:shadow-card-hover ${
         align === 'left' ? 'md:text-right' : ''
       }`}
     >
@@ -184,32 +190,83 @@ function JourneyRow({
 }
 
 /**
- * Full About page aligned with production deploy (kimi.link).
+ * About Dr. Data: founder story, mission, and approach (aligned with site chrome and folder copy).
  */
 const About = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <PageShell>
       {/* Hero */}
-      <section className="px-4 pb-10 pt-6 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-4 inline-flex items-center justify-center gap-2 rounded-full border border-teal/30 bg-teal/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-teal">
+      <section className="relative overflow-hidden px-4 pb-12 pt-6 sm:px-6 lg:px-8">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-40"
+          aria-hidden
+        >
+          <div
+            className="absolute -right-20 -top-20 h-72 w-72 rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, rgba(78, 205, 196, 0.35) 0%, transparent 70%)' }}
+          />
+          <div
+            className="absolute -bottom-24 left-1/4 h-64 w-64 rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, rgba(224, 122, 95, 0.2) 0%, transparent 70%)' }}
+          />
+        </div>
+
+        <div className="relative mx-auto max-w-5xl">
+          <a
+            href={hrefPage('home')}
+            className="mb-10 inline-flex items-center gap-2 text-sm font-semibold text-teal transition hover:underline"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to home
+          </a>
+
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-teal/30 bg-teal/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-teal">
             <Sparkles className="h-3.5 w-3.5" aria-hidden />
-            About the Founder
-          </p>
-          <h1 className="mb-6 font-display text-4xl font-bold leading-tight text-navy sm:text-5xl lg:text-6xl">
-            From Code to <span className="text-teal">KPIs</span>
+            About Dr. Data
+          </div>
+
+          <h1 className="max-w-4xl font-display text-4xl font-bold leading-[1.1] tracking-tight text-navy sm:text-5xl lg:text-6xl">
+            From Code to{' '}
+            <span className="bg-gradient-to-r from-teal to-teal/70 bg-clip-text text-transparent">KPIs</span>
           </h1>
-          <p className="mx-auto max-w-3xl text-lg leading-relaxed text-navy/80 sm:text-xl">
-            Dr. Zubia Mughal, Ed.D., 23-year trajectory from programming instructor to Lead Data Researcher, now
-            building and validating AI agents that move business metrics.
+
+          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-navy/80 sm:text-xl">
+            Dr. Data Decision Intelligence was founded by Dr. Zubia Mughal, Ed.D., an enterprise AI and data research
+            leader focused on reliable machine learning, decision intelligence, and adoption. With years of applied
+            research and advisory for decision-ready AI systems, she helps organizations bridge the gap between data
+            collection and confident action.
           </p>
+          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-navy/80 sm:text-xl">
+            Her path: 23 years from programming instructor to Lead Data Researcher, now building and validating AI
+            agents that move business metrics.
+          </p>
+
+          <div className="relative mt-10 overflow-hidden rounded-2xl bg-gradient-to-br from-mint/80 to-teal/5 p-6 ring-1 ring-teal/15 sm:p-8">
+            <Quote
+              className="absolute right-4 top-4 h-14 w-14 text-teal/15 sm:h-16 sm:w-16"
+              strokeWidth={1}
+              aria-hidden
+            />
+            <p className="relative text-center font-display text-lg font-semibold leading-relaxed text-navy/90 sm:text-xl">
+              Our mission: transform scattered data into confident decisions. No drama. Just data that works.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Story + feature cards */}
-      <section className="px-4 pb-10 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl rounded-3xl border border-navy/10 bg-white/95 p-8 shadow-card backdrop-blur-sm sm:p-10 lg:p-12">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+      <section className="px-4 pb-12 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl border border-navy/10 bg-white/95 p-8 shadow-card backdrop-blur-sm sm:p-10 lg:p-12">
+          <div
+            className="pointer-events-none absolute -right-16 top-0 h-48 w-48 rounded-full opacity-[0.06]"
+            style={{ background: 'radial-gradient(circle, #4ECDC4 0%, transparent 70%)' }}
+            aria-hidden
+          />
+          <div className="relative grid gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="min-w-0 space-y-6">
               <h2 className="font-display text-2xl font-bold leading-snug text-navy sm:text-3xl">
                 Bridging <span className="text-teal">Learning Science</span> &amp; Production AI
@@ -233,15 +290,22 @@ const About = () => {
             </div>
 
             <div className="flex flex-col gap-4">
-              {featureCards.map((card) => {
+              {featureCards.map((card, index) => {
                 const Icon = card.icon;
+                const accentTeal = index % 2 === 0;
                 return (
                   <div
                     key={card.title}
-                    className="rounded-2xl border border-navy/10 bg-cream/80 p-6 shadow-sm transition-shadow hover:shadow-card"
+                    className={`rounded-2xl border border-navy/10 border-l-[5px] bg-cream/80 p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-card ${
+                      accentTeal ? 'border-l-teal' : 'border-l-coral'
+                    }`}
                   >
                     <div className="mb-3 flex items-center gap-3">
-                      <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-teal/15 text-teal">
+                      <span
+                        className={`flex h-11 w-11 items-center justify-center rounded-xl ${
+                          accentTeal ? 'bg-teal/15 text-teal' : 'bg-coral/15 text-coral'
+                        }`}
+                      >
                         <Icon className="h-6 w-6" strokeWidth={2} />
                       </span>
                       <h3 className="font-display text-lg font-bold text-navy">{card.title}</h3>
@@ -257,14 +321,14 @@ const About = () => {
 
       {/* Stats */}
       <section className="px-4 pb-16 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-8 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
           {stats.map((s) => (
             <div
               key={s.label}
-              className="rounded-2xl border border-navy/10 bg-white/90 px-4 py-8 text-center shadow-sm"
+              className="rounded-xl bg-gradient-to-b from-white to-teal/5 px-3 py-6 text-center shadow-inner ring-1 ring-navy/10 sm:px-4 sm:py-8"
             >
-              <p className="font-display text-3xl font-bold text-teal sm:text-4xl">{s.value}</p>
-              <p className="mt-2 text-sm font-medium leading-snug text-navy/70">{s.label}</p>
+              <p className="font-display text-2xl font-bold leading-tight text-teal sm:text-3xl md:text-4xl">{s.value}</p>
+              <p className="mt-2 text-xs font-medium leading-snug text-navy/65 sm:text-sm">{s.label}</p>
             </div>
           ))}
         </div>
@@ -320,15 +384,18 @@ const About = () => {
           </p>
 
           <div className="mb-10 grid gap-6 sm:grid-cols-2">
-            {governancePillars.map((p) => {
+            {governancePillars.map((p, index) => {
               const Icon = p.icon;
+              const accentTeal = index % 2 === 0;
               return (
                 <div
                   key={p.title}
-                  className="rounded-2xl border border-navy/10 bg-white/90 p-6 shadow-card"
+                  className={`rounded-2xl border border-navy/10 border-l-[5px] bg-white/90 p-6 shadow-card transition-shadow hover:shadow-card-hover ${
+                    accentTeal ? 'border-l-teal' : 'border-l-coral'
+                  }`}
                 >
                   <div className="mb-2 flex items-center gap-2">
-                    <Icon className="h-5 w-5 text-teal" strokeWidth={2} />
+                    <Icon className={`h-5 w-5 ${accentTeal ? 'text-teal' : 'text-coral'}`} strokeWidth={2} />
                     <h3 className="font-display text-lg font-bold text-navy">{p.title}</h3>
                   </div>
                   <p className="text-navy/75">{p.body}</p>
@@ -345,10 +412,11 @@ const About = () => {
             This is AI built for real organizations, real risk, and real decisions.
           </p>
           <a
-            href="/?page=governance"
-            className="inline-flex items-center gap-2 font-display font-semibold text-teal underline-offset-4 hover:underline"
+            href={hrefPage('governance')}
+            className="inline-flex items-center gap-2 rounded-xl bg-teal px-5 py-3 font-display text-sm font-semibold text-navy shadow-md transition hover:bg-teal/90"
           >
             Visit Governance &amp; Responsibility
+            <ArrowRight className="h-4 w-4" />
           </a>
         </div>
       </section>
@@ -364,43 +432,64 @@ const About = () => {
             <span className="font-semibold text-navy">Discover → Connect → Decide</span>
           </p>
           <div className="grid gap-8 md:grid-cols-3">
-            {approachSteps.map((step) => (
-              <div
-                key={step.title}
-                className="rounded-2xl border border-navy/10 bg-cream/60 p-8 text-center shadow-sm"
-              >
-                <h3 className="mb-4 font-display text-xl font-bold text-teal">{step.title}</h3>
-                <p className="text-left text-base leading-relaxed text-navy/80">{step.body}</p>
-              </div>
-            ))}
+            {approachSteps.map((step, index) => {
+              const accentTeal = index % 2 === 0;
+              return (
+                <div
+                  key={step.title}
+                  className={`rounded-2xl border border-navy/10 bg-cream/60 p-8 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-card ${
+                    accentTeal ? 'border-t-[4px] border-t-teal' : 'border-t-[4px] border-t-coral'
+                  }`}
+                >
+                  <h3 className="mb-4 font-display text-xl font-bold text-navy">
+                    <span className={accentTeal ? 'text-teal' : 'text-coral'}>{step.title}</span>
+                  </h3>
+                  <p className="text-left text-base leading-relaxed text-navy/80">{step.body}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Closing CTA + survey */}
-      <section
-        className="px-4 pb-24 sm:px-6 lg:px-8"
-        style={{
-          background: 'linear-gradient(135deg, #4ECDC4 0%, #3BA99F 100%)',
-        }}
-      >
-        <div className="mx-auto max-w-3xl px-2 py-16 text-center">
-          <h2 className="mb-4 font-display text-3xl font-bold text-white sm:text-4xl">
-            Stop Data Hunting. Start Decision-Making.
-          </h2>
-          <p className="mb-2 text-lg text-white/95">
-            Dr. Data turns your scattered information into governance-first intelligence you can actually trust.
-          </p>
-          <p className="mb-10 text-2xl font-bold text-white/90">Make $$ With Your Data Faster</p>
-          <Button
-            size="lg"
-            className="mb-14 bg-coral px-8 py-6 font-display text-base font-semibold text-white shadow-lg hover:bg-coral/90"
-            onClick={() => window.open('https://calendly.com/zubiaml4l/15min', '_blank')}
-          >
-            <Calendar className="mr-2 h-5 w-5" />
-            BOOK A DISCOVERY CALL
-          </Button>
+      {/* Calendly + survey */}
+      <section className="px-4 pb-16 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl bg-navy px-6 py-14 text-center shadow-xl sm:px-10 sm:py-16">
+          <div
+            className="pointer-events-none absolute inset-0 opacity-30"
+            style={{
+              background:
+                'radial-gradient(ellipse at 30% 20%, rgba(78, 205, 196, 0.25) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(224, 122, 95, 0.15) 0%, transparent 45%)',
+            }}
+            aria-hidden
+          />
+          <div className="relative">
+            <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">
+              Stop data hunting. Start decision-making.
+            </h2>
+            <p className="mx-auto mt-3 max-w-lg text-base text-white/75">
+              Book a short discovery call. We will map where decision intelligence fits your goals.
+            </p>
+            <a
+              href={CALENDLY}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-teal px-8 py-3.5 font-display font-semibold text-navy shadow-lg transition hover:bg-teal/90"
+            >
+              <Calendar className="h-5 w-5" />
+              Book a discovery call
+              <ArrowRight className="h-5 w-5" />
+            </a>
+          </div>
+        </div>
+      </section>
 
+      <section className="px-4 pb-24 pt-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="mb-8 font-display text-lg font-semibold text-navy/90">
+            Make progress with your data faster. Dr. Data turns scattered information into governance-first intelligence
+            you can trust.
+          </p>
           <SurveyCTA variant="light" />
         </div>
       </section>

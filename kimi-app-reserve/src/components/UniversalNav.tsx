@@ -1,15 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { CASE_STUDY_NAV } from '@/data/caseStudiesData';
+import { hrefHomeHash, hrefPage } from '@/lib/sitePaths';
 
 const mainLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Private Hub', href: '/?page=private-hub' },
-  { label: 'Services', href: '/#services' },
-  { label: 'About', href: '/?page=about' },
-  { label: 'Blog', href: '/?page=blog' },
-  { label: 'Governance', href: '/?page=governance' },
-  { label: 'FAQ', href: '/?page=faq' },
+  { label: 'Home', href: hrefPage('home') },
+  { label: 'Private Hub', href: hrefPage('private-hub') },
+  { label: 'Services', href: hrefHomeHash('services') },
+  { label: 'About', href: hrefPage('about') },
+  { label: 'Blog', href: hrefPage('blog') },
+  { label: 'Governance', href: hrefPage('governance') },
+  { label: 'FAQ', href: hrefPage('faq') },
 ];
 
 export default function UniversalNav() {
@@ -43,15 +44,13 @@ export default function UniversalNav() {
     setCaseDropdownOpen(false);
     setMobileCaseOpen(false);
 
-    if (href === '/') {
-      window.location.href = '/';
-    } else if (href.startsWith('/#')) {
+    if (href.includes('#')) {
+      const hashPart = href.split('#')[1];
       const currentPage = new URLSearchParams(window.location.search).get('page');
       if (currentPage) {
         window.location.href = href;
       } else {
-        const element = document.getElementById(href.slice(2));
-        element?.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById(hashPart)?.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
       window.location.href = href;
@@ -70,10 +69,10 @@ export default function UniversalNav() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <a
-              href="/"
+              href={hrefPage('home')}
               onClick={(e) => {
                 e.preventDefault();
-                handleNavClick('/');
+                handleNavClick(hrefPage('home'));
               }}
               className="font-display text-xl font-bold text-navy transition-colors hover:text-teal"
             >
@@ -120,12 +119,12 @@ export default function UniversalNav() {
                       {CASE_STUDY_NAV.map((item) => (
                         <a
                           key={item.page}
-                          href={`/?page=${item.page}`}
+                          href={hrefPage(item.page)}
                           role="menuitem"
                           className="block px-4 py-2.5 text-left text-sm text-navy/85 transition hover:bg-teal/10 hover:text-teal"
                           onClick={(e) => {
                             e.preventDefault();
-                            handleNavClick(`/?page=${item.page}`);
+                            handleNavClick(hrefPage(item.page));
                           }}
                         >
                           {item.label}
@@ -214,10 +213,10 @@ export default function UniversalNav() {
                   {CASE_STUDY_NAV.map((item) => (
                     <a
                       key={item.page}
-                      href={`/?page=${item.page}`}
+                      href={hrefPage(item.page)}
                       onClick={(e) => {
                         e.preventDefault();
-                        handleNavClick(`/?page=${item.page}`);
+                        handleNavClick(hrefPage(item.page));
                       }}
                       className="block rounded-lg py-2.5 pl-2 text-sm text-navy/80 hover:text-teal"
                     >

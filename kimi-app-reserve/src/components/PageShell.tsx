@@ -12,10 +12,19 @@ type PageShellProps = {
  */
 export default function PageShell({ children }: PageShellProps) {
   useEffect(() => {
-    if (window.location.hash) {
-      history.replaceState(null, '', window.location.pathname + window.location.search);
+    const id = window.location.hash.replace(/^#/, '');
+    if (id) {
+      requestAnimationFrame(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          return;
+        }
+        window.scrollTo(0, 0);
+      });
+    } else {
+      window.scrollTo(0, 0);
     }
-    window.scrollTo(0, 0);
   }, []);
 
   return (
