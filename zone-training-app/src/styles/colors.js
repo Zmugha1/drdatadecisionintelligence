@@ -1,0 +1,23 @@
+/** Brand color tokens (source: pulse_dashboard_branded.jsx + gold from zone_training_v2) */
+export const C = {
+  teal: "#3BBFBF",
+  teal100: "#C8E8E5",
+  teal200: "#96D5D3",
+  coral: "#F05F57",
+  coral100: "#E8A99A",
+  coralDark: "#C1514E",
+  amber: "#C8613F",
+  amber100: "#E8A99A",
+  dark: "#2D4459",
+  gray: "#7A8F95",
+  cream: "#FEFAF5",
+  lightgray: "#F4F7F8",
+  border: "#C8E8E5",
+  white: "#ffffff",
+  navy: "#2D4459",
+  slate: "#7A8F95",
+  mint: "#C8E8E5",
+  blush: "#E8A99A",
+  burnt: "#C8613F",
+  gold: "#F5C842",
+};
