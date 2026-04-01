@@ -3,6 +3,16 @@
   publish = "dist"
 
 [[redirects]]
+  from = "/bni/host"
+  to = "/bni/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/bni/host/"
+  to = "/bni/index.html"
+  status = 200
+
+[[redirects]]
   from = "/bni/*"
   to = "/bni/index.html"
   status = 200
