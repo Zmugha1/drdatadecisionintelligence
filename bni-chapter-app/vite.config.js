@@ -5,6 +5,7 @@ export default defineConfig({
   plugins: [react()],
   base: '/bni/',
   build: {
-    outDir: 'dist',
+    outDir: '../dist/bni',
+    emptyOutDir: true,
   },
 });
