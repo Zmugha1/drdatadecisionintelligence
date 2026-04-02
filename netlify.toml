@@ -1,28 +1,3 @@
 [build]
-  command = "npm run build && cd bni-chapter-app && npm install && npm run build && cd .."
+  command = "npm run build"
   publish = "dist"
-
-[[redirects]]
-  from = "/bni/host"
-  to = "/bni/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/bni/host/"
-  to = "/bni/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/bni/*"
-  to = "/bni/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/bni"
-  to = "/bni/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200

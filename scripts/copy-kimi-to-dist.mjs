@@ -18,3 +18,8 @@ if (!fs.existsSync(kimiDist)) {
 fs.rmSync(out, { recursive: true, force: true });
 fs.cpSync(kimiDist, out, { recursive: true });
 console.log('Copied kimi-app-reserve/dist -> dist/');
+const rootRedirects = path.join(root, '_redirects');
+if (fs.existsSync(rootRedirects)) {
+  fs.copyFileSync(rootRedirects, path.join(out, '_redirects'));
+  console.log('Copied repo _redirects -> dist/_redirects');
+}
