@@ -12,66 +12,38 @@ export function generateEmail({ todaySubmissions, historicalSubmissions }) {
   const today = todaySubmissions || [];
   const historical = historicalSubmissions || [];
 
-  const { pitches, events, announcements } = separateByType(today);
-
   const now = new Date();
-  const subject = `${CHAPTER_NAME} — Weekly Recap ${formatMonthDayYear(now)}`;
-
+  const subject = `${CHAPTER_NAME} - Weekly Recap ${formatMonthDayYear(now)}`;
   const greeting = buildGreeting(now);
-  const intro = `We met this ${MEETING_DAY} at ${MEETING_LOCATION} and here is everything your chapter shared this week.`;
-
+  const intro = `We met this ${MEETING_DAY} at ${MEETING_LOCATION}. Here is everything your chapter shared this week.`;
   const sep = '─────────────────────────────────';
 
-  const pitchesBlock = buildPitchesSection(pitches);
-  const eventsBlock = buildEventsSection(events);
-  const announcementsBlock = buildAnnouncementsSection(announcements);
-
-  const insightBlock = buildIntelligenceBlock(today, historical);
+  const pitchesBlock = buildPitchesSection(today);
+  const eventsBlock = buildEventsSection(today);
+  const announcementsBlock = buildAnnouncementsSection(today);
+  const insightBlock = buildInsightBlock(today, historical);
 
   const body = [
-    greeting,
-    '',
-    intro,
-    '',
-    sep,
-    '',
-    pitchesBlock,
-    '',
-    sep,
-    '',
-    eventsBlock,
-    '',
-    sep,
-    '',
-    announcementsBlock,
-    '',
-    sep,
-    '',
-    insightBlock,
-    '',
-    `Givers Gain® — what you give to this chapter comes back to you. See you next ${MEETING_DAY}.`,
+    greeting, '',
+    intro, '',
+    sep, '',
+    pitchesBlock, '',
+    sep, '',
+    eventsBlock, '',
+    sep, '',
+    announcementsBlock, '',
+    sep, '',
+    insightBlock, '',
+    `Givers Gain - what you give to this chapter comes back to you. See you next ${MEETING_DAY}.`,
     '',
     'Dr. Data Decision Intelligence',
     "Powering your chapter's communication, every Wednesday.",
     SITE_LINE,
   ].join('\n');
 
-  const hostFlags = buildHostFlags(historical);
+  const hostFlags = buildHostFlags(historical, today);
 
   return { subject, body, hostFlags };
-}
-
-function separateByType(rows) {
-  const pitches = [];
-  const events = [];
-  const announcements = [];
-  for (const r of rows) {
-    const t = String(r.type || '').trim();
-    if (t === 'Pitch') pitches.push(r);
-    else if (t === 'Event') events.push(r);
-    else if (t === 'Announcement') announcements.push(r);
-  }
-  return { pitches, events, announcements };
 }
 
 function formatMonthDayYear(d) {
@@ -84,57 +56,58 @@ function formatMonthDayYear(d) {
 
 function buildGreeting(d) {
   const h = d.getHours();
-  let part = 'evening';
-  if (h < 12) part = 'morning';
-  else if (h < 17) part = 'afternoon';
+  const part = h < 12 ? 'morning' : h < 17 ? 'afternoon' : 'evening';
   return `Good ${part},\nBNI Revenue by Referrals!`;
 }
 
-function nameCompanyLine(r) {
-  const name = String(r.member_name || '').trim() || 'Member';
-  const co = String(r.company || '').trim();
+function nameCompanyLine(member) {
+  const name = String(member.member_name || '').trim() || 'Member';
+  const co = String(member.company || '').trim();
   return co ? `${name} (${co})` : name;
 }
 
-function buildPitchesSection(pitches) {
-  const lines = ["🎤 THIS WEEK'S MEMBER PITCHES", ''];
-  if (!pitches.length) {
+function buildPitchesSection(members) {
+  const lines = ["THIS WEEK'S MEMBER PITCHES", ''];
+  const withPitch = members.filter((m) => m.pitch && String(m.pitch).trim());
+  if (!withPitch.length) {
     lines.push('No pitches submitted this week.');
     return lines.join('\n');
   }
-  for (const r of pitches) {
-    lines.push(`• ${nameCompanyLine(r)}`);
-    lines.push(`  ${String(r.content || '').trim()}`);
-    const link = String(r.link || '').trim();
-    if (link) lines.push(`  🔗 ${link}`);
+  for (const m of withPitch) {
+    lines.push(`${nameCompanyLine(m)}`);
+    lines.push(`  ${String(m.pitch).trim()}`);
     lines.push('');
   }
   return lines.join('\n').trimEnd();
 }
 
-function buildEventsSection(events) {
-  const lines = ['📅 EVENTS, LINKS & RESOURCES', ''];
-  if (!events.length) {
+function buildEventsSection(members) {
+  const lines = ['EVENTS AND RESOURCES', ''];
+  const withEvent = members.filter((m) => m.event && String(m.event).trim());
+  if (!withEvent.length) {
     lines.push('No events submitted this week.');
     return lines.join('\n');
   }
-  for (const r of events) {
-    lines.push(`• ${String(r.content || '').trim()}`);
-    const link = String(r.link || '').trim();
-    if (link) lines.push(`  🔗 ${link}`);
+  for (const m of withEvent) {
+    lines.push(`${nameCompanyLine(m)}`);
+    lines.push(`  ${String(m.event).trim()}`);
+    const link = String(m.event_link || '').trim();
+    if (link) lines.push(`  ${link}`);
     lines.push('');
   }
   return lines.join('\n').trimEnd();
 }
 
-function buildAnnouncementsSection(announcements) {
-  const lines = ['📢 ANNOUNCEMENTS', ''];
-  if (!announcements.length) {
+function buildAnnouncementsSection(members) {
+  const lines = ['ANNOUNCEMENTS', ''];
+  const withAnnouncement = members.filter((m) => m.announcement && String(m.announcement).trim());
+  if (!withAnnouncement.length) {
     lines.push('No announcements this week.');
     return lines.join('\n');
   }
-  for (const r of announcements) {
-    lines.push(`• ${String(r.content || '').trim()}`);
+  for (const m of withAnnouncement) {
+    lines.push(`${nameCompanyLine(m)}`);
+    lines.push(`  ${String(m.announcement).trim()}`);
     lines.push('');
   }
   return lines.join('\n').trimEnd();
@@ -142,141 +115,38 @@ function buildAnnouncementsSection(announcements) {
 
 function ymd(d) {
   const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const mo = String(d.getMonth() + 1).padStart(2, '0');
   const day = String(d.getDate()).padStart(2, '0');
-  return `${y}-${m}-${day}`;
+  return `${y}-${mo}-${day}`;
 }
 
-function parseYmd(s) {
-  if (!s) return null;
-  const d = new Date(String(s).slice(0, 10) + 'T12:00:00');
-  return Number.isNaN(d.getTime()) ? null : d;
-}
-
-function uniqueSortedDates(rows) {
-  const set = new Set();
-  for (const r of rows) {
-    const x = String(r.date || '').trim().slice(0, 10);
-    if (x) set.add(x);
-  }
-  return [...set].sort();
-}
-
-function uniqueNamesOnDate(rows, dateStr) {
-  const target = String(dateStr || '').slice(0, 10);
-  const names = new Set();
-  for (const r of rows) {
-    if (String(r.date || '').slice(0, 10) !== target) continue;
-    const n = String(r.member_name || '').trim();
-    if (n) names.add(n);
-  }
-  return names.size;
-}
-
-function buildIntelligenceBlock(todayRows, historicalRows) {
-  const lines = [];
-
-  const nToday = new Set();
-  for (const r of todayRows) {
-    const n = String(r.member_name || '').trim();
-    if (n) nToday.add(n);
-  }
-  const n = nToday.size;
-
-  const refDateStr =
-    todayRows[0]?.date != null
-      ? String(todayRows[0].date).slice(0, 10)
-      : ymd(new Date());
-  const ref = parseYmd(refDateStr) || new Date();
-  const weekAgo = new Date(ref);
+function buildInsightBlock(todayRows, historicalRows) {
+  const n = todayRows.length;
+  const weekAgo = new Date();
   weekAgo.setDate(weekAgo.getDate() - 7);
   const weekAgoStr = ymd(weekAgo);
-  const m = uniqueNamesOnDate(historicalRows, weekAgoStr);
+  const lastWeek = historicalRows.filter((r) =>
+    String(r.date || '').slice(0, 10) === weekAgoStr,
+  ).length;
 
-  let cmp = 'same as';
-  if (n > m) cmp = 'up from';
-  else if (n < m) cmp = 'down from';
-
-  lines.push(`This week ${n} members contributed — ${cmp} ${m} last week.`);
-
-  const shout = streakShoutouts(historicalRows);
-  for (const s of shout) {
-    lines.push('');
-    lines.push(s);
-  }
-
-  return lines.join('\n');
+  const cmp = n > lastWeek ? 'up from' : n < lastWeek ? 'down from' : 'same as';
+  return `This week ${n} member${n === 1 ? '' : 's'} contributed - ${cmp} ${lastWeek} last week.`;
 }
 
-function hasFourConsecutive(memberDatesSet, globalSortedDates) {
-  for (let i = 0; i <= globalSortedDates.length - 4; i++) {
-    const a = globalSortedDates[i];
-    const b = globalSortedDates[i + 1];
-    const c = globalSortedDates[i + 2];
-    const d = globalSortedDates[i + 3];
-    if (memberDatesSet.has(a) && memberDatesSet.has(b) && memberDatesSet.has(c) && memberDatesSet.has(d)) {
-      return true;
+function buildHostFlags(historicalRows, todayRows) {
+  if (!historicalRows.length) return [];
+  const todayNames = new Set(todayRows.map((r) => String(r.member_name || '').trim()));
+  const recentNames = new Set();
+  const cutoff = new Date();
+  cutoff.setDate(cutoff.getDate() - 4 * 7);
+  for (const r of historicalRows) {
+    if (new Date(r.date) >= cutoff) {
+      recentNames.add(String(r.member_name || '').trim());
     }
   }
-  return false;
-}
-
-function streakShoutouts(historicalRows) {
-  const globalDates = uniqueSortedDates(historicalRows);
-  if (globalDates.length < 4) return [];
-
-  const byMember = new Map();
-  for (const r of historicalRows) {
-    const name = String(r.member_name || '').trim();
-    if (!name) continue;
-    const dt = String(r.date || '').trim().slice(0, 10);
-    if (!dt) continue;
-    if (!byMember.has(name)) byMember.set(name, new Set());
-    byMember.get(name).add(dt);
-  }
-
-  const out = [];
-  for (const [name, datesSet] of byMember) {
-    if (hasFourConsecutive(datesSet, globalDates)) {
-      out.push(`⭐ Shout out to ${name} for showing up 4 weeks in a row!`);
-    }
-  }
-  return out.sort();
-}
-
-function buildHostFlags(historicalRows) {
-  const dates = uniqueSortedDates(historicalRows);
-  if (dates.length < 3) return [];
-
-  const lastThree = dates.slice(-3);
-  const now = new Date();
-  const start = new Date(now);
-  start.setDate(start.getDate() - 12 * 7);
-  const end = new Date(now);
-  end.setDate(end.getDate() - 4 * 7);
-
-  const in412Window = (ymdStr) => {
-    const d = parseYmd(ymdStr);
-    return d && d >= start && d <= end;
-  };
-
-  const membersInWindow = new Set();
-  for (const r of historicalRows) {
-    const ds = String(r.date || '').slice(0, 10);
-    if (!in412Window(ds)) continue;
-    const n = String(r.member_name || '').trim();
-    if (n) membersInWindow.add(n);
-  }
-
   const flags = [];
-  for (const name of membersInWindow) {
-    const memberDates = new Set(
-      historicalRows
-        .filter((r) => String(r.member_name || '').trim() === name)
-        .map((r) => String(r.date || '').slice(0, 10)),
-    );
-    const absentLastThree = lastThree.every((d) => !memberDates.has(d));
-    if (absentLastThree) flags.push(name);
+  for (const name of recentNames) {
+    if (name && !todayNames.has(name)) flags.push(name);
   }
   return flags.sort();
 }

@@ -1,26 +1,20 @@
 import { APPS_SCRIPT_URL } from './constants.js';
 
-/**
- * @param {{ member_name: string, company?: string, type: string, content: string, link?: string }} data
- * @returns { Promise<{ success: true } | { success: false, error: string }> }
- */
 export async function submitContribution(data) {
   try {
     const params = new URLSearchParams({
       action: 'submit',
       member_name: data.member_name || '',
       company: data.company || '',
-      type: data.type || '',
-      content: data.content || '',
-      link: data.link || ''
+      pitch: data.pitch || '',
+      event: data.event || '',
+      event_link: data.event_link || '',
+      announcement: data.announcement || '',
     });
 
     const res = await fetch(
       APPS_SCRIPT_URL + '?' + params.toString(),
-      {
-        method: 'GET',
-        mode: 'cors'
-      }
+      { method: 'GET', mode: 'cors' }
     );
 
     if (!res.ok) return { success: false, error: 'Server error' };
@@ -31,9 +25,6 @@ export async function submitContribution(data) {
   }
 }
 
-/**
- * @returns { Promise<object[]> }
- */
 export async function fetchToday() {
   try {
     const url = new URL(APPS_SCRIPT_URL);
@@ -41,24 +32,14 @@ export async function fetchToday() {
     const res = await fetch(url.toString(), { method: 'GET', mode: 'cors' });
     const text = await res.text();
     let parsed = null;
-    try {
-      parsed = text ? JSON.parse(text) : null;
-    } catch {
-      return [];
-    }
+    try { parsed = text ? JSON.parse(text) : null; } catch { return []; }
     if (!res.ok) return [];
     if (Array.isArray(parsed)) return parsed;
     if (parsed && Array.isArray(parsed.rows)) return parsed.rows;
     return [];
-  } catch {
-    return [];
-  }
+  } catch { return []; }
 }
 
-/**
- * @param { number } [weeks=12]
- * @returns { Promise<object[]> }
- */
 export async function fetchHistory(weeks = 12) {
   try {
     const url = new URL(APPS_SCRIPT_URL);
@@ -67,16 +48,10 @@ export async function fetchHistory(weeks = 12) {
     const res = await fetch(url.toString(), { method: 'GET', mode: 'cors' });
     const text = await res.text();
     let parsed = null;
-    try {
-      parsed = text ? JSON.parse(text) : null;
-    } catch {
-      return [];
-    }
+    try { parsed = text ? JSON.parse(text) : null; } catch { return []; }
     if (!res.ok) return [];
     if (Array.isArray(parsed)) return parsed;
     if (parsed && Array.isArray(parsed.rows)) return parsed.rows;
     return [];
-  } catch {
-    return [];
-  }
+  } catch { return []; }
 }
