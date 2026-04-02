@@ -19,11 +19,13 @@ export async function submitContribution(data) {
       APPS_SCRIPT_URL + '?' + params.toString(),
       {
         method: 'GET',
-        mode: 'no-cors'
+        mode: 'cors'
       }
     );
 
-    return { success: true };
+    if (!res.ok) return { success: false, error: 'Server error' };
+    const json = await res.json();
+    return json.success ? { success: true } : { success: false, error: json.error };
   } catch (err) {
     return { success: false, error: err.message };
   }
