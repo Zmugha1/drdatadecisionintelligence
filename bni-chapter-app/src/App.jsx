@@ -1,11 +1,11 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MemberForm from './pages/MemberForm.jsx';
-import HostDashboard from './pages/HostDashboard.jsx';
+import { HostDashboardWithBoundary } from './pages/HostDashboard.jsx';
 
 const router = createBrowserRouter(
   [
     { path: '/', element: <MemberForm /> },
-    { path: '/host', element: <HostDashboard /> },
+    { path: '/host', element: <HostDashboardWithBoundary /> },
   ],
   { basename: '/bni' },
 );

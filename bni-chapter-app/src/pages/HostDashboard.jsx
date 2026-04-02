@@ -1,9 +1,32 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Component, useCallback, useEffect, useMemo, useState } from 'react';
 import SubmissionList from '../components/SubmissionList.jsx';
 import EmailPreview from '../components/EmailPreview.jsx';
 import { generateEmail } from '../lib/emailAlgorithm.js';
 import { fetchHistory, fetchToday } from '../lib/sheetsApi.js';
 import { CHAPTER_NAME } from '../lib/constants.js';
+
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { error: null };
+  }
+  static getDerivedStateFromError(error) {
+    return { error };
+  }
+  render() {
+    if (this.state.error) {
+      return (
+        <div style={{ padding: 32, fontFamily: 'sans-serif', color: '#2D4459' }}>
+          <h2>Something went wrong loading the host dashboard.</h2>
+          <pre style={{ color: '#F05F57', fontSize: 12, marginTop: 16 }}>
+            {this.state.error.message}
+          </pre>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 function groupRows(rows) {
   const pitches = [];
@@ -31,7 +54,7 @@ function formatHeaderDate(d) {
   }
 }
 
-export default function HostDashboard() {
+function HostDashboard() {
   const [rawRows, setRawRows] = useState([]);
   const [historyRows, setHistoryRows] = useState([]);
   const [deletedTs, setDeletedTs] = useState(() => new Set());
@@ -177,5 +200,13 @@ export default function HostDashboard() {
         </div>
       </main>
     </div>
+  );
+}
+
+export function HostDashboardWithBoundary() {
+  return (
+    <ErrorBoundary>
+      <HostDashboard />
+    </ErrorBoundary>
   );
 }
