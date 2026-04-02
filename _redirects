@@ -1,5 +1,6 @@
-/bni/host     /bni/index.html    200!
-/bni/host/    /bni/index.html    200!
-/bni/*        /bni/index.html    200!
-/bni          /bni/index.html    200!
-/*            /index.html        200
+/bni/assets/*  /bni/assets/:splat  200
+/bni/host      /bni/index.html     200!
+/bni/host/     /bni/index.html     200!
+/bni/*         /bni/index.html     200!
+/bni           /bni/index.html     200!
+/*             /index.html         200
