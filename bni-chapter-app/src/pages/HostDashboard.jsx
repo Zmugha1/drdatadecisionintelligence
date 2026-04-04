@@ -203,7 +203,9 @@ function HostDashboard() {
     setLoadingDate(true);
     setEmailSubject('');
     setEmailBody('');
+    setCopied(false);
     setRemoved(new Set());
+    setMembers([]);
     const rows = await fetchByDate(dateStr);
     setMembers(Array.isArray(rows) ? rows : []);
     setLoadingDate(false);
@@ -213,7 +215,9 @@ function HostDashboard() {
     setSelectedDate(null);
     setEmailSubject('');
     setEmailBody('');
+    setCopied(false);
     setRemoved(new Set());
+    setMembers([]);
     poll();
   };
 
@@ -237,6 +241,7 @@ function HostDashboard() {
     const { subject, body } = generateEmail({
       todaySubmissions: visible,
       historicalSubmissions: hist,
+      date: selectedDate || ymd(new Date()),
     });
     setEmailSubject(subject);
     setEmailBody(body);

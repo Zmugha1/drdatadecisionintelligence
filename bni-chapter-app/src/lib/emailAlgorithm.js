@@ -1,9 +1,10 @@
 /**
  * Pure deterministic email generation. No imports, no I/O.
- * @param {{ todaySubmissions: object[], historicalSubmissions: object[] }} input
+ * @param {{ todaySubmissions: object[], historicalSubmissions: object[], date?: string }} input
+ * @param {string} [input.date] Meeting date as YYYY-MM-DD for subject line (defaults to today)
  * @returns {{ subject: string, body: string, hostFlags: string[] }}
  */
-export function generateEmail({ todaySubmissions, historicalSubmissions }) {
+export function generateEmail({ todaySubmissions, historicalSubmissions, date }) {
   const CHAPTER_NAME = 'BNI Revenue by Referrals';
   const MEETING_DAY = 'Wednesday';
   const MEETING_LOCATION = 'Machine Shed';
@@ -12,9 +13,9 @@ export function generateEmail({ todaySubmissions, historicalSubmissions }) {
   const today = todaySubmissions || [];
   const historical = historicalSubmissions || [];
 
-  const now = new Date();
+  const now = date ? new Date(`${date}T12:00:00`) : new Date();
   const subject = `${CHAPTER_NAME} - Weekly Recap ${formatMonthDayYear(now)}`;
-  const greeting = buildGreeting(now);
+  const greeting = buildGreeting(new Date());
   const intro = `We met this ${MEETING_DAY} at ${MEETING_LOCATION}. Here is everything your chapter shared this week.`;
   const sep = '─────────────────────────────────';
 
