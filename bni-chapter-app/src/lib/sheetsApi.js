@@ -55,3 +55,19 @@ export async function fetchHistory(weeks = 12) {
     return [];
   } catch { return []; }
 }
+
+export async function fetchByDate(dateStr) {
+  try {
+    const url = new URL(APPS_SCRIPT_URL);
+    url.searchParams.set('mode', 'date');
+    url.searchParams.set('date', dateStr);
+    const res = await fetch(url.toString(), { method: 'GET', mode: 'cors' });
+    const text = await res.text();
+    let parsed = null;
+    try { parsed = text ? JSON.parse(text) : null; } catch { return []; }
+    if (!res.ok) return [];
+    if (Array.isArray(parsed)) return parsed;
+    if (parsed && Array.isArray(parsed.rows)) return parsed.rows;
+    return [];
+  } catch { return []; }
+}

@@ -106,6 +106,10 @@ function doGet(e) {
       filtered = rows.filter(function(row) {
         return formatDate(row.date) === today;
       });
+    } else if (mode === "date" && params.date) {
+      filtered = rows.filter(function(row) {
+        return formatDate(row.date) === params.date;
+      });
     } else if (mode === "history") {
       var weeksBack = parseInt(params.weeks || "12", 10);
       var cutoff = new Date();
