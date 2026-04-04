@@ -1,4 +1,4 @@
-import { Component, useCallback, useEffect, useState } from 'react';
+import React, { Component, useCallback, useEffect, useRef, useState } from 'react';
 import { generateEmail } from '../lib/emailAlgorithm.js';
 import { fetchByDate, fetchHistory, fetchToday } from '../lib/sheetsApi.js';
 import { CHAPTER_NAME } from '../lib/constants.js';
@@ -155,6 +155,11 @@ function HostDashboard() {
   const [members, setMembers] = useState([]);
   const [pastDates, setPastDates] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
+  const selectedDateRef = useRef(selectedDate);
+  useEffect(() => {
+    selectedDateRef.current = selectedDate;
+  }, [selectedDate]);
+
   const [removed, setRemoved] = useState(() => new Set());
   const [loading, setLoading] = useState(true);
   const [loadingDate, setLoadingDate] = useState(false);
@@ -193,10 +198,10 @@ function HostDashboard() {
   useEffect(() => {
     poll();
     const id = setInterval(() => {
-      if (!selectedDate) poll();
+      if (!selectedDateRef.current) poll();
     }, 5000);
     return () => clearInterval(id);
-  }, [poll, selectedDate]);
+  }, [poll]);
 
   const selectDate = async (dateStr) => {
     setSelectedDate(dateStr);
