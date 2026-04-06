@@ -14,6 +14,7 @@ import AskClaude from './pages/AskClaude';
 import BlogPostDataToMoney from './pages/BlogPost-DataToMoney';
 import BlogPostDataReadiness from './pages/BlogPost-DataReadiness';
 import BlogPostCoachingCompass from './pages/BlogPost-CoachingCompass';
+import BlogPostFollowUpEmail from './pages/BlogPost-FollowUpEmail';
 import DataToDemo from './pages/DataToDemo';
 import SmallBusiness from './pages/SmallBusiness';
 import CaseStudyDetail from './pages/CaseStudyDetail';
@@ -37,6 +38,7 @@ function resolvePageFromLocation(): string {
   if (path === '/blog/data-to-money') return 'blog-data-to-money';
   if (path === '/blog/data-readiness') return 'blog-data-readiness';
   if (path === '/blog/coaching-compass') return 'blog-coaching-compass';
+  if (path === '/blog/follow-up-email') return 'blog-follow-up-email';
   if (path === '/data-to-demo') return 'data-to-demo';
   if (path === '/small-business') return 'small-business';
   if (PATH_TO_CASE_STUDY[path]) return PATH_TO_CASE_STUDY[path];
@@ -87,6 +89,8 @@ function App() {
       return <BlogPostDataReadiness />;
     case 'blog-coaching-compass':
       return <BlogPostCoachingCompass />;
+    case 'blog-follow-up-email':
+      return <BlogPostFollowUpEmail />;
     case 'data-to-demo':
       return <DataToDemo />;
     case 'small-business':

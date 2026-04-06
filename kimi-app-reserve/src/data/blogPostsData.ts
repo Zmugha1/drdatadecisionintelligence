@@ -38,6 +38,18 @@ export const BLOG_INDEX_INTRO =
 
 export const BLOG_POSTS: BlogPostIndex[] = [
   {
+    id: 'follow-up-email',
+    date: 'March 28, 2026',
+    readTime: '12 min read',
+    categoryLabel: 'Productivity',
+    title: 'The Follow-Up Email Problem: How Much Expert Time Are You Actually Wasting?',
+    excerpt:
+      'A simple calculation that will change how you think about the first hour after every meeting. Expert time lost to follow-up emails adds up faster than almost anyone tracks.',
+    tags: ['Skill Threshold Zone', 'Professional Practice', 'AI Voice'],
+    filter: 'coaching',
+    pageKey: 'blog-follow-up-email',
+  },
+  {
     id: 'coaching-compass',
     date: 'February 14, 2026',
     readTime: '10 min read',
