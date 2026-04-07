@@ -18,6 +18,7 @@ function buildFooterLinks() {
       links: [
         { label: 'About', href: hrefPage('about') },
         { label: 'Blog', href: hrefPage('blog') },
+        { label: 'Find your zone', href: 'https://drdatadecisionintelligence.com/find-your-zone/' },
         { label: 'FAQ', href: hrefPage('faq') },
         { label: 'Contact', href: hrefHomeHash('cta') },
       ],

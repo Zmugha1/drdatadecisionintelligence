@@ -23,3 +23,15 @@ if (fs.existsSync(rootRedirects)) {
   fs.copyFileSync(rootRedirects, path.join(out, '_redirects'));
   console.log('Copied repo _redirects -> dist/_redirects');
 }
+
+function copyStaticDir(name) {
+  const src = path.join(root, name);
+  const dest = path.join(out, name);
+  if (fs.existsSync(src)) {
+    fs.cpSync(src, dest, { recursive: true });
+    console.log(`Copied ${name}/ -> dist/${name}/`);
+  }
+}
+
+copyStaticDir('workshop');
+copyStaticDir('find-your-zone');

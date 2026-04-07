@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Your Zone · Skill Threshold Zone Diagnostic · Dr. Data</title>
+  <meta name="description" content="8 questions. Find out whether you are below, above, or inside the Zone on AI and expert time. Dr. Data Decision Intelligence.">
+  <link rel="canonical" href="https://drdatadecisionintelligence.com/find-your-zone/">
+  <meta property="og:url" content="https://drdatadecisionintelligence.com/find-your-zone/">
+  <meta property="og:title" content="Find Your Zone · Dr. Data Decision Intelligence">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal: #2DD4BF;
+      --teal-soft: #C8E8E5;
+      --teal-mint: #E8F7F7;
+      --coral: #F87171;
+      --coral-soft: #FAD4D2;
+      --navy: #1E2A3A;
+      --ink: #1A2633;
+      --cream: #F5EDD8;
+      --white: #FFFFFF;
+      --gray: #6B7280;
+      --border: #E0E6E8;
+      --lgray: #F4F7F8;
+      --inside: #0D9488;
+      --above: #D97706;
+      --mono: ui-monospace, 'Cascadia Code', 'Courier New', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+    .font-mono { font-family: var(--mono); }
+
+    .site-header {
+      background: var(--navy);
+      border-bottom: 3px solid var(--teal);
+      padding: 0 1.25rem;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-mark {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--teal);
+      font-family: 'Space Grotesk', serif;
+      font-size: 16px; font-weight: 700; color: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .brand-text .name { font-family: 'Space Grotesk', sans-serif; font-size: 16px; color: var(--teal); line-height: 1; }
+    .brand-text .tag { font-family: var(--mono); font-size: 9px; color: var(--gray); letter-spacing: 0.05em; }
+
+    .intro-wrap {
+      background: var(--navy);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .intro-wrap.hidden { display: none; }
+
+    .main-inner { max-width: 640px; margin: 0 auto; padding: 2.25rem 1.25rem 5rem; }
+
+    .progress-bar-bg { background: var(--border); border-radius: 4px; height: 4px; margin-bottom: 28px; }
+    .progress-bar-fill {
+      background: var(--teal); height: 4px; border-radius: 4px;
+      transition: width 0.4s ease;
+    }
+    .progress-meta {
+      display: flex; justify-content: space-between; margin-top: 8px;
+      font-family: var(--mono); font-size: 10px; color: var(--gray); letter-spacing: 0.03em;
+    }
+
+    .q-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-top: 3px solid var(--teal);
+      border-radius: 10px;
+      padding: 1.75rem 1.5rem;
+    }
+    .q-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      color: var(--navy);
+      line-height: 1.4;
+      margin-bottom: 1.5rem;
+    }
+    .opt-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--navy);
+      background: var(--cream);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 13px 16px;
+      cursor: pointer;
+      text-align: left;
+      line-height: 1.5;
+      transition: all 0.18s;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+    .opt-btn:hover:not(:disabled) { border-color: var(--teal); }
+    .opt-btn.selected { background: var(--teal); color: var(--white); border-color: var(--teal); }
+    .opt-btn:disabled { cursor: default; }
+
+    .hint {
+      margin-top: 16px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--gray);
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+
+    .btn {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      border-radius: 6px;
+      padding: 12px 24px;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary { background: var(--teal); color: var(--white); }
+    .btn-navy { background: var(--navy); color: var(--white); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid var(--border);
+    }
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+    .result-zone-header {
+      background: var(--navy);
+      border-radius: 10px;
+      padding: 28px 28px 24px;
+      margin-bottom: 20px;
+    }
+    .result-zone-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--teal);
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .result-headline {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 28px;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .zone-pill {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      padding: 3px 10px;
+      border-radius: 3px;
+      color: var(--white);
+    }
+
+    .explain-box {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+    }
+    .explain-box p { font-size: 14px; color: var(--gray); line-height: 1.75; }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 560px) {
+      .stat-grid { grid-template-columns: 1fr; }
+    }
+    .stat-cell {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .stat-val { font-family: Georgia, serif; font-size: 20px; color: var(--ink); line-height: 1.1; margin-bottom: 4px; }
+    .stat-lbl { font-family: var(--mono); font-size: 9px; letter-spacing: 0.05em; }
+
+    .job-row {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--teal);
+      border-radius: 6px;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+
+    .stz-box {
+      background: var(--lgray);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+    }
+    .stz-row { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 8px; }
+
+    .cta-box {
+      background: var(--teal);
+      border-radius: 10px;
+      padding: 28px;
+      text-align: center;
+    }
+    .cta-box h3 {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .cta-box p { font-size: 13px; color: var(--navy); max-width: 440px; margin: 0 auto 22px; line-height: 1.7; }
+    .cta-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .btn-retake-light {
+      background: rgba(255,255,255,0.25);
+      border: none;
+      color: var(--navy);
+    }
+
+    .site-footer {
+      background: var(--navy);
+      padding: 16px 24px;
+      text-align: center;
+    }
+    .site-footer p {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--gray);
+      letter-spacing: 0.03em;
+    }
+    .site-footer a { color: var(--teal); text-decoration: none; }
+    .site-footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="https://drdatadecisionintelligence.com/" title="Dr. Data Decision Intelligence">
+      <span class="brand-mark">D</span>
+      <span class="brand-text">
+        <div class="name">Dr. Data</div>
+        <div class="tag">DECISION INTELLIGENCE</div>
+      </span>
+    </a>
+    <span class="font-mono" style="font-size:11px;color:var(--gray);letter-spacing:0.05em;">ZONE DIAGNOSTIC</span>
+  </header>
+
+  <div id="intro-banner" class="intro-wrap">
+    <div class="font-mono" style="font-size:10px;color:var(--teal);letter-spacing:2px;margin-bottom:12px;">FIND YOUR ZONE</div>
+    <h1 class="font-display" style="font-size:28px;color:var(--white);line-height:1.25;margin-bottom:12px;max-width:560px;margin-left:auto;margin-right:auto;">
+      Are you doing work AI should be doing for you?
+    </h1>
+    <p style="font-size:14px;color:var(--teal-soft);line-height:1.7;max-width:480px;margin:0 auto 24px;">
+      8 questions. 5 minutes. Find out exactly which jobs in your practice are costing you the most expert time, and what to do about it.
+    </p>
+    <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;">
+      <div style="text-align:center;"><div class="font-display" style="font-size:16px;color:var(--teal);">8 questions</div><div class="font-mono" style="font-size:9px;color:var(--gray);">5 MINUTES</div></div>
+      <div style="text-align:center;"><div class="font-display" style="font-size:16px;color:var(--teal);">Instant result</div><div class="font-mono" style="font-size:9px;color:var(--gray);">NO EMAIL REQUIRED</div></div>
+      <div style="text-align:center;"><div class="font-display" style="font-size:16px;color:var(--teal);">Private</div><div class="font-mono" style="font-size:9px;color:var(--gray);">NO DATA STORED</div></div>
+    </div>
+  </div>
+
+  <main class="main-inner" id="main-root"></main>
+
+  <footer class="site-footer">
+    <p>
+      Dr. Zubia Mughal, Ed.D. · Dr. Data Decision Intelligence LLC · Milwaukee, WI ·
+      <a href="https://drdatadecisionintelligence.com/">drdatadecisionintelligence.com</a> ·
+      <a href="tel:+14145447777">414-544-7777</a>
+    </p>
+    <p style="margin-top:8px;font-size:9px;opacity:0.75;">
+      Skill Threshold Zone (STZ) Framework. All rights reserved. Dr. Data Decision Intelligence LLC. 2026
+    </p>
+  </footer>
+
+  <script>
+(function () {
+  var C = {
+    teal: '#2DD4BF', navy: '#1E2A3A', coral: '#F87171', gold: '#D97706', green: '#0D9488',
+    white: '#FFFFFF', ink: '#1A2633', slate: '#6B7280', mgray: '#E0E6E8', cream: '#F5EDD8', lgray: '#F4F7F8'
+  };
+
+  var QS = [
+    { q: 'Think about preparing for an important client meeting or session. How does it happen right now?', opts: [
+      { t: 'AI prepares everything automatically  -  I just open it', i: 2 },
+      { t: 'I use AI to help but I still do most of the work manually', b: 1 },
+      { t: 'I do it manually from scratch every time', b: 2 },
+      { t: 'I usually wing it or skip preparation entirely', b: 3 }
+    ]},
+    { q: 'When AI produces an output for a job you need done  -  how often do you check whether it actually did the job right?', opts: [
+      { t: 'Always  -  I interrogate every output before acting on it', i: 1 },
+      { t: 'Most of the time  -  I skim it then usually accept', a: 1 },
+      { t: 'Sometimes  -  only if something looks obviously off', a: 1 },
+      { t: 'Rarely  -  if it looks plausible I move on', a: 3 }
+    ]},
+    { q: 'When you follow up after a meeting, how long does it take you to write a good follow-up email?', opts: [
+      { t: 'Under 5 minutes  -  I have a system that handles most of it', i: 2 },
+      { t: '10 to 20 minutes  -  I have a rough process', b: 1 },
+      { t: '30 to 45 minutes  -  I write every one from scratch', b: 2 },
+      { t: 'Longer than that  -  or I often forget to send one at all', b: 3 }
+    ]},
+    { q: 'When you need to send a proposal after someone asks for your services, how long is the turnaround?', opts: [
+      { t: 'Same day  -  my system drafts it and I review and send', i: 2 },
+      { t: 'Next day  -  I have a template I customize', b: 1 },
+      { t: '2 to 5 days  -  I write it from scratch each time', b: 2 },
+      { t: 'Longer than that  -  or I put it off and lose the momentum', b: 3 }
+    ]},
+    { q: 'When AI does a job for you, does the result sound like YOU  -  your reasoning, your voice, your standard?', opts: [
+      { t: 'Yes  -  I have built prompts that capture how I think', i: 2 },
+      { t: 'Sometimes  -  when I put real effort into the request', b: 1 },
+      { t: 'Rarely  -  it usually sounds like generic AI', b: 2 },
+      { t: 'I have never thought to make it sound like me', b: 3 }
+    ]},
+    { q: 'How do you currently create content  -  LinkedIn posts, blog articles, newsletters?', opts: [
+      { t: 'Consistently  -  AI drafts in my voice and I refine', i: 2 },
+      { t: 'Occasionally  -  when I have time to sit down and write', b: 1 },
+      { t: 'Rarely  -  I know I should but it takes too long', b: 2 },
+      { t: 'Almost never  -  I do not have a process for this at all', b: 3 }
+    ]},
+    { q: 'Is there a clear line in your work between what AI handles and what only YOU can decide?', opts: [
+      { t: 'Yes  -  I have drawn that line and AI respects it', i: 2 },
+      { t: 'Roughly  -  I have a sense of it but it is not defined', b: 1 },
+      { t: 'Not really  -  it depends on how I feel that day', a: 1 },
+      { t: 'I have not thought about where that line should be', b: 2 }
+    ]},
+    { q: 'When you correct an AI output  -  what do you do with that correction?', opts: [
+      { t: 'I log it so the AI learns not to make that mistake again', i: 2 },
+      { t: 'I fix it this time but do not record the correction', b: 1 },
+      { t: 'I redo the whole thing myself from scratch', b: 2 },
+      { t: 'I rarely correct  -  I usually just accept or ignore', a: 2 }
+    ]}
+  ];
+
+  var PROFILES = {
+    below: {
+      zone: 'BELOW THE ZONE',
+      color: C.coral,
+      head: 'You are doing work AI should be doing for you.',
+      body: 'You are spending expert time on execution  -  preparing manually, writing every email from scratch, delaying proposals, skipping content. Each of these jobs has an AI-ready workflow waiting to be built in your voice. The Zone shift starts with one job.',
+      cost: 'Estimated expert time lost per week',
+      hours: '8 to 12 hours',
+      cta: 'Book a Zone Assessment'
+    },
+    above: {
+      zone: 'ABOVE THE ZONE',
+      color: C.gold,
+      head: 'You are using AI but your expertise is leaking.',
+      body: 'You have handed jobs to AI but you have not taught it how YOU do them. The output goes out but it does not sound like you, it misses the judgment layer, and over time it erodes trust instead of building it. The fix is teaching AI your voice before it runs.',
+      cost: 'Estimated expertise leak risk',
+      hours: 'High',
+      cta: 'Book a Zone Assessment'
+    },
+    inside: {
+      zone: 'INSIDE THE ZONE',
+      color: C.green,
+      head: 'You have the right instinct. Now make it systematic.',
+      body: 'You understand the boundary between what AI handles and what you decide. The next step is making it consistent across all your core jobs  -  meeting prep, follow-up, proposals, content  -  so the Zone holds even when you are running at full capacity.',
+      cost: 'Opportunity to compound',
+      hours: 'High',
+      cta: 'Book a Zone Assessment'
+    }
+  };
+
+  var cur = 0;
+  var answers = [];
+  var sel = null;
+  var done = false;
+  var scores = null;
+
+  var root = document.getElementById('main-root');
+  var intro = document.getElementById('intro-banner');
+
+  function esc(s) {
+    if (!s) return '';
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+  }
+
+  function render() {
+    if (intro) {
+      intro.classList.toggle('hidden', cur !== 0 || done || answers.length > 0);
+    }
+
+    if (!done) {
+      var q = QS[cur];
+      var pct = Math.round((cur / QS.length) * 100);
+      var optsHtml = q.opts.map(function (opt, i) {
+        var isSel = sel === opt;
+        return '<button type="button" class="opt-btn' + (isSel ? ' selected' : '') + '" data-i="' + i + '"' + (sel ? ' disabled' : '') + '>' + esc(opt.t) + '</button>';
+      }).join('');
+
+      root.innerHTML =
+        '<div class="progress-bar-bg"><div class="progress-bar-fill" style="width:' + pct + '%"></div></div>' +
+        '<div class="progress-meta"><span>QUESTION ' + (cur + 1) + ' OF ' + QS.length + '</span><span>' + pct + '% COMPLETE</span></div>' +
+        '<div class="q-card">' +
+        '<div class="q-text">' + esc(q.q) + '</div>' +
+        '<div id="opts">' + optsHtml + '</div></div>' +
+        '<p class="hint">YOUR RESULT APPEARS INSTANTLY AFTER QUESTION 8</p>';
+
+      document.querySelectorAll('#opts .opt-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var i = parseInt(btn.getAttribute('data-i'), 10);
+          pick(q.opts[i]);
+        });
+      });
+      return;
+    }
+
+    var b = scores.b, a = scores.a, i = scores.i;
+    var position = 'below';
+    if (a > 5 && b > 5) position = 'above';
+    else if (a > 5) position = 'above';
+    else if (b <= 4 && i >= 4) position = 'inside';
+    else position = 'below';
+
+    var p = PROFILES[position];
+    var weeklyHours = position === 'below' ? b * 1.5 : position === 'above' ? 4 : 2;
+    var annualCost = Math.round(weeklyHours * 150 * 48 / 100) * 100;
+    var jobsLabel = position === 'inside' ? 'Systematize' : '4 core jobs';
+
+    var fourJobs = [
+      { n: '01', job: 'Meeting Preparation', time: '45 min saved per meeting' },
+      { n: '02', job: 'Follow-Up Email', time: '35 min saved per email' },
+      { n: '03', job: 'Proposal Turnaround', time: '4 hrs saved per proposal' },
+      { n: '04', job: 'Content Creation', time: '3 hrs saved per week' }
+    ];
+
+    var jobsHtml = fourJobs.map(function (j) {
+      return '<div class="job-row"><div style="display:flex;gap:12px;align-items:center;"><span class="font-mono" style="font-size:11px;color:var(--teal);font-weight:bold;">' + j.n + '</span>' +
+        '<span style="font-weight:600;font-size:13px;color:var(--ink);">' + esc(j.job) + '</span></div>' +
+        '<span class="font-mono" style="font-size:10px;color:var(--gray);">' + esc(j.time) + '</span></div>';
+    }).join('');
+
+    var layers = [
+      { n: 'L1', label: 'Your Voice', desc: 'How you reason, write, and decide  -  encoded before any job runs' },
+      { n: 'L2', label: 'Your Skills', desc: 'Every step inside each job named, defined, and sequenced' },
+      { n: 'L3', label: 'Your Flow', desc: 'Triggers, automation, and job chains that run without you' },
+      { n: 'L4', label: 'Your Boundary', desc: 'Where AI stops and you decide  -  the approval gate' },
+      { n: 'L5', label: 'Your Loop', desc: 'Every correction teaches the system  -  it compounds forever' }
+    ];
+    var layersHtml = layers.map(function (l) {
+      return '<div class="stz-row"><span class="font-mono" style="font-size:10px;color:var(--teal);font-weight:bold;flex-shrink:0;">' + l.n + '</span>' +
+        '<div><span style="font-weight:600;font-size:13px;color:var(--navy);">' + esc(l.label) + ' </span>' +
+        '<span style="font-size:12px;color:var(--gray);">' + esc(l.desc) + '</span></div></div>';
+    }).join('');
+
+    root.innerHTML =
+      '<div class="result-zone-header">' +
+      '<div class="result-zone-label">YOUR ZONE POSITION</div>' +
+      '<div class="result-headline">' + esc(p.head) + '</div>' +
+      '<span class="zone-pill" style="background:' + p.color + ';">' + esc(p.zone) + '</span></div>' +
+      '<div class="explain-box" style="border-left:4px solid ' + p.color + '"><p>' + esc(p.body) + '</p></div>' +
+      '<div class="stat-grid">' +
+      '<div class="stat-cell" style="border-top:2px solid ' + p.color + '"><div class="stat-val">~' + Math.round(weeklyHours) + ' hrs</div><div class="stat-lbl" style="color:' + p.color + ';">EXPERT HOURS LOST / WEEK</div></div>' +
+      '<div class="stat-cell" style="border-top:2px solid ' + C.coral + '"><div class="stat-val">$' + annualCost.toLocaleString() + '</div><div class="stat-lbl" style="color:' + C.coral + ';">ANNUAL VALUE AT RISK</div></div>' +
+      '<div class="stat-cell" style="border-top:2px solid ' + C.teal + '"><div class="stat-val">' + esc(jobsLabel) + '</div><div class="stat-lbl" style="color:' + C.teal + ';">JOBS TO AUTOMATE FIRST</div></div></div>' +
+      '<div style="margin-bottom:20px;"><div class="font-mono" style="font-size:10px;color:var(--gray);letter-spacing:1.5px;margin-bottom:12px;">THE FOUR JOBS YOUR SYSTEM SHOULD BE RUNNING</div>' + jobsHtml + '</div>' +
+      '<div class="stz-box"><div class="font-mono" style="font-size:10px;color:var(--teal);letter-spacing:1.5px;margin-bottom:12px;">HOW IT GETS BUILT  -  THE STZ FRAMEWORK</div>' + layersHtml +
+      '<div class="font-mono" style="font-size:9px;color:var(--gray);margin-top:14px;letter-spacing:0.05em;">Skill Threshold Zone (STZ) Framework  -  Dr. Data Decision Intelligence LLC. All rights reserved.</div></div>' +
+      '<div class="cta-box">' +
+      '<h3>Ready to build a private AI that thinks like you?</h3>' +
+      '<p>A Zone Assessment is a free 30-minute conversation. We map your four core jobs, identify your biggest Zone gap, and show you exactly what your private system looks like. No obligation.</p>' +
+      '<div class="cta-actions">' +
+      '<a class="btn btn-navy" href="https://calendly.com/zubiaml4l/15min" target="_blank" rel="noopener noreferrer">Book a Zone Assessment</a>' +
+      '<button type="button" class="btn btn-retake-light" id="btn-retake">Retake the Diagnostic</button></div>' +
+      '<div class="font-mono" style="font-size:10px;color:var(--navy);margin-top:16px;letter-spacing:0.05em;opacity:0.85;">FREE CONVERSATION · NO OBLIGATION · 24-HOUR RESPONSE · <a href="tel:+14145447777" style="color:inherit;">414-544-7777</a></div></div>';
+
+    document.getElementById('btn-retake').addEventListener('click', retake);
+  }
+
+  function pick(opt) {
+    if (sel) return;
+    sel = opt;
+    render();
+    setTimeout(function () {
+      var next = answers.concat([opt]);
+      if (cur < QS.length - 1) {
+        answers = next;
+        cur++;
+        sel = null;
+        render();
+      } else {
+        var b = 0, a = 0, i = 0;
+        next.forEach(function (x) {
+          b += x.b || 0;
+          a += x.a || 0;
+          i += x.i || 0;
+        });
+        scores = { b: b, a: a, i: i };
+        done = true;
+        sel = null;
+        render();
+      }
+    }, 320);
+  }
+
+  function retake() {
+    cur = 0;
+    answers = [];
+    sel = null;
+    done = false;
+    scores = null;
+    render();
+  }
+
+  render();
+})();
+  </script>
+</body>
+</html>
