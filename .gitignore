@@ -56,3 +56,9 @@ node_modules/
 
 # React dashboard (dashboard-react/)
 dashboard-react/dist/
+
+# Local client projects and data (keep out of website repo)
+AI-Admin-for-your-Business/
+Dr-Anthony-Miller-Intel/
+Suzy_Intel_Desktop/
+drraj_intel.db
