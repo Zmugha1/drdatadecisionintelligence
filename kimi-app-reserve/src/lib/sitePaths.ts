@@ -2,6 +2,18 @@
  * Base-aware URLs for this SPA (Vite `import.meta.env.BASE_URL`).
  * Use instead of hardcoded `/?page=...` so blog and other pages work when deployed under a subpath.
  */
+/**
+ * Pages that have a clean URL path. Single source of truth read by both
+ * hrefPage (outbound links) and resolvePageFromLocation in App.tsx (inbound).
+ * Add a page here once and both directions stay in sync.
+ */
+export const PAGE_PATHS: Record<string, string> = {
+  about: '/about',
+  faq: '/faq',
+  governance: '/governance',
+  survey: '/survey',
+};
+
 export function hrefPage(page: string): string {
   const base = import.meta.env.BASE_URL;
   if (page === 'home') {
