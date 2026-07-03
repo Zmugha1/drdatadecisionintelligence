@@ -20,6 +20,7 @@ import SmallBusiness from './pages/SmallBusiness';
 import CaseStudyDetail from './pages/CaseStudyDetail';
 import Pulse from './pages/Pulse';
 import { CASE_STUDY_ORDER } from './data/caseStudiesData';
+import { PAGE_PATHS } from './lib/sitePaths';
 
 const PATH_TO_CASE_STUDY: Record<string, string> = {
   '/case-studies/milwaukee': 'case-study-milwaukee',
@@ -42,6 +43,8 @@ function resolvePageFromLocation(): string {
   if (path === '/data-to-demo') return 'data-to-demo';
   if (path === '/small-business') return 'small-business';
   if (PATH_TO_CASE_STUDY[path]) return PATH_TO_CASE_STUDY[path];
+  const cleanPathPage = Object.keys(PAGE_PATHS).find((page) => PAGE_PATHS[page] === path);
+  if (cleanPathPage) return cleanPathPage;
   const pageParam = new URLSearchParams(window.location.search).get('page');
   return pageParam || 'home';
 }
