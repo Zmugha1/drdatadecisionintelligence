@@ -19,6 +19,14 @@ export function hrefPage(page: string): string {
   if (page === 'home') {
     return base === './' ? './' : base;
   }
+  if (PAGE_PATHS[page]) {
+    const cleanPath = PAGE_PATHS[page];
+    if (base === './') {
+      return `.${cleanPath}`;
+    }
+    const trimmedBase = base.endsWith('/') ? base.slice(0, -1) : base;
+    return `${trimmedBase}${cleanPath}`;
+  }
   const q = `?page=${encodeURIComponent(page)}`;
   if (base === './') {
     return `./${q}`;
