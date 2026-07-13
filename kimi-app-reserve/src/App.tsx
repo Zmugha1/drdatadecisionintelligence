@@ -30,8 +30,10 @@ const PATH_TO_CASE_STUDY: Record<string, string> = {
   '/case-studies/new-york': 'case-study-new-york',
 };
 
-function resolvePageFromLocation(): string {
-  const path = window.location.pathname.replace(/\/$/, '') || '/';
+function resolvePageFromLocation(location?: { pathname: string; search: string }): string {
+  const pathname = location?.pathname ?? window.location.pathname;
+  const search = location?.search ?? window.location.search;
+  const path = pathname.replace(/\/$/, '') || '/';
   if (path === '/pulse') return 'pulse';
   if (path === '/ask-chatgpt') return 'ask-chatgpt';
   if (path === '/ask-claude') return 'ask-claude';
@@ -45,14 +47,21 @@ function resolvePageFromLocation(): string {
   if (PATH_TO_CASE_STUDY[path]) return PATH_TO_CASE_STUDY[path];
   const cleanPathPage = Object.keys(PAGE_PATHS).find((page) => PAGE_PATHS[page] === path);
   if (cleanPathPage) return cleanPathPage;
-  const pageParam = new URLSearchParams(window.location.search).get('page');
+  const pageParam = new URLSearchParams(search).get('page');
   return pageParam || 'home';
 }
 
-function App() {
-  const [page, setPage] = useState(resolvePageFromLocation);
+function App({ initialPath }: { initialPath?: string } = {}) {
+  const [page, setPage] = useState(() => {
+    if (initialPath !== undefined) {
+      const url = new URL(initialPath, 'http://localhost');
+      return resolvePageFromLocation({ pathname: url.pathname, search: url.search });
+    }
+    return resolvePageFromLocation();
+  });
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     const sync = () => setPage(resolvePageFromLocation());
     sync();
     window.addEventListener('popstate', sync);
