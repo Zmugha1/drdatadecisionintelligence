@@ -35,34 +35,36 @@ function applyMeta(shellHtml, meta, siteUrl) {
   const canonicalEsc = escapeAttr(canonical);
 
   let html = shellHtml;
-  html = html.replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`);
+  // Use function replacers so "$" in titles/descriptions is not treated as
+  // String.replace special patterns ($$, $&, $1, …).
+  html = html.replace(/<title>[^<]*<\/title>/, () => `<title>${title}</title>`);
   html = html.replace(
     /<meta\s+name="description"\s+content="[^"]*"\s*\/>/,
-    `<meta name="description" content="${description}" />`,
+    () => `<meta name="description" content="${description}" />`,
   );
   html = html.replace(
     /<link\s+rel="canonical"\s+href="[^"]*"\s*\/>/,
-    `<link rel="canonical" href="${canonicalEsc}" />`,
+    () => `<link rel="canonical" href="${canonicalEsc}" />`,
   );
   html = html.replace(
     /<meta\s+property="og:url"\s+content="[^"]*"\s*\/>/,
-    `<meta property="og:url" content="${canonicalEsc}" />`,
+    () => `<meta property="og:url" content="${canonicalEsc}" />`,
   );
   html = html.replace(
     /<meta\s+property="og:title"\s+content="[^"]*"\s*\/>/,
-    `<meta property="og:title" content="${title}" />`,
+    () => `<meta property="og:title" content="${title}" />`,
   );
   html = html.replace(
     /<meta\s+property="og:description"\s+content="[^"]*"\s*\/>/,
-    `<meta property="og:description" content="${description}" />`,
+    () => `<meta property="og:description" content="${description}" />`,
   );
   html = html.replace(
     /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/>/,
-    `<meta name="twitter:title" content="${title}" />`,
+    () => `<meta name="twitter:title" content="${title}" />`,
   );
   html = html.replace(
     /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/,
-    `<meta name="twitter:description" content="${description}" />`,
+    () => `<meta name="twitter:description" content="${description}" />`,
   );
   return html;
 }
@@ -71,7 +73,9 @@ function injectRoot(html, markup) {
   if (!html.includes('<div id="root"></div>')) {
     throw new Error('Shell HTML is missing empty <div id="root"></div>');
   }
-  return html.replace('<div id="root"></div>', `<div id="root">${markup}</div>`);
+  // Function replacer required: markup contains "$$$" taglines; a string
+  // replacement would collapse "$$$" → "$$" via replace's $$ semantics.
+  return html.replace('<div id="root"></div>', () => `<div id="root">${markup}</div>`);
 }
 
 /** Nested pages need ../assets when the client shell uses base: './'. */
@@ -121,6 +125,7 @@ async function buildSsrBundle() {
   await build({
     configFile: false,
     root: kimiRoot,
+    base: './',
     logLevel: 'warn',
     plugins: [reactPlugin()],
     resolve: {
