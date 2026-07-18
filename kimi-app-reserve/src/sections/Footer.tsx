@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Linkedin, Twitter, Github } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
 import { hrefHomeHash, hrefPage } from '@/lib/sitePaths';
 
 function buildFooterLinks() {
@@ -34,9 +34,7 @@ function buildFooterLinks() {
     {
       title: 'Connect',
       links: [
-        { label: 'LinkedIn', href: 'https://linkedin.com', icon: Linkedin },
-        { label: 'Twitter', href: 'https://twitter.com', icon: Twitter },
-        { label: 'GitHub', href: 'https://github.com', icon: Github },
+        { label: 'LinkedIn', href: 'https://www.linkedin.com/in/zubia-m-947b3578', icon: Linkedin },
       ],
     },
     {
