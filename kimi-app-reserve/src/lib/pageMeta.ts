@@ -20,31 +20,31 @@ export const PAGE_META: Record<string, PageMeta> = {
   about: {
     title: 'About Dr. Zubia Mughal, Ed.D. | Dr. Data Decision Intelligence',
     description: 'Meet Dr. Zubia Mughal, Ed.D., founder of Dr. Data Decision Intelligence. She builds private AI tools that run on your own machine, for businesses that cannot put their data in the cloud.',
-    path: '/about',
+    path: '/about/',
   },
   faq: {
     title: 'FAQ | Private AI for Small Business | Dr. Data',
     description: 'Common questions about private, local-first AI: how it works, what it costs, why your data never leaves your building, and whether it fits your business.',
-    path: '/faq',
+    path: '/faq/',
   },
   governance: {
     title: 'AI Governance and Data Standards | Dr. Data',
     description: 'How Dr. Data Decision Intelligence approaches AI governance, data standards, and privacy-first architecture for regulated and confidentiality-bound businesses.',
-    path: '/governance',
+    path: '/governance/',
   },
   survey: {
     title: 'Data Readiness Assessment | Dr. Data',
     description: 'Find out whether your business is ready for AI. A short assessment that scores your data readiness and shows you what to fix first.',
-    path: '/survey',
+    path: '/survey/',
   },
   'small-business': {
     title: 'AI for Small Business | Private and Local-First | Dr. Data',
     description: 'Turn the AI you already pay for into AI that works for your business. Private tools built for small businesses in the Milwaukee metro and Waukesha County.',
-    path: '/small-business',
+    path: '/small-business/',
   },
   blog: {
     title: 'Blog | Dr. Data Decision Intelligence',
     description: 'Writing on private AI, data readiness, and decision intelligence for small business owners who want AI without giving up control of their data.',
-    path: '/blog',
+    path: '/blog/',
   },
 };
