@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import PageShell from '@/components/PageShell';
-import { hrefPage } from '@/lib/sitePaths';
+import { BOOKING_URL, hrefPage } from '@/lib/sitePaths';
 import {
   ClipboardCheck,
   Database,
@@ -368,7 +368,7 @@ const BlogPostDataReadiness = () => {
                 {/* CTA Buttons */}
                 <div className="space-y-4">
                   <a
-                    href="https://calendly.com/zubiaml4l/15min" target="_blank" rel="noopener noreferrer"
+                    href={BOOKING_URL} target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 w-full bg-teal text-navy py-4 rounded-xl font-display font-semibold text-lg hover:bg-teal/90 transition-colors"
                   >
                     <Phone className="w-5 h-5" />
@@ -435,7 +435,7 @@ const BlogPostDataReadiness = () => {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="https://calendly.com/zubiaml4l/15min" target="_blank" rel="noopener noreferrer"
+                href={BOOKING_URL} target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-teal text-navy px-8 py-4 rounded-lg font-display font-semibold text-lg hover:bg-teal/90 transition-colors"
               >
                 <Calendar className="w-5 h-5" />

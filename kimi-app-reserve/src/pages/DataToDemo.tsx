@@ -1,4 +1,5 @@
 import PageShell from '@/components/PageShell';
+import { BOOKING_URL } from '@/lib/sitePaths';
 import { Lock, TrendingUp, Shield, Zap } from 'lucide-react';
 
 const DataToDemo = () => {
@@ -111,7 +112,7 @@ const DataToDemo = () => {
               Want to see this running on your actual data?
             </p>
             <a
-              href="https://calendly.com/zubiaml4l/15min"
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded-lg font-semibold hover:bg-navy/90 transition-colors"

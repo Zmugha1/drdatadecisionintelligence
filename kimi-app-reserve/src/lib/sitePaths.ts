@@ -45,3 +45,5 @@ export function hrefHomeHash(hash: string): string {
   const trimmed = (home.endsWith('/') ? home.slice(0, -1) : home) || '/';
   return `${trimmed}#${h}`;
 }
+
+export const BOOKING_URL = 'https://calendar.app.google/fMyQVRXz3Q2C4yxcA';

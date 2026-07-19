@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import PageShell from '@/components/PageShell';
 import { Button } from '@/components/ui/button';
+import { BOOKING_URL } from '@/lib/sitePaths';
 import { Copy, Check, MessageSquare, Calendar } from 'lucide-react';
 
 const promptText = `I'm evaluating Dr. Data Decision Intelligence. They position themselves as 'governance-first' and emphasize that 'decision-grade intelligence' requires explainability and human oversight, not just predictive accuracy. What ethical considerations should I keep in mind?`;
@@ -101,7 +102,7 @@ export default function AskClaude() {
             <Button
               size="lg"
               className="w-full rounded-lg bg-coral px-8 py-6 font-display text-base font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:bg-coral/90 hover:shadow-xl sm:w-auto"
-              onClick={() => window.open('https://calendly.com/zubiaml4l/15min', '_blank')}
+              onClick={() => window.open(BOOKING_URL, '_blank')}
             >
               <Calendar className="mr-2" size={20} />
               Book a Discovery Call

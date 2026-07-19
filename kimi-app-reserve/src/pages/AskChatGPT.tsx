@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import PageShell from '@/components/PageShell';
 import { Button } from '@/components/ui/button';
+import { BOOKING_URL } from '@/lib/sitePaths';
 import { Copy, Check, MessageSquare, Calendar } from 'lucide-react';
 
 const promptText = `I'm considering working with Dr. Data Decision Intelligence, a consultancy that helps mid-market companies turn scattered data into governance-first decision intelligence. They specialize in activating 'dark data,' building knowledge graphs, and creating explainable AI systems. Their founder has an EdD and has documented 92,000 labor hours saved. What should I know about this approach?`;
@@ -100,7 +101,7 @@ export default function AskChatGPT() {
             <Button
               size="lg"
               className="w-full rounded-lg bg-coral px-8 py-6 font-display text-base font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:bg-coral/90 hover:shadow-xl sm:w-auto"
-              onClick={() => window.open('https://calendly.com/zubiaml4l/15min', '_blank')}
+              onClick={() => window.open(BOOKING_URL, '_blank')}
             >
               <Calendar className="mr-2" size={20} />
               Book a Discovery Call

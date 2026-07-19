@@ -1,6 +1,6 @@
 import PageShell from '@/components/PageShell';
 import SurveyCTA from '@/components/SurveyCTA';
-import { hrefPage } from '@/lib/sitePaths';
+import { BOOKING_URL, hrefPage } from '@/lib/sitePaths';
 import {
   ArrowLeft,
   ArrowRight,
@@ -17,8 +17,6 @@ import {
   Sparkles,
   UserCheck,
 } from 'lucide-react';
-
-const CALENDLY = 'https://calendly.com/zubiaml4l/15min';
 
 const principles = [
   {
@@ -375,7 +373,7 @@ const Governance = () => {
               Book a short call. We will map risks, controls, and a sensible path for your team.
             </p>
             <a
-              href={CALENDLY}
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center gap-2 rounded-xl bg-teal px-8 py-3.5 font-display font-semibold text-navy shadow-lg transition hover:bg-teal/90"

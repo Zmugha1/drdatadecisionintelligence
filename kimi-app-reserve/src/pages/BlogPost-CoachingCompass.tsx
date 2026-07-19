@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import PageShell from '@/components/PageShell';
-import { hrefPage } from '@/lib/sitePaths';
+import { BOOKING_URL, hrefPage } from '@/lib/sitePaths';
 import {
   ArrowLeft,
   ArrowRight,
@@ -422,7 +422,7 @@ const BlogPostCoachingCompass = () => {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="https://calendly.com/zubiaml4l/15min"
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-teal text-navy px-8 py-4 rounded-lg font-display font-semibold text-lg hover:bg-teal/90 transition-colors"

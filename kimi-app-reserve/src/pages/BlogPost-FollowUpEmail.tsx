@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import PageShell from '@/components/PageShell';
-import { hrefPage } from '@/lib/sitePaths';
+import { BOOKING_URL, hrefPage } from '@/lib/sitePaths';
 import { ArrowLeft, Calendar, Clock, Mail, Sparkles } from 'lucide-react';
 
 const BlogPostFollowUpEmail = () => {
@@ -218,7 +218,7 @@ const BlogPostFollowUpEmail = () => {
             <p className="text-sm text-navy/75">
               Questions about bringing execution work inside your Zone?{' '}
               <a
-                href="https://calendly.com/zubiaml4l/15min"
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-teal underline-offset-4 hover:underline"

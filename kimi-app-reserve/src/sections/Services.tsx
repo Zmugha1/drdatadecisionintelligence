@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Search, Database, Cog, Brain, Bot, ArrowRight, Table, FileText, Mic, Video, ChevronDown, ChevronUp, ClipboardList, Users } from 'lucide-react';
 import SurveyCTA from '@/components/SurveyCTA';
+import { BOOKING_URL } from '@/lib/sitePaths';
 
 const visitorStages = [
   { stage: 'Just starting', service: 'Data Strategy & AI Readiness', cta: 'Start Here', id: 'strategy' },
@@ -257,7 +258,7 @@ export default function Services() {
             ))}
           </div>
           <div className="text-center">
-            <a href="https://calendly.com/zubiaml4l/15min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded-lg font-display font-semibold hover:bg-navy/90 transition-colors">
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded-lg font-display font-semibold hover:bg-navy/90 transition-colors">
               Book a discovery call <ArrowRight size={18} />
             </a>
             <p className="text-navy/50 text-sm mt-3">We'll map your current state and recommend the right starting point.</p>
@@ -341,7 +342,7 @@ export default function Services() {
                     <button onClick={() => toggleExpand(service.id)} className={`text-sm font-medium ${service.iconColor} hover:underline flex items-center gap-1`}>
                       {expandedService === service.id ? <>Show less <ChevronUp size={16} /></> : <>Learn more <ChevronDown size={16} /></>}
                     </button>
-                    <a href="https://calendly.com/zubiaml4l/15min" target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg ${service.bgColor} ${service.iconColor} text-sm font-semibold hover:opacity-80 transition-opacity`}>
+                    <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg ${service.bgColor} ${service.iconColor} text-sm font-semibold hover:opacity-80 transition-opacity`}>
                       {service.cta} <ArrowRight size={16} />
                     </a>
                   </div>

@@ -1,4 +1,5 @@
 import PageShell from '@/components/PageShell';
+import { BOOKING_URL } from '@/lib/sitePaths';
 import { Shield, Lock, Eye, FileCheck, Server, Database, BarChart3, CheckCircle } from 'lucide-react';
 
 const PrivateHub = () => {
@@ -176,7 +177,7 @@ const PrivateHub = () => {
             </div>
 
             <a
-              href="https://calendly.com/zubiaml4l/15min"
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-coral px-10 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:bg-coral/90 hover:shadow-xl"

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { BOOKING_URL } from '@/lib/sitePaths';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,7 +53,7 @@ const Navigation = () => {
               </a>
             ))}
             <a
-              href="https://calendly.com/zubiaml4l/15min"
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#E07A5F] hover:bg-[#d46a4e] text-white text-sm font-medium px-5 py-2 rounded-full transition-colors"
@@ -87,7 +88,7 @@ const Navigation = () => {
                 </a>
               ))}
               <a
-                href="https://calendly.com/zubiaml4l/15min"
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#E07A5F] text-white text-sm font-medium px-5 py-2 rounded-full text-center"

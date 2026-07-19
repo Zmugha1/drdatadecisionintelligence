@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import PageShell from '@/components/PageShell';
-import { hrefPage } from '@/lib/sitePaths';
+import { BOOKING_URL, hrefPage } from '@/lib/sitePaths';
 import { ArrowLeft, ArrowRight, TrendingUp, AlertTriangle, DollarSign, BarChart3, Lock, Calendar } from 'lucide-react';
 
 const steps = [
@@ -223,7 +223,7 @@ const BlogPostDataToMoney = () => {
                 Access Data to $$$ Demo
               </a>
               <a
-                href="https://calendly.com/zubiaml4l/15min"
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-white hover:text-teal transition-colors"

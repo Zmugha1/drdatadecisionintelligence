@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
 import PageShell from '@/components/PageShell';
 import { getCaseStudy, type CaseStudyDef } from '@/data/caseStudiesData';
-import { hrefPage } from '@/lib/sitePaths';
+import { BOOKING_URL, hrefPage } from '@/lib/sitePaths';
 import { ArrowLeft, ArrowRight, BarChart3, CheckCircle2, Play, RotateCcw, TrendingUp } from 'lucide-react';
-
-const CALENDLY = 'https://calendly.com/zubiaml4l/15min';
 
 function StatGrid({ stats }: { stats: CaseStudyDef['stats'] }) {
   return (
@@ -335,7 +333,7 @@ export default function CaseStudyDetail({ pageKey }: Props) {
 
           <div className="mt-14 flex justify-center">
             <a
-              href={CALENDLY}
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg bg-navy px-8 py-3.5 font-display font-semibold text-white shadow-lg transition hover:bg-navy/90"

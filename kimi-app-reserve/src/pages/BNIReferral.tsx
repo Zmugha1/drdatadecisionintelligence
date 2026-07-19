@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PageShell from '@/components/PageShell';
+import { BOOKING_URL } from '@/lib/sitePaths';
 import { Copy, Check, Users, Ear, MessageSquare, Shield, Server, FileCheck, DollarSign, ArrowRight, ArrowLeft } from 'lucide-react';
 
 const BNIReferral = () => {
@@ -311,7 +312,7 @@ const BNIReferral = () => {
         <div className="mx-auto max-w-3xl text-center">
           <p className="mb-4 text-white/60">Thank you for being a referral partner!</p>
           <a
-            href="https://calendly.com/zubiaml4l/15min"
+            href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-coral px-8 py-3 font-semibold text-white transition-colors hover:bg-coral/90"

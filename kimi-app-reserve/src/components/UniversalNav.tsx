@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { CASE_STUDY_NAV } from '@/data/caseStudiesData';
-import { hrefHomeHash, hrefPage } from '@/lib/sitePaths';
+import { BOOKING_URL, hrefHomeHash, hrefPage } from '@/lib/sitePaths';
 
 const mainLinks = [
   { label: 'Home', href: hrefPage('home') },
@@ -152,7 +152,7 @@ export default function UniversalNav() {
 
             <div className="hidden md:block">
               <a
-                href="https://calendly.com/zubiaml4l/15min"
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-lg bg-navy px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-navy/90"
@@ -243,7 +243,7 @@ export default function UniversalNav() {
 
             <div className="border-t border-[#e0e0e0] pt-4">
               <a
-                href="https://calendly.com/zubiaml4l/15min"
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full rounded-lg bg-navy py-3 text-center font-semibold text-white transition-colors hover:bg-navy/90"

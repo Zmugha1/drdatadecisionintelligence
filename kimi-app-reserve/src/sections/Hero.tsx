@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { hrefPage } from '@/lib/sitePaths';
+import { BOOKING_URL, hrefPage } from '@/lib/sitePaths';
 import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
@@ -119,7 +119,7 @@ export default function Hero() {
             <Button
               size="lg"
               className="bg-coral hover:bg-coral/90 text-white font-display font-semibold px-8 py-6 text-base rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
-              onClick={() => window.open('https://calendly.com/zubiaml4l/15min', '_blank')}
+              onClick={() => window.open(BOOKING_URL, '_blank')}
             >
               BOOK A DISCOVERY CALL
             </Button>

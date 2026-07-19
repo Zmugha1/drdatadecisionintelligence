@@ -1,4 +1,5 @@
 import PageShell from '@/components/PageShell';
+import { BOOKING_URL } from '@/lib/sitePaths';
 import { ArrowRight, CheckCircle, XCircle } from 'lucide-react';
 
 const SmallBusiness = () => {
@@ -9,7 +10,7 @@ const SmallBusiness = () => {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy mb-6 font-display">Stop Guessing. Start Prioritizing.</h1>
           <p className="text-xl text-navy/70 max-w-2xl mx-auto mb-10">We turn your messy spreadsheets and CRM data into a simple weekly decision dashboard that tells you what to act on next.</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="https://calendly.com/zubiaml4l/15min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-navy text-white px-8 py-4 rounded-lg font-display font-semibold text-lg hover:bg-navy/90 transition-colors">
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-navy text-white px-8 py-4 rounded-lg font-display font-semibold text-lg hover:bg-navy/90 transition-colors">
               Book a 15-Minute Clarity Call <ArrowRight className="w-5 h-5" />
             </a>
             <a href="#how-it-works" className="inline-flex items-center gap-2 text-navy hover:text-teal transition-colors">See How It Works <ArrowRight className="w-5 h-5" /></a>
@@ -85,7 +86,7 @@ const SmallBusiness = () => {
               <ul className="space-y-2 mb-6 flex-1">{['Data audit', 'Cleaned dataset', 'KPI definitions', 'Data dictionary', 'Decision mapping'].map((item, i) => (
                 <li key={i} className="flex items-start gap-2 text-navy/70 text-sm"><CheckCircle className="w-4 h-4 text-teal flex-shrink-0 mt-0.5" />{item}</li>
               ))}</ul>
-              <a href="https://calendly.com/zubiaml4l/15min" target="_blank" rel="noopener noreferrer" className="w-full text-center bg-navy text-white py-3 rounded-lg font-semibold hover:bg-navy/90 transition-colors">Start Here</a>
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="w-full text-center bg-navy text-white py-3 rounded-lg font-semibold hover:bg-navy/90 transition-colors">Start Here</a>
             </div>
 
             {/* Package 2 */}
@@ -95,7 +96,7 @@ const SmallBusiness = () => {
               <ul className="space-y-2 mb-6 flex-1">{['Transparent scoring model', 'Green / Yellow / Red prioritization', 'Hosted secure dashboard', 'Training session'].map((item, i) => (
                 <li key={i} className="flex items-start gap-2 text-navy/70 text-sm"><CheckCircle className="w-4 h-4 text-teal flex-shrink-0 mt-0.5" />{item}</li>
               ))}</ul>
-              <a href="https://calendly.com/zubiaml4l/15min" target="_blank" rel="noopener noreferrer" className="w-full text-center bg-teal text-navy py-3 rounded-lg font-semibold hover:bg-teal/90 transition-colors">Build My Dashboard</a>
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="w-full text-center bg-teal text-navy py-3 rounded-lg font-semibold hover:bg-teal/90 transition-colors">Build My Dashboard</a>
             </div>
 
             {/* Package 3 */}
@@ -104,7 +105,7 @@ const SmallBusiness = () => {
               <ul className="space-y-2 mb-6 flex-1">{['Hosting', 'Data refresh', 'Minor refinements', 'Monthly decision summary'].map((item, i) => (
                 <li key={i} className="flex items-start gap-2 text-navy/70 text-sm"><CheckCircle className="w-4 h-4 text-teal flex-shrink-0 mt-0.5" />{item}</li>
               ))}</ul>
-              <a href="https://calendly.com/zubiaml4l/15min" target="_blank" rel="noopener noreferrer" className="w-full text-center bg-navy text-white py-3 rounded-lg font-semibold hover:bg-navy/90 transition-colors">Ongoing Support</a>
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="w-full text-center bg-navy text-white py-3 rounded-lg font-semibold hover:bg-navy/90 transition-colors">Ongoing Support</a>
             </div>
           </div>
         </div>
@@ -134,7 +135,7 @@ const SmallBusiness = () => {
       <section className="py-16 px-4 bg-navy">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-6 font-display">Ready for Clarity?</h2>
-          <a href="https://calendly.com/zubiaml4l/15min" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-teal text-navy px-8 py-4 rounded-lg font-display font-semibold text-lg hover:bg-teal/90 transition-colors mb-4">
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-teal text-navy px-8 py-4 rounded-lg font-display font-semibold text-lg hover:bg-teal/90 transition-colors mb-4">
             Book a 15-Minute Clarity Call <ArrowRight className="w-5 h-5" />
           </a>
           <p className="text-white/60 text-sm">If it is not a fit, we will tell you.</p>

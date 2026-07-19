@@ -1,7 +1,7 @@
 import PageShell from '@/components/PageShell';
 import SurveyCTA from '@/components/SurveyCTA';
 import { CASE_STUDIES_INDEX_INTRO, CASE_STUDY_ORDER, getCaseStudy } from '@/data/caseStudiesData';
-import { hrefPage } from '@/lib/sitePaths';
+import { BOOKING_URL, hrefPage } from '@/lib/sitePaths';
 import {
   Activity,
   ArrowLeft,
@@ -14,8 +14,6 @@ import {
   Sparkles,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-
-const CALENDLY = 'https://calendly.com/zubiaml4l/15min';
 
 const CASE_ICONS: Record<string, LucideIcon> = {
   'case-study-milwaukee': Database,
@@ -184,7 +182,7 @@ const CaseStudies = () => {
               Tell us what you are solving. We will map where decision intelligence fits.
             </p>
             <a
-              href={CALENDLY}
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center gap-2 rounded-xl bg-teal px-8 py-3.5 font-display font-semibold text-navy shadow-lg transition hover:bg-teal/90"

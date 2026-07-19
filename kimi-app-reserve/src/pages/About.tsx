@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import PageShell from '@/components/PageShell';
 import SurveyCTA from '@/components/SurveyCTA';
-import { hrefPage } from '@/lib/sitePaths';
+import { BOOKING_URL, hrefPage } from '@/lib/sitePaths';
 import {
   ArrowLeft,
   ArrowRight,
@@ -20,8 +20,6 @@ import {
   UserCheck,
   Users,
 } from 'lucide-react';
-
-const CALENDLY = 'https://calendly.com/zubiaml4l/15min';
 
 const featureCards = [
   {
@@ -471,7 +469,7 @@ const About = () => {
               Book a short discovery call. We will map where decision intelligence fits your goals.
             </p>
             <a
-              href={CALENDLY}
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center gap-2 rounded-xl bg-teal px-8 py-3.5 font-display font-semibold text-navy shadow-lg transition hover:bg-teal/90"
