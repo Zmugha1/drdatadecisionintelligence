@@ -60,7 +60,7 @@ export default function Hero() {
               }`}
               style={{ transitionDelay: '100ms' }}
             >
-              The private AI company · Pewaukee, Wisconsin
+              The private AI company · Milwaukee, Wisconsin
             </p>
             <h1 
               className={`font-display font-bold text-navy transition-all duration-800 ${
