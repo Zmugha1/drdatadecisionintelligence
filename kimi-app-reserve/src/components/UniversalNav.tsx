@@ -5,6 +5,7 @@ import { BOOKING_URL, hrefHomeHash, hrefPage } from '@/lib/sitePaths';
 
 const mainLinks = [
   { label: 'Home', href: hrefPage('home') },
+  { label: 'Products', href: hrefPage('products') },
   { label: 'Private Hub', href: hrefPage('private-hub') },
   { label: 'Services', href: hrefHomeHash('services') },
   { label: 'About', href: hrefPage('about') },

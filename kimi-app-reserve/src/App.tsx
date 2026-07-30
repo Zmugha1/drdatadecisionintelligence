@@ -5,6 +5,7 @@ import CaseStudies from './pages/CaseStudies';
 import Blog from './pages/Blog';
 import Governance from './pages/Governance';
 import FAQ from './pages/FAQ';
+import Products from './pages/Products';
 import Survey from './pages/Survey';
 import PrivateHub from './pages/PrivateHub';
 import BNIReferral from './pages/BNIReferral';
@@ -81,6 +82,8 @@ function App({ initialPath }: { initialPath?: string } = {}) {
       return <Blog />;
     case 'governance':
       return <Governance />;
+    case 'products':
+      return <Products />;
     case 'faq':
       return <FAQ />;
     case 'survey':

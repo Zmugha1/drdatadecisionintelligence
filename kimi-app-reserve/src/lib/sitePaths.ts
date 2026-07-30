@@ -9,6 +9,7 @@
  */
 export const PAGE_PATHS: Record<string, string> = {
   about: '/about',
+  products: '/products',
   faq: '/faq',
   governance: '/governance',
   survey: '/survey',

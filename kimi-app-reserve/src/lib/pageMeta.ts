@@ -27,6 +27,12 @@ export const PAGE_META: Record<string, PageMeta> = {
     description: 'Common questions about private, local-first AI: how it works, what it costs, why your data never leaves your building, and whether it fits your business.',
     path: '/faq/',
   },
+  products: {
+    title: 'Private AI Apps for Small Business | Dr. Data',
+    description:
+      'Ten private AI apps that take real work off your plate. They run on your machine. Your data never leaves your building.',
+    path: '/products/',
+  },
   governance: {
     title: 'AI Governance and Data Standards | Dr. Data',
     description: 'How Dr. Data Decision Intelligence approaches AI governance, data standards, and privacy-first architecture for regulated and confidentiality-bound businesses.',
