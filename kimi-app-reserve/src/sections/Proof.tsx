@@ -1,11 +1,28 @@
 import { useEffect, useRef, useState } from 'react';
 import { Quote } from 'lucide-react';
 
-const stats = [
+type AnimatedStat = {
+  value: number;
+  suffix: string;
+  prefix: string;
+  label: string;
+};
+
+type StaticStat = {
+  display: string;
+  label: string;
+};
+
+type StatItem = AnimatedStat | StaticStat;
+
+const stats: StatItem[] = [
   { value: 92000, suffix: '+', label: 'Labor hours saved', prefix: '' },
   { value: 40, suffix: '%', label: 'Forecasting accuracy improvement', prefix: '' },
-  { value: 20, suffix: '%', label: 'Cost reduction', prefix: '15-' },
+  { display: '15-20%', label: 'Cost reduction' },
 ];
+
+const statNumberClass =
+  'font-display font-bold text-5xl sm:text-6xl lg:text-7xl text-gradient';
 
 function AnimatedCounter({ 
   value, 
@@ -18,10 +35,12 @@ function AnimatedCounter({
   prefix: string;
   isVisible: boolean;
 }) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(value);
 
   useEffect(() => {
-    if (!isVisible) return;
+    if (!isVisible || typeof window === 'undefined') return;
+
+    setCount(0);
 
     const duration = 1500;
     const steps = 60;
@@ -42,7 +61,7 @@ function AnimatedCounter({
   }, [isVisible, value]);
 
   return (
-    <span className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl text-gradient">
+    <span className={statNumberClass}>
       {prefix}{count.toLocaleString()}{suffix}
     </span>
   );
@@ -53,6 +72,10 @@ export default function Proof() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    if (typeof window === 'undefined' || typeof IntersectionObserver === 'undefined') {
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -98,12 +121,16 @@ export default function Proof() {
               style={{ transitionDelay: `${200 + index * 200}ms` }}
             >
               <div className="mb-3">
-                <AnimatedCounter 
-                  value={stat.value} 
-                  suffix={stat.suffix} 
-                  prefix={stat.prefix}
-                  isVisible={isVisible}
-                />
+                {'display' in stat ? (
+                  <span className={statNumberClass}>{stat.display}</span>
+                ) : (
+                  <AnimatedCounter
+                    value={stat.value}
+                    suffix={stat.suffix}
+                    prefix={stat.prefix}
+                    isVisible={isVisible}
+                  />
+                )}
               </div>
               <p className="text-white/70 text-base sm:text-lg">
                 {stat.label}
