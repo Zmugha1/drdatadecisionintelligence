@@ -1,7 +1,14 @@
 import { useState, type FormEvent } from 'react';
 import PageShell from '@/components/PageShell';
 import { BOOKING_URL } from '@/lib/sitePaths';
+import { supabase } from '@/lib/supabase';
 import { ArrowRight } from 'lucide-react';
+
+const FALLBACK_EMAIL = 'zubiaml4l@gmail.com';
+
+function looksLikeEmail(value: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+}
 
 const products = [
   {
@@ -90,11 +97,54 @@ const accentStyles = {
 export default function Products() {
   const [message, setMessage] = useState('');
   const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [validationError, setValidationError] = useState('');
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setValidationError('');
+
+    const description = message.trim();
+    const trimmedEmail = email.trim();
+
+    if (!description) {
+      setValidationError('Please tell us what eats your week.');
+      return;
+    }
+    if (!trimmedEmail || !looksLikeEmail(trimmedEmail)) {
+      setValidationError('Please enter a valid email address.');
+      return;
+    }
+
+    setFormStatus('submitting');
+
+    const leadId = crypto.randomUUID();
+
+    const { error: leadError } = await supabase.from('leads').insert({
+      id: leadId,
+      email: trimmedEmail,
+      source: 'products_page',
+      card_id: 'products_capture_box',
+      notes: description,
+      stage: 'shared',
+    });
+
+    if (leadError) {
+      setFormStatus('error');
+      return;
+    }
+
+    await supabase.from('events').insert({
+      lead_id: leadId,
+      type: 'form_submitted',
+      source: 'products_page',
+      card_id: 'products_capture_box',
+      payload: { description },
+    });
+
+    setMessage('');
+    setEmail('');
+    setFormStatus('success');
   };
 
   return (
@@ -133,33 +183,46 @@ export default function Products() {
               Tell me what eats your week, and I&apos;ll build it or point you to what fits.
             </p>
 
-            {submitted ? (
+            {formStatus === 'success' ? (
               <p className="text-center font-medium text-teal">
                 Got it. I&apos;ll be in touch to set up a call.
               </p>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {validationError ? (
+                  <p className="rounded-lg bg-coral/10 px-4 py-3 text-sm text-navy/80">{validationError}</p>
+                ) : null}
+                {formStatus === 'error' ? (
+                  <p className="rounded-lg bg-coral/10 px-4 py-3 text-sm text-navy/80">
+                    Something went wrong. Email me directly at{' '}
+                    <a href={`mailto:${FALLBACK_EMAIL}`} className="font-medium text-teal hover:underline">
+                      {FALLBACK_EMAIL}
+                    </a>
+                    .
+                  </p>
+                ) : null}
                 <textarea
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="What eats your week?"
                   rows={4}
-                  required
-                  className="w-full resize-y rounded-lg border border-navy/20 bg-cream/50 px-4 py-3 text-navy placeholder:text-navy/40 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
+                  disabled={formStatus === 'submitting'}
+                  className="w-full resize-y rounded-lg border border-navy/20 bg-cream/50 px-4 py-3 text-navy placeholder:text-navy/40 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20 disabled:opacity-60"
                 />
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your email"
-                  required
-                  className="w-full rounded-lg border border-navy/20 bg-cream/50 px-4 py-3 text-navy placeholder:text-navy/40 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
+                  disabled={formStatus === 'submitting'}
+                  className="w-full rounded-lg border border-navy/20 bg-cream/50 px-4 py-3 text-navy placeholder:text-navy/40 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20 disabled:opacity-60"
                 />
                 <button
                   type="submit"
-                  className="w-full rounded-lg bg-coral px-6 py-3 font-display font-semibold text-white transition-colors hover:bg-coral/90 sm:w-auto"
+                  disabled={formStatus === 'submitting'}
+                  className="w-full rounded-lg bg-coral px-6 py-3 font-display font-semibold text-white transition-colors hover:bg-coral/90 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                 >
-                  Send it to Dr. Data
+                  {formStatus === 'submitting' ? 'Sending...' : 'Send it to Dr. Data'}
                 </button>
               </form>
             )}
