@@ -54,6 +54,14 @@ export default function Hero() {
 
           {/* Headline */}
           <div className="space-y-2 mb-6">
+            <p
+              className={`text-teal uppercase tracking-wide text-sm font-medium transition-all duration-800 ${
+                isVisible ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={{ transitionDelay: '100ms' }}
+            >
+              The private AI company · Pewaukee, Wisconsin
+            </p>
             <h1 
               className={`font-display font-bold text-navy transition-all duration-800 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
@@ -64,19 +72,7 @@ export default function Hero() {
                 transitionDelay: '200ms',
               }}
             >
-              OUR DATA IS PERFECTLY ORGANIZED
-            </h1>
-            <h1 
-              className={`font-display font-bold text-navy transition-all duration-800 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
-              }`}
-              style={{ 
-                fontSize: 'clamp(1.75rem, 5vw, 3rem)',
-                lineHeight: 1.2,
-                transitionDelay: '400ms',
-              }}
-            >
-              AND WE USE ALL OF IT!
+              Your data never leaves your building.
             </h1>
             <p 
               className={`font-display text-xl sm:text-2xl text-coral font-medium transition-all duration-800 ${
@@ -84,7 +80,7 @@ export default function Hero() {
               }`}
               style={{ transitionDelay: '1000ms' }}
             >
-              Said no business leader, ever
+              Own your AI. Don't rent it.
             </p>
           </div>
 
@@ -95,7 +91,7 @@ export default function Hero() {
             }`}
             style={{ transitionDelay: '1200ms' }}
           >
-            Stop searching for answers in scattered spreadsheets. Start making confident decisions. Dr. Data organizes your information into clear, actionable insights you can trust.
+            Private AI tools that run on your own machine. Built for your business, from your data, owned by you. No cloud. No monthly rent. No one else's model learning from your work.
           </p>
 
           {/* Money Tagline */}
@@ -105,7 +101,7 @@ export default function Hero() {
             }`}
             style={{ transitionDelay: '1300ms' }}
           >
-            Make $$$ With Your Data Faster
+            Make $$$ with your data
           </p>
 
           {/* CTAs */}
@@ -151,7 +147,7 @@ export default function Hero() {
               className="border-2 border-navy text-navy hover:bg-navy hover:text-white font-display font-semibold px-8 py-6 text-base rounded-lg transition-all duration-200"
               onClick={() => scrollToSection('how-it-works')}
             >
-              What's Decision Intelligence?
+              See what I build
             </Button>
           </div>
         </div>
