@@ -28,10 +28,16 @@ export const PAGE_META: Record<string, PageMeta> = {
     path: '/faq/',
   },
   products: {
-    title: 'Private AI Apps for Small Business | Dr. Data',
+    title: 'AI Apps for Small Business | Private AI That Runs on Your Machine | Dr. Data',
     description:
-      'Ten private AI apps that take real work off your plate. They run on your machine. Your data never leaves your building.',
+      'Ten private AI apps for small business: lead generation, bidding, follow-up, document reading, and more. Each runs on your own machine, so your data never leaves your building. Built for contractors, coaches, clinics, and small firms that handle sensitive information.',
     path: '/products/',
+  },
+  careers: {
+    title: 'Careers | Dr. Data',
+    description:
+      "Join Dr. Data. We build private AI applications that run on our clients' own machines.",
+    path: '/careers/',
   },
   governance: {
     title: 'AI Governance and Data Standards | Dr. Data',

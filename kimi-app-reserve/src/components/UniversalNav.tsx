@@ -9,6 +9,7 @@ const mainLinks = [
   { label: 'Private Hub', href: hrefPage('private-hub') },
   { label: 'Services', href: hrefHomeHash('services') },
   { label: 'About', href: hrefPage('about') },
+  { label: 'Careers', href: hrefPage('careers') },
   { label: 'Blog', href: hrefPage('blog') },
   { label: 'Governance', href: hrefPage('governance') },
   { label: 'FAQ', href: hrefPage('faq') },
