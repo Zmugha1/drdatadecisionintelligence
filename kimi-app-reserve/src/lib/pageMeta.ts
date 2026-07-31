@@ -33,6 +33,12 @@ export const PAGE_META: Record<string, PageMeta> = {
       'Ten private AI apps for small business: lead generation, bidding, follow-up, document reading, and more. Each runs on your own machine, so your data never leaves your building. Built for contractors, coaches, clinics, and small firms that handle sensitive information.',
     path: '/products/',
   },
+  'private-hub': {
+    title: 'Why We Build Private AI | The Cloud Is Not Your Friend | Dr. Data',
+    description:
+      "Every AI tool wants your data. Dr. Data builds private AI that runs on your own machine, so your intelligence never leaves your building and never trains a competitor's model.",
+    path: '/private-hub/',
+  },
   careers: {
     title: 'Careers | Dr. Data',
     description:
