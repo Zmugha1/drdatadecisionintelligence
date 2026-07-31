@@ -3,14 +3,14 @@ import UniversalNav from '@/components/UniversalNav';
 import Hero from '@/sections/Hero';
 import Problem from '@/sections/Problem';
 import HowItWorks from '@/sections/HowItWorks';
-import Services from '@/sections/Services';
+import LeadMagnet from '@/sections/LeadMagnet';
 import Proof from '@/sections/Proof';
 import WhyDrData from '@/sections/WhyDrData';
 import CTA from '@/sections/CTA';
 import Footer from '@/sections/Footer';
 
 /**
- * Composes the full Kimi dynamic layout (sections + UniversalNav + SurveyCTA via HowItWorks/Services).
+ * Composes the full Kimi dynamic layout (sections + UniversalNav + SurveyCTA via HowItWorks).
  * Do not replace this with an inline duplicate of the marketing page — use `src/sections/*`.
  */
 export default function Home() {
@@ -26,9 +26,9 @@ export default function Home() {
     <div className="min-h-screen bg-cream">
       <UniversalNav />
       <Hero />
+      <LeadMagnet />
       <Problem />
       <HowItWorks />
-      <Services />
       <Proof />
       <WhyDrData />
       <CTA />

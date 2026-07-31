@@ -7,8 +7,6 @@ function buildFooterLinks() {
     {
       title: 'Services',
       links: [
-        { label: 'Services', href: hrefHomeHash('services') },
-        { label: 'Pricing', href: hrefHomeHash('services') },
         { label: 'Case Studies', href: hrefPage('case-studies') },
         { label: 'Data Assessment', href: hrefPage('survey') },
       ],

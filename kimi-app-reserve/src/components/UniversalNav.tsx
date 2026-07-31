@@ -1,13 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { CASE_STUDY_NAV } from '@/data/caseStudiesData';
-import { BOOKING_URL, hrefHomeHash, hrefPage } from '@/lib/sitePaths';
+import { BOOKING_URL, hrefPage } from '@/lib/sitePaths';
 
 const mainLinks = [
   { label: 'Home', href: hrefPage('home') },
   { label: 'Products', href: hrefPage('products') },
   { label: 'Private Hub', href: hrefPage('private-hub') },
-  { label: 'Services', href: hrefHomeHash('services') },
   { label: 'About', href: hrefPage('about') },
   { label: 'Careers', href: hrefPage('careers') },
   { label: 'Blog', href: hrefPage('blog') },

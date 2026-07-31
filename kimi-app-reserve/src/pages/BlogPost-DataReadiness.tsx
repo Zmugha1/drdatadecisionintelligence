@@ -442,10 +442,10 @@ const BlogPostDataReadiness = () => {
                 Book Your Free Discovery Call
               </a>
               <a
-                href="/#services"
+                href={hrefPage('products')}
                 className="inline-flex items-center gap-2 text-white hover:text-teal transition-colors"
               >
-                Explore Services <ArrowRight className="w-5 h-5" />
+                Explore Products <ArrowRight className="w-5 h-5" />
               </a>
             </div>
           </div>
