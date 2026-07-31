@@ -10,7 +10,7 @@ import CTA from '@/sections/CTA';
 import Footer from '@/sections/Footer';
 
 /**
- * Composes the full Kimi dynamic layout (sections + UniversalNav + SurveyCTA via HowItWorks).
+ * Composes the full Kimi dynamic layout (sections + UniversalNav).
  * Do not replace this with an inline duplicate of the marketing page — use `src/sections/*`.
  */
 export default function Home() {

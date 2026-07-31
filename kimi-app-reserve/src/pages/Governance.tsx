@@ -1,5 +1,4 @@
 import PageShell from '@/components/PageShell';
-import SurveyCTA from '@/components/SurveyCTA';
 import { BOOKING_URL, hrefPage } from '@/lib/sitePaths';
 import {
   ArrowLeft,
@@ -383,12 +382,6 @@ const Governance = () => {
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>
-        </div>
-      </section>
-
-      <section className="px-4 pb-24 pt-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl">
-          <SurveyCTA variant="light" />
         </div>
       </section>
     </PageShell>

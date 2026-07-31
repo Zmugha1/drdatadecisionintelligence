@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import PageShell from '@/components/PageShell';
-import SurveyCTA from '@/components/SurveyCTA';
 import { BOOKING_URL, hrefPage } from '@/lib/sitePaths';
 import {
   ArrowLeft,
@@ -484,11 +483,10 @@ const About = () => {
 
       <section className="px-4 pb-24 pt-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-8 font-display text-lg font-semibold text-navy/90">
+          <p className="font-display text-lg font-semibold text-navy/90">
             Make progress with your data faster. Dr. Data turns scattered information into governance-first intelligence
             you can trust.
           </p>
-          <SurveyCTA variant="light" />
         </div>
       </section>
     </PageShell>

@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 import PageShell from '@/components/PageShell';
 import BlogSubscribe from '@/components/BlogSubscribe';
-import SurveyCTA from '@/components/SurveyCTA';
 import { BLOG_FILTERS, BLOG_INDEX_INTRO, BLOG_POSTS, type BlogFilterId } from '@/data/blogPostsData';
 import { hrefPage } from '@/lib/sitePaths';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
@@ -140,12 +139,6 @@ const Blog = () => {
       <section className="px-4 pb-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
           <BlogSubscribe />
-        </div>
-      </section>
-
-      <section className="px-4 pb-24 pt-2 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl">
-          <SurveyCTA variant="light" />
         </div>
       </section>
     </PageShell>

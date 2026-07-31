@@ -44,11 +44,6 @@ export const PAGE_META: Record<string, PageMeta> = {
     description: 'How Dr. Data Decision Intelligence approaches AI governance, data standards, and privacy-first architecture for regulated and confidentiality-bound businesses.',
     path: '/governance/',
   },
-  survey: {
-    title: 'Data Readiness Assessment | Dr. Data',
-    description: 'Find out whether your business is ready for AI. A short assessment that scores your data readiness and shows you what to fix first.',
-    path: '/survey/',
-  },
   'small-business': {
     title: 'AI for Small Business | Private and Local-First | Dr. Data',
     description: 'Turn the AI you already pay for into AI that works for your business. Private tools built for small businesses in the Milwaukee metro and Waukesha County.',

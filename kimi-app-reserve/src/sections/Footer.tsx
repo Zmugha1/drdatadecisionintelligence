@@ -8,7 +8,6 @@ function buildFooterLinks() {
       title: 'Services',
       links: [
         { label: 'Case Studies', href: hrefPage('case-studies') },
-        { label: 'Data Assessment', href: hrefPage('survey') },
       ],
     },
     {

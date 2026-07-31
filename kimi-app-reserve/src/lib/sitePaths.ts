@@ -13,7 +13,6 @@ export const PAGE_PATHS: Record<string, string> = {
   careers: '/careers',
   faq: '/faq',
   governance: '/governance',
-  survey: '/survey',
 };
 
 export function hrefPage(page: string): string {

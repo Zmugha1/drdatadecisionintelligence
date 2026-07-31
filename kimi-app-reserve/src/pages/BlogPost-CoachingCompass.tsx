@@ -430,12 +430,6 @@ const BlogPostCoachingCompass = () => {
                 Book a 20-Minute Call
                 <ArrowRight className="w-5 h-5" />
               </a>
-              <a
-                href={hrefPage('survey')}
-                className="inline-flex items-center gap-2 text-white hover:text-teal transition-colors"
-              >
-                Take the Data Assessment <ArrowRight className="w-5 h-5" />
-              </a>
             </div>
 
             <p className="text-white/50 text-sm mt-8">

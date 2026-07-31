@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, Search, Network, CheckCircle } from 'lucide-react';
-import SurveyCTA from '@/components/SurveyCTA';
 
 const steps = [
   {
@@ -146,11 +145,6 @@ export default function HowItWorks() {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Survey CTA */}
-        <div className="mt-20 max-w-2xl mx-auto">
-          <SurveyCTA variant="light" />
         </div>
       </div>
     </section>

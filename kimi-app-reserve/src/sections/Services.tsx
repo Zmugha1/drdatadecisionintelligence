@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { Search, Database, Cog, Brain, Bot, ArrowRight, Table, FileText, Mic, Video, ChevronDown, ChevronUp, ClipboardList, Users } from 'lucide-react';
-import SurveyCTA from '@/components/SurveyCTA';
 import { BOOKING_URL } from '@/lib/sitePaths';
 
 const visitorStages = [
@@ -352,10 +351,6 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Survey CTA */}
-        <div className="mt-16 max-w-3xl mx-auto">
-          <SurveyCTA variant="light" />
-        </div>
       </div>
     </section>
   );

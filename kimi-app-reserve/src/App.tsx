@@ -7,7 +7,6 @@ import Governance from './pages/Governance';
 import FAQ from './pages/FAQ';
 import Products from './pages/Products';
 import Careers from './pages/Careers';
-import Survey from './pages/Survey';
 import PrivateHub from './pages/PrivateHub';
 import BNIReferral from './pages/BNIReferral';
 import AIReadinessAssessment from './pages/AIReadinessAssessment';
@@ -89,8 +88,6 @@ function App({ initialPath }: { initialPath?: string } = {}) {
       return <Careers />;
     case 'faq':
       return <FAQ />;
-    case 'survey':
-      return <Survey />;
     case 'private-hub':
       return <PrivateHub />;
     case 'bni-referral':

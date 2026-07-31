@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { BOOKING_URL } from '@/lib/sitePaths';
-import { MessageSquare, Calendar } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 
 export default function CTA() {
   const [isVisible, setIsVisible] = useState(false);
@@ -67,31 +67,11 @@ export default function CTA() {
 
         {/* CTAs */}
         <div 
-          className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-500 ${
+          className={`flex flex-col sm:flex-row items-center justify-center transition-all duration-500 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
           style={{ transitionDelay: '300ms' }}
         >
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-2 border-white text-white hover:bg-white hover:text-teal font-display font-semibold px-6 py-5 text-base rounded-lg transition-all duration-200 w-full sm:w-auto"
-            onClick={() => window.location.href = '/ask-chatgpt'}
-          >
-            <MessageSquare className="mr-2" size={20} />
-            Ask ChatGPT
-          </Button>
-          
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-2 border-white text-white hover:bg-white hover:text-teal font-display font-semibold px-6 py-5 text-base rounded-lg transition-all duration-200 w-full sm:w-auto"
-            onClick={() => window.location.href = '/ask-claude'}
-          >
-            <MessageSquare className="mr-2" size={20} />
-            Ask Claude
-          </Button>
-          
           <Button
             size="lg"
             className="bg-coral hover:bg-coral/90 text-white font-display font-semibold px-6 py-5 text-base rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 animate-pulse-glow-coral w-full sm:w-auto"
