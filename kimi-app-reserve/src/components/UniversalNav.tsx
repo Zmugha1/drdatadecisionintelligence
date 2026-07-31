@@ -95,46 +95,70 @@ export default function UniversalNav() {
                 </a>
               ))}
 
-              <div
-                ref={caseDropdownRef}
-                className="relative"
-                onMouseEnter={() => setCaseDropdownOpen(true)}
-                onMouseLeave={() => setCaseDropdownOpen(false)}
-              >
-                <button
-                  type="button"
-                  aria-expanded={caseDropdownOpen}
-                  aria-haspopup="true"
-                  onClick={() => setCaseDropdownOpen((o) => !o)}
-                  className="flex items-center gap-1 rounded-lg px-4 py-2 text-sm font-medium text-navy/70 transition-all hover:bg-teal/5 hover:text-teal"
+              {CASE_STUDY_NAV.length > 0 ? (
+                <div
+                  ref={caseDropdownRef}
+                  className="relative"
+                  onMouseEnter={() => setCaseDropdownOpen(true)}
+                  onMouseLeave={() => setCaseDropdownOpen(false)}
                 >
-                  Case Studies
-                  <ChevronDown className={`h-4 w-4 transition-transform ${caseDropdownOpen ? 'rotate-180' : ''}`} />
-                </button>
-                {caseDropdownOpen ? (
-                  <div
-                    className="absolute left-0 top-full z-50 min-w-[min(100vw-2rem,18rem)] pt-1"
-                    role="menu"
+                  <button
+                    type="button"
+                    aria-expanded={caseDropdownOpen}
+                    aria-haspopup="true"
+                    onClick={() => setCaseDropdownOpen((o) => !o)}
+                    className="flex items-center gap-1 rounded-lg px-4 py-2 text-sm font-medium text-navy/70 transition-all hover:bg-teal/5 hover:text-teal"
                   >
-                    <div className="rounded-xl border border-navy/10 bg-white py-2 shadow-lg">
-                      {CASE_STUDY_NAV.map((item) => (
+                    Case Studies
+                    <ChevronDown className={`h-4 w-4 transition-transform ${caseDropdownOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  {caseDropdownOpen ? (
+                    <div
+                      className="absolute left-0 top-full z-50 min-w-[min(100vw-2rem,18rem)] pt-1"
+                      role="menu"
+                    >
+                      <div className="rounded-xl border border-navy/10 bg-white py-2 shadow-lg">
                         <a
-                          key={item.page}
-                          href={hrefPage(item.page)}
+                          href={hrefPage('case-studies')}
                           role="menuitem"
                           className="block px-4 py-2.5 text-left text-sm text-navy/85 transition hover:bg-teal/10 hover:text-teal"
                           onClick={(e) => {
                             e.preventDefault();
-                            handleNavClick(hrefPage(item.page));
+                            handleNavClick(hrefPage('case-studies'));
                           }}
                         >
-                          {item.label}
+                          All case studies
                         </a>
-                      ))}
+                        {CASE_STUDY_NAV.map((item) => (
+                          <a
+                            key={item.page}
+                            href={hrefPage(item.page)}
+                            role="menuitem"
+                            className="block px-4 py-2.5 text-left text-sm text-navy/85 transition hover:bg-teal/10 hover:text-teal"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleNavClick(hrefPage(item.page));
+                            }}
+                          >
+                            {item.label}
+                          </a>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ) : null}
-              </div>
+                  ) : null}
+                </div>
+              ) : (
+                <a
+                  href={hrefPage('case-studies')}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(hrefPage('case-studies'));
+                  }}
+                  className="rounded-lg px-4 py-2 text-sm font-medium text-navy/70 transition-all hover:bg-teal/5 hover:text-teal"
+                >
+                  Case Studies
+                </a>
+              )}
 
               {mainLinks.slice(3).map((link) => (
                 <a
@@ -200,33 +224,56 @@ export default function UniversalNav() {
               </a>
             ))}
 
-            <div className="border-t border-[#e0e0e0] pt-2">
-              <button
-                type="button"
-                onClick={() => setMobileCaseOpen(!mobileCaseOpen)}
-                className="flex w-full items-center justify-between rounded-lg px-4 py-3 font-medium text-navy hover:bg-teal/5"
-              >
-                Case Studies
-                <ChevronDown className={`h-4 w-4 transition-transform ${mobileCaseOpen ? 'rotate-180' : ''}`} />
-              </button>
-              {mobileCaseOpen ? (
-                <div className="ml-2 border-l-2 border-teal/30 pl-3">
-                  {CASE_STUDY_NAV.map((item) => (
+            {CASE_STUDY_NAV.length > 0 ? (
+              <div className="border-t border-[#e0e0e0] pt-2">
+                <button
+                  type="button"
+                  onClick={() => setMobileCaseOpen(!mobileCaseOpen)}
+                  className="flex w-full items-center justify-between rounded-lg px-4 py-3 font-medium text-navy hover:bg-teal/5"
+                >
+                  Case Studies
+                  <ChevronDown className={`h-4 w-4 transition-transform ${mobileCaseOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {mobileCaseOpen ? (
+                  <div className="ml-2 border-l-2 border-teal/30 pl-3">
                     <a
-                      key={item.page}
-                      href={hrefPage(item.page)}
+                      href={hrefPage('case-studies')}
                       onClick={(e) => {
                         e.preventDefault();
-                        handleNavClick(hrefPage(item.page));
+                        handleNavClick(hrefPage('case-studies'));
                       }}
                       className="block rounded-lg py-2.5 pl-2 text-sm text-navy/80 hover:text-teal"
                     >
-                      {item.label}
+                      All case studies
                     </a>
-                  ))}
-                </div>
-              ) : null}
-            </div>
+                    {CASE_STUDY_NAV.map((item) => (
+                      <a
+                        key={item.page}
+                        href={hrefPage(item.page)}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleNavClick(hrefPage(item.page));
+                        }}
+                        className="block rounded-lg py-2.5 pl-2 text-sm text-navy/80 hover:text-teal"
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            ) : (
+              <a
+                href={hrefPage('case-studies')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(hrefPage('case-studies'));
+                }}
+                className="block rounded-lg px-4 py-3 font-medium text-navy transition-all hover:bg-teal/5 hover:text-teal"
+              >
+                Case Studies
+              </a>
+            )}
 
             {mainLinks.slice(3).map((link) => (
               <a

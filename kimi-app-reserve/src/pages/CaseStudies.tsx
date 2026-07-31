@@ -2,25 +2,15 @@ import PageShell from '@/components/PageShell';
 import { CASE_STUDIES_INDEX_INTRO, CASE_STUDY_ORDER, getCaseStudy } from '@/data/caseStudiesData';
 import { BOOKING_URL, hrefPage } from '@/lib/sitePaths';
 import {
-  Activity,
   ArrowLeft,
   ArrowRight,
-  Cpu,
   Database,
-  LayoutDashboard,
   Quote,
-  Shield,
   Sparkles,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
-const CASE_ICONS: Record<string, LucideIcon> = {
-  'case-study-milwaukee': Database,
-  'case-study-austin': LayoutDashboard,
-  'case-study-madison': Cpu,
-  'case-study-chicago': Activity,
-  'case-study-new-york': Shield,
-};
+const CASE_ICONS: Record<string, LucideIcon> = {};
 
 function StatGrid({ stats }: { stats: { value: string; label: string }[] }) {
   return (
@@ -83,6 +73,15 @@ const CaseStudies = () => {
       {/* Cards */}
       <section className="relative px-4 pb-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl space-y-10">
+          {CASE_STUDY_ORDER.length === 0 ? (
+            <div className="rounded-3xl border border-navy/10 bg-white/95 px-8 py-14 text-center shadow-card">
+              <p className="font-display text-xl font-semibold text-navy sm:text-2xl">Case studies coming soon</p>
+              <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-navy/75">
+                We are documenting real client work now. Check back as new stories go live, or book a call to talk
+                about your situation.
+              </p>
+            </div>
+          ) : null}
           {CASE_STUDY_ORDER.map((page, index) => {
             const c = getCaseStudy(page);
             if (!c) return null;
