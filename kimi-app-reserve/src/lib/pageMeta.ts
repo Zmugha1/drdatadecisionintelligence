@@ -64,6 +64,12 @@ export const PAGE_META: Record<string, PageMeta> = {
       'AgentPulse scores your leads, preps your morning, and writes in your voice, hosted for you and owned by you. Private decision intelligence for real estate agents.',
     path: '/agentpulse/',
   },
+  'front-desk-ai': {
+    title: 'Front Desk AI | Never Lose a First Impression | Dr. Data',
+    description:
+      'Front Desk AI greets every visitor, shares your contact in one tap, turns happy clients into Google reviews, and captures every lead into a system you own. Your front desk, always on.',
+    path: '/front-desk-ai/',
+  },
   careers: {
     title: 'Careers | Dr. Data',
     description:

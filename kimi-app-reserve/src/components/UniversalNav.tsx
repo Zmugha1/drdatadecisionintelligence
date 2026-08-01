@@ -9,6 +9,7 @@ const PRODUCT_NAV = [
   { label: 'Bidding AI', page: 'bidding-ai' },
   { label: 'Coaching AI', page: 'coaching-ai' },
   { label: 'AgentPulse', page: 'agentpulse' },
+  { label: 'Front Desk AI', page: 'front-desk-ai' },
 ];
 
 const mainLinks = [
