@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import PageShell from '@/components/PageShell';
+import FindYourZone from '@/sections/FindYourZone';
 import { BOOKING_URL, hrefPage } from '@/lib/sitePaths';
 import { supabase } from '@/lib/supabase';
 import { ArrowRight } from 'lucide-react';
@@ -267,6 +268,8 @@ export default function Products() {
               </div>
             </div>
           ))}
+
+          <FindYourZone />
 
           <div className="mx-auto mb-12 max-w-2xl rounded-2xl border border-navy/10 bg-white/90 p-8 shadow-card backdrop-blur-sm sm:p-10">
             <h2 className="mb-2 text-center font-display text-2xl font-bold text-navy sm:text-3xl">
