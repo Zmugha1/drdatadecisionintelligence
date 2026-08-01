@@ -154,6 +154,15 @@ const productGroups: ProductGroup[] = [
   },
 ];
 
+const expertiseAreas = [
+  'Machine Learning Governance & Reliability',
+  'Decision Intelligence Architecture',
+  'Applied AI Research & Model Evaluation',
+  'Data Readiness & Knowledge Engineering',
+  'AI Adoption & Organizational Enablement',
+  'Private AI Systems Design',
+];
+
 const accentStyles = {
   teal: {
     border: 'border-teal',
@@ -324,6 +333,26 @@ export default function Products() {
                 </button>
               </form>
             )}
+          </div>
+
+          <div className="mx-auto mb-12 max-w-4xl rounded-2xl bg-cream px-6 py-12 sm:px-10 sm:py-14">
+            <h2 className="mb-4 text-center font-display text-3xl font-bold text-navy sm:text-4xl">
+              The depth behind the builds
+            </h2>
+            <p className="mx-auto mb-10 max-w-2xl text-center text-lg leading-relaxed text-navy/80">
+              Every Dr. Data product rests on two decades of enterprise AI, applied where it actually helps a small
+              business.
+            </p>
+            <ul className="mx-auto mb-10 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-5">
+              {expertiseAreas.map((area) => (
+                <li key={area} className="flex items-center gap-3 border-l-2 border-teal pl-4">
+                  <span className="font-display text-base font-semibold text-navy sm:text-lg">{area}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-center text-lg font-medium text-teal">
+              This is the expertise behind every build. Not a menu. The foundation.
+            </p>
           </div>
 
           <div className="text-center">
