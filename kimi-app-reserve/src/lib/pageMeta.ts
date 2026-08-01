@@ -85,4 +85,10 @@ export const PAGE_META: Record<string, PageMeta> = {
     description: 'Writing on private AI, data readiness, and decision intelligence for small business owners who want AI without giving up control of their data.',
     path: '/blog/',
   },
+  card: {
+    title: 'Dr. Zubia Mughal, Ed.D. | Dr. Data Decision Intelligence',
+    description:
+      'Private AI for your business. Own your AI, do not rent it. Save my contact, book a call, or reach me directly.',
+    path: '/card/',
+  },
 };

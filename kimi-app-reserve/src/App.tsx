@@ -12,6 +12,7 @@ import LeadAI from './pages/LeadAI';
 import BiddingAI from './pages/BiddingAI';
 import CoachingAI from './pages/CoachingAI';
 import AgentPulse from './pages/AgentPulse';
+import Card from './pages/Card';
 import BNIReferral from './pages/BNIReferral';
 import AIReadinessAssessment from './pages/AIReadinessAssessment';
 import AskChatGPT from './pages/AskChatGPT';
@@ -102,6 +103,8 @@ function App({ initialPath }: { initialPath?: string } = {}) {
       return <CoachingAI />;
     case 'agentpulse':
       return <AgentPulse />;
+    case 'card':
+      return <Card />;
     case 'bni-referral':
       return <BNIReferral />;
     case 'ai-readiness':
