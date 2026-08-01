@@ -15,6 +15,7 @@ export const PAGE_PATHS: Record<string, string> = {
   governance: '/governance',
   'private-hub': '/private-hub',
   'lead-ai': '/lead-ai',
+  'coaching-ai': '/coaching-ai',
 };
 
 export function hrefPage(page: string): string {

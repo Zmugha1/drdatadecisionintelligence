@@ -9,6 +9,7 @@ import Products from './pages/Products';
 import Careers from './pages/Careers';
 import PrivateHub from './pages/PrivateHub';
 import LeadAI from './pages/LeadAI';
+import CoachingAI from './pages/CoachingAI';
 import BNIReferral from './pages/BNIReferral';
 import AIReadinessAssessment from './pages/AIReadinessAssessment';
 import AskChatGPT from './pages/AskChatGPT';
@@ -93,6 +94,8 @@ function App({ initialPath }: { initialPath?: string } = {}) {
       return <PrivateHub />;
     case 'lead-ai':
       return <LeadAI />;
+    case 'coaching-ai':
+      return <CoachingAI />;
     case 'bni-referral':
       return <BNIReferral />;
     case 'ai-readiness':

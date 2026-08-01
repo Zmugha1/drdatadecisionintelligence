@@ -45,6 +45,12 @@ export const PAGE_META: Record<string, PageMeta> = {
       'Private lead intelligence for builders and property pros. Finds your next customer in public records before your competitor does, and runs on your own machine. Milwaukee and beyond.',
     path: '/lead-ai/',
   },
+  'coaching-ai': {
+    title: 'Private AI for Coaches | Save Time, Coach Deeper | Dr. Data',
+    description:
+      'A private AI coaching partner that learns your method, remembers every client, and preps you in seconds. Your data stays yours. Book a walkthrough.',
+    path: '/coaching-ai/',
+  },
   careers: {
     title: 'Careers | Dr. Data',
     description:

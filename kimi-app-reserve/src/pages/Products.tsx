@@ -48,6 +48,8 @@ const productGroups: ProductGroup[] = [
         description:
           'Turns your coaching method into software your clients use between sessions. Your process, your voice, your client records, all private, all yours. Built for any coach with a method worth scaling.',
         accent: 'teal',
+        flagship: true,
+        detailLink: { label: 'See how Coaching AI works', page: 'coaching-ai' },
       },
       {
         name: 'Document AI',
