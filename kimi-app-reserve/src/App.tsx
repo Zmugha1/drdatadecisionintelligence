@@ -10,6 +10,7 @@ import Careers from './pages/Careers';
 import PrivateHub from './pages/PrivateHub';
 import LeadAI from './pages/LeadAI';
 import CoachingAI from './pages/CoachingAI';
+import AgentPulse from './pages/AgentPulse';
 import BNIReferral from './pages/BNIReferral';
 import AIReadinessAssessment from './pages/AIReadinessAssessment';
 import AskChatGPT from './pages/AskChatGPT';
@@ -96,6 +97,8 @@ function App({ initialPath }: { initialPath?: string } = {}) {
       return <LeadAI />;
     case 'coaching-ai':
       return <CoachingAI />;
+    case 'agentpulse':
+      return <AgentPulse />;
     case 'bni-referral':
       return <BNIReferral />;
     case 'ai-readiness':

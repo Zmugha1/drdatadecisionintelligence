@@ -51,6 +51,12 @@ export const PAGE_META: Record<string, PageMeta> = {
       'A private AI coaching partner that learns your method, remembers every client, and preps you in seconds. Your data stays yours. Book a walkthrough.',
     path: '/coaching-ai/',
   },
+  agentpulse: {
+    title: 'AgentPulse | Private Decision Intelligence for Real Estate Agents | Dr. Data',
+    description:
+      'AgentPulse scores your leads, preps your morning, and writes in your voice, hosted for you and owned by you. Private decision intelligence for real estate agents.',
+    path: '/agentpulse/',
+  },
   careers: {
     title: 'Careers | Dr. Data',
     description:

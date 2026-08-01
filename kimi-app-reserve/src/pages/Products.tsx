@@ -105,6 +105,8 @@ const productGroups: ProductGroup[] = [
         description:
           'Scores your leads and tells you who to work today. Marketing data lives in a database you own, never shared, never sold.',
         accent: 'teal',
+        flagship: true,
+        detailLink: { label: 'See how AgentPulse works', page: 'agentpulse' },
       },
       {
         name: 'Follow-Up AI',
@@ -115,19 +117,19 @@ const productGroups: ProductGroup[] = [
       {
         name: 'Marketing AI',
         description:
-          'Shows which half of your spend actually works, so you stop guessing where the money comes from.',
+          'Shows which half of your marketing spend actually works, and runs your campaigns from one dashboard tied to your own website. Stop guessing where the money comes from.',
         accent: 'teal',
       },
       {
         name: 'SEO & GEO AI',
         description:
-          'Makes both search engines and AI engines recommend you. Rank on Google and get cited by ChatGPT and Perplexity, because being invisible to AI search is the new being invisible.',
+          'Makes both search engines and AI engines recommend you. Rank on Google and get cited by ChatGPT and Perplexity, with content published straight to your own website from your dashboard, because being invisible to AI search is the new being invisible.',
         accent: 'coral',
       },
       {
         name: 'Content AI',
         description:
-          'Drafts your blogs and posts in your voice, built to rank and to be quoted by AI engines. Your public presence, multiplied, without hiring an agency.',
+          'Drafts your blogs and posts in your voice, built to rank and to be quoted by AI engines, and publishes them to your website in one click. Your public presence, multiplied, without hiring an agency.',
         accent: 'teal',
       },
       {
