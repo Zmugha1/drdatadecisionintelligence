@@ -27,7 +27,7 @@ type ProductGroup = {
 
 const productGroups: ProductGroup[] = [
   {
-    title: 'Private line',
+    title: 'Dr. Data Private AI',
     subtitle: 'Runs on your machine. Your data never leaves your building.',
     products: [
       {
@@ -99,8 +99,9 @@ const productGroups: ProductGroup[] = [
     ],
   },
   {
-    title: 'Cloud line',
-    subtitle: 'Public-facing work, done deliberately. Anything private is masked before it ever leaves.',
+    title: 'Dr. Data Pulse',
+    subtitle:
+      'One intelligent home for your whole business. It watches every lead source, your website, your social, your pipeline, scores what is hot, and shows you who to work next and how your business is really doing. Your data, your dashboard, yours to own.',
     products: [
       {
         name: 'Pulse',
@@ -240,6 +241,17 @@ export default function Products() {
             Private AI apps for Milwaukee small business. Each one takes a job off your plate. Your data stays where it
             belongs.
           </p>
+
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <h2 className="mb-4 font-display text-2xl font-bold text-navy sm:text-3xl">
+              Two ways to work, one principle.
+            </h2>
+            <p className="text-lg leading-relaxed text-navy/80">
+              Not all your data belongs in the cloud, and not all of it needs to stay home. Dr. Data Private AI keeps
+              your confidential work in your building. Dr. Data Pulse brings your whole public-facing business
+              into one intelligent view. You draw the line. We hold it.
+            </p>
+          </div>
 
           <p className="mx-auto mb-16 max-w-3xl rounded-2xl border border-navy/10 bg-cream/60 px-6 py-5 text-center text-lg leading-relaxed text-navy/80 sm:px-8">
             Dr. Data builds custom private AI apps for small business that run on your own machine instead of a shared

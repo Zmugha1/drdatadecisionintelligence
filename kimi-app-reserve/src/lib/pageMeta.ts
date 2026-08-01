@@ -31,7 +31,7 @@ export const PAGE_META: Record<string, PageMeta> = {
   products: {
     title: 'Custom Private AI Apps for Small Business | Private LLM on Your Own Machine | Dr. Data',
     description:
-      'Custom private AI apps for small business: lead generation, on-site quoting, document reading, client intelligence, and more. A private LLM that runs on your own machine, no cloud, no monthly per-user fees. Built for the work that eats your week.',
+      'Custom private AI apps for small business: lead generation, on-site quoting, document reading, client intelligence, and more. A private LLM that runs on your own machine, no cloud, no monthly per-user fees. Dr. Data Pulse brings your leads, website, social, and business numbers into one intelligent view.',
     path: '/products/',
   },
   'private-hub': {
