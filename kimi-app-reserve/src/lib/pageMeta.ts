@@ -91,4 +91,9 @@ export const PAGE_META: Record<string, PageMeta> = {
       'Private AI for your business. Own your AI, do not rent it. Save my contact, book a call, or reach me directly.',
     path: '/card/',
   },
+  review: {
+    title: 'Leave a Review | Dr. Data Decision Intelligence',
+    description: 'Enjoyed working with Dr. Data? Leave a quick Google review.',
+    path: '/review/',
+  },
 };

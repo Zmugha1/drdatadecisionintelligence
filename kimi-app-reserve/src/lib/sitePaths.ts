@@ -19,6 +19,7 @@ export const PAGE_PATHS: Record<string, string> = {
   'coaching-ai': '/coaching-ai',
   agentpulse: '/agentpulse',
   card: '/card',
+  review: '/review',
 };
 
 export function hrefPage(page: string): string {
