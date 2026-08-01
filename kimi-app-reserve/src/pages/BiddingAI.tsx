@@ -46,6 +46,12 @@ const BiddingAI = () => {
             in the room when the customer was deciding. Bidding AI closes that gap.
           </p>
 
+          <p className="mx-auto mb-8 max-w-3xl rounded-2xl border border-navy/10 bg-white/60 px-6 py-5 text-lg leading-relaxed text-navy/80 sm:px-8">
+            Bidding AI is a private quoting tool for contractors and home-service businesses: it builds market-backed
+            quotes on site in minutes, prices every job from your own costs, and keeps your pricing on your machine
+            instead of in the cloud.
+          </p>
+
           <p className="mb-10 text-xl font-bold text-teal sm:text-2xl">
             Your prices. Your formula. Your margin, visible in the room.
           </p>

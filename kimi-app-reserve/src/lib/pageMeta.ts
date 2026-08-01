@@ -29,27 +29,27 @@ export const PAGE_META: Record<string, PageMeta> = {
     path: '/faq/',
   },
   products: {
-    title: 'AI Apps for Small Business | Private AI That Runs on Your Machine | Dr. Data',
+    title: 'Custom Private AI Apps for Small Business | Private LLM on Your Own Machine | Dr. Data',
     description:
-      'Ten private AI apps for small business: lead generation, bidding, follow-up, document reading, and more. Each runs on your own machine, so your data never leaves your building. Built for contractors, coaches, clinics, and small firms that handle sensitive information.',
+      'Custom private AI apps for small business: lead generation, on-site quoting, document reading, client intelligence, and more. A private LLM that runs on your own machine, no cloud, no monthly per-user fees. Built for the work that eats your week.',
     path: '/products/',
   },
   'private-hub': {
-    title: 'Why We Build Private AI | The Cloud Is Not Your Friend | Dr. Data',
+    title: 'Private AI for Law Firms, Accountants, and Clinics | Your Data Never Leaves | Dr. Data',
     description:
-      "Every AI tool wants your data. Dr. Data builds private AI that runs on your own machine, so your intelligence never leaves your building and never trains a competitor's model.",
+      'Private AI for professional services that handle confidential data: law firms, accounting practices, clinics, and financial advisors. Runs on your own hardware, so client files never touch a public cloud. HIPAA and privilege safe by design.',
     path: '/private-hub/',
   },
   'lead-ai': {
-    title: 'Property & Construction Lead Intelligence | Private Lead AI | Dr. Data',
+    title: 'Pre-Construction Lead Intelligence for Builders | Find Permits First | Lead AI | Dr. Data',
     description:
-      'Private lead intelligence for builders and property pros. Finds your next customer in public records before your competitor does, and runs on your own machine. Milwaukee and beyond.',
+      'Lead AI finds building permits, licenses, and property signals before your competitors do, and hands builders and property pros a scored morning call list. A private lead intelligence tool that runs on your machine. Milwaukee and beyond.',
     path: '/lead-ai/',
   },
   'bidding-ai': {
-    title: 'Bidding AI | Quote On The Spot | Private On-Site Estimation | Dr. Data',
+    title: 'AI Quoting Tool for Contractors | Quote On Site | Bidding AI | Dr. Data',
     description:
-      'Bidding AI lets on-site trades quote on the spot from their own costs, with the margin visible and the reasoning attached. Runs on your machine. For pest control, restoration, HVAC, and specialist trades.',
+      'An AI quoting tool that lets contractors and home-service pros build market-backed quotes on site in minutes, priced from their own costs, with the margin visible. Runs on your machine. For pest control, restoration, HVAC, energy, and specialist trades.',
     path: '/bidding-ai/',
   },
   'coaching-ai': {

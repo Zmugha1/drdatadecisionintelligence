@@ -236,9 +236,14 @@ export default function Products() {
       <section className="px-4 pb-20 pt-6 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <h1 className="mb-4 text-center font-display text-4xl font-bold text-navy sm:text-5xl">What We Build</h1>
-          <p className="mx-auto mb-16 max-w-3xl text-center text-lg leading-relaxed text-navy/80">
+          <p className="mx-auto mb-8 max-w-3xl text-center text-lg leading-relaxed text-navy/80">
             Private AI apps for Milwaukee small business. Each one takes a job off your plate. Your data stays where it
             belongs.
+          </p>
+
+          <p className="mx-auto mb-16 max-w-3xl rounded-2xl border border-navy/10 bg-cream/60 px-6 py-5 text-center text-lg leading-relaxed text-navy/80 sm:px-8">
+            Dr. Data builds custom private AI apps for small business that run on your own machine instead of a shared
+            cloud, so your data stays yours and there are no monthly per-user fees.
           </p>
 
           {productGroups.map((group) => (

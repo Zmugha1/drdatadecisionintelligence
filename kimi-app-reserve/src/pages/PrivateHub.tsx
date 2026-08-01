@@ -73,6 +73,12 @@ const PrivateHub = () => {
             alone, and never teach a machine that helps anyone else.
           </p>
 
+          <p className="mx-auto mb-8 max-w-3xl rounded-2xl border border-navy/10 bg-white/60 px-6 py-5 text-lg leading-relaxed text-navy/80 sm:px-8">
+            Dr. Data builds private AI for professional services that cannot risk client data in the cloud: law firms,
+            accountants, financial advisors, and clinics. Everything runs on your own hardware, so confidential files
+            never leave your building.
+          </p>
+
           <p className="text-xl font-bold text-teal sm:text-2xl">Own your AI. Don&apos;t rent it.</p>
         </div>
       </section>

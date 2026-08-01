@@ -72,6 +72,12 @@ const LeadAI = () => {
             window in public records and hands you a morning list of who to call, while they are still yours to win.
           </p>
 
+          <p className="mx-auto mb-8 max-w-3xl rounded-2xl border border-navy/10 bg-white/60 px-6 py-5 text-lg leading-relaxed text-navy/80 sm:px-8">
+            Lead AI is a pre-construction lead intelligence tool for builders and property professionals: it finds
+            permits, licenses, and property signals before competitors, scores each lead, and runs privately on your
+            own machine.
+          </p>
+
           <p className="text-xl font-bold text-teal sm:text-2xl">
             Your dashboard. Your brand. Your data, on your machine.
           </p>
