@@ -13,8 +13,9 @@ export const SITE_URL = 'https://drdatadecisionintelligence.com';
 
 export const PAGE_META: Record<string, PageMeta> = {
   home: {
-    title: 'Dr. Data | Private, Air-Gapped AI for Small Business | Pewaukee WI',
-    description: 'Private, air-gapped AI systems for small businesses. Dr. Zubia Mughal (Ed.D.) builds local-first decision intelligence so your data never leaves your building.',
+    title: 'Dr. Data | Private AI Apps for Small Business | Milwaukee',
+    description:
+      'Private AI apps that run on your own machine. Lead generation, bidding, coaching, and more. Built for your business, owned by you. No cloud, no monthly rent. Your data never leaves your building.',
     path: '/',
   },
   about: {
