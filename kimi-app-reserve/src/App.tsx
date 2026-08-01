@@ -8,6 +8,7 @@ import FAQ from './pages/FAQ';
 import Products from './pages/Products';
 import Careers from './pages/Careers';
 import PrivateHub from './pages/PrivateHub';
+import LeadAI from './pages/LeadAI';
 import BNIReferral from './pages/BNIReferral';
 import AIReadinessAssessment from './pages/AIReadinessAssessment';
 import AskChatGPT from './pages/AskChatGPT';
@@ -90,6 +91,8 @@ function App({ initialPath }: { initialPath?: string } = {}) {
       return <FAQ />;
     case 'private-hub':
       return <PrivateHub />;
+    case 'lead-ai':
+      return <LeadAI />;
     case 'bni-referral':
       return <BNIReferral />;
     case 'ai-readiness':

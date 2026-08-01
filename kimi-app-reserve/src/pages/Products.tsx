@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import PageShell from '@/components/PageShell';
-import { BOOKING_URL } from '@/lib/sitePaths';
+import { BOOKING_URL, hrefPage } from '@/lib/sitePaths';
 import { supabase } from '@/lib/supabase';
 import { ArrowRight } from 'lucide-react';
 
@@ -14,6 +14,8 @@ type Product = {
   name: string;
   description: string;
   accent: 'teal' | 'coral';
+  flagship?: boolean;
+  detailLink?: { label: string; page: string };
 };
 
 type ProductGroup = {
@@ -32,6 +34,8 @@ const productGroups: ProductGroup[] = [
         description:
           'Finds your next customer from public signals: a permit filed, a business formed, a home sold, and hands you a morning call list. Runs on your machine. Your list is yours alone.',
         accent: 'teal',
+        flagship: true,
+        detailLink: { label: 'See how Lead AI works', page: 'lead-ai' },
       },
       {
         name: 'Bidding AI',
@@ -234,10 +238,27 @@ export default function Products() {
                   return (
                     <div
                       key={product.name}
-                      className={`relative overflow-hidden rounded-xl border-l-4 ${styles.border} bg-white p-6 shadow-card transition-all duration-300 hover:shadow-card-hover sm:p-8`}
+                      className={`relative overflow-hidden rounded-xl border-l-4 ${styles.border} bg-white p-6 shadow-card transition-all duration-300 hover:shadow-card-hover sm:p-8 ${
+                        product.flagship ? 'border-t-2 border-t-teal ring-1 ring-teal/15' : ''
+                      }`}
                     >
-                      <h3 className="mb-3 font-display text-xl font-bold text-navy sm:text-2xl">{product.name}</h3>
+                      <div className="mb-3 flex flex-wrap items-center gap-2">
+                        <h3 className="font-display text-xl font-bold text-navy sm:text-2xl">{product.name}</h3>
+                        {product.flagship ? (
+                          <span className="rounded-full bg-teal/10 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-teal">
+                            Flagship
+                          </span>
+                        ) : null}
+                      </div>
                       <p className="text-base leading-relaxed text-navy/80">{product.description}</p>
+                      {product.detailLink ? (
+                        <a
+                          href={hrefPage(product.detailLink.page)}
+                          className="mt-4 inline-block text-sm font-semibold text-teal transition hover:underline"
+                        >
+                          {product.detailLink.label}
+                        </a>
+                      ) : null}
                     </div>
                   );
                 })}

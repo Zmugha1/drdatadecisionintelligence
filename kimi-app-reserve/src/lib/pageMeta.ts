@@ -39,6 +39,12 @@ export const PAGE_META: Record<string, PageMeta> = {
       "Every AI tool wants your data. Dr. Data builds private AI that runs on your own machine, so your intelligence never leaves your building and never trains a competitor's model.",
     path: '/private-hub/',
   },
+  'lead-ai': {
+    title: 'Property & Construction Lead Intelligence | Private Lead AI | Dr. Data',
+    description:
+      'Private lead intelligence for builders and property pros. Finds your next customer in public records before your competitor does, and runs on your own machine. Milwaukee and beyond.',
+    path: '/lead-ai/',
+  },
   careers: {
     title: 'Careers | Dr. Data',
     description:
