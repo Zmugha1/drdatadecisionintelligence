@@ -9,6 +9,7 @@ function buildFooterLinks() {
       links: [
         { label: 'All Products', href: hrefPage('products') },
         { label: 'Lead AI', href: hrefPage('lead-ai') },
+        { label: 'Bidding AI', href: hrefPage('bidding-ai') },
         { label: 'Coaching AI', href: hrefPage('coaching-ai') },
         { label: 'AgentPulse', href: hrefPage('agentpulse') },
         { label: 'Case Studies', href: hrefPage('case-studies') },

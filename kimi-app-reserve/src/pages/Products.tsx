@@ -43,6 +43,8 @@ const productGroups: ProductGroup[] = [
         description:
           "Quotes from your own past jobs, not a generic calculator. Your pricing, your margins, your history, and none of it ever leaves your shop to train a competitor's estimate.",
         accent: 'coral',
+        flagship: true,
+        detailLink: { label: 'See how Bidding AI works', page: 'bidding-ai' },
       },
       {
         name: 'Coaching AI',

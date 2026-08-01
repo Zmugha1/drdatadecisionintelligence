@@ -15,6 +15,7 @@ export const PAGE_PATHS: Record<string, string> = {
   governance: '/governance',
   'private-hub': '/private-hub',
   'lead-ai': '/lead-ai',
+  'bidding-ai': '/bidding-ai',
   'coaching-ai': '/coaching-ai',
   agentpulse: '/agentpulse',
 };

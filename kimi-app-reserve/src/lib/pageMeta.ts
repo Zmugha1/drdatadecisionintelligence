@@ -45,6 +45,12 @@ export const PAGE_META: Record<string, PageMeta> = {
       'Private lead intelligence for builders and property pros. Finds your next customer in public records before your competitor does, and runs on your own machine. Milwaukee and beyond.',
     path: '/lead-ai/',
   },
+  'bidding-ai': {
+    title: 'Bidding AI | Quote On The Spot | Private On-Site Estimation | Dr. Data',
+    description:
+      'Bidding AI lets on-site trades quote on the spot from their own costs, with the margin visible and the reasoning attached. Runs on your machine. For pest control, restoration, HVAC, and specialist trades.',
+    path: '/bidding-ai/',
+  },
   'coaching-ai': {
     title: 'Private AI for Coaches | Save Time, Coach Deeper | Dr. Data',
     description:

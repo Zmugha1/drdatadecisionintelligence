@@ -6,6 +6,7 @@ import { BOOKING_URL, hrefPage } from '@/lib/sitePaths';
 const PRODUCT_NAV = [
   { label: 'All Products', page: 'products' },
   { label: 'Lead AI', page: 'lead-ai' },
+  { label: 'Bidding AI', page: 'bidding-ai' },
   { label: 'Coaching AI', page: 'coaching-ai' },
   { label: 'AgentPulse', page: 'agentpulse' },
 ];
