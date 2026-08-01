@@ -5,8 +5,12 @@ import { hrefHomeHash, hrefPage } from '@/lib/sitePaths';
 function buildFooterLinks() {
   return [
     {
-      title: 'Services',
+      title: 'Products',
       links: [
+        { label: 'All Products', href: hrefPage('products') },
+        { label: 'Lead AI', href: hrefPage('lead-ai') },
+        { label: 'Coaching AI', href: hrefPage('coaching-ai') },
+        { label: 'AgentPulse', href: hrefPage('agentpulse') },
         { label: 'Case Studies', href: hrefPage('case-studies') },
       ],
     },
@@ -14,6 +18,8 @@ function buildFooterLinks() {
       title: 'Company',
       links: [
         { label: 'About', href: hrefPage('about') },
+        { label: 'Private Hub', href: hrefPage('private-hub') },
+        { label: 'Careers', href: hrefPage('careers') },
         { label: 'Blog', href: hrefPage('blog') },
         { label: 'Find your zone', href: 'https://drdatadecisionintelligence.com/find-your-zone/' },
         { label: 'FAQ', href: hrefPage('faq') },

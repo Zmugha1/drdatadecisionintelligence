@@ -3,9 +3,15 @@ import { ChevronDown, Menu, X } from 'lucide-react';
 import { CASE_STUDY_NAV } from '@/data/caseStudiesData';
 import { BOOKING_URL, hrefPage } from '@/lib/sitePaths';
 
+const PRODUCT_NAV = [
+  { label: 'All Products', page: 'products' },
+  { label: 'Lead AI', page: 'lead-ai' },
+  { label: 'Coaching AI', page: 'coaching-ai' },
+  { label: 'AgentPulse', page: 'agentpulse' },
+];
+
 const mainLinks = [
   { label: 'Home', href: hrefPage('home') },
-  { label: 'Products', href: hrefPage('products') },
   { label: 'Private Hub', href: hrefPage('private-hub') },
   { label: 'About', href: hrefPage('about') },
   { label: 'Careers', href: hrefPage('careers') },
@@ -17,8 +23,11 @@ const mainLinks = [
 export default function UniversalNav() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [caseDropdownOpen, setCaseDropdownOpen] = useState(false);
   const [mobileCaseOpen, setMobileCaseOpen] = useState(false);
+  const productsDropdownRef = useRef<HTMLDivElement>(null);
   const caseDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -32,6 +41,9 @@ export default function UniversalNav() {
 
   useEffect(() => {
     const close = (e: MouseEvent) => {
+      if (productsDropdownRef.current && !productsDropdownRef.current.contains(e.target as Node)) {
+        setProductsDropdownOpen(false);
+      }
       if (caseDropdownRef.current && !caseDropdownRef.current.contains(e.target as Node)) {
         setCaseDropdownOpen(false);
       }
@@ -42,6 +54,8 @@ export default function UniversalNav() {
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
+    setProductsDropdownOpen(false);
+    setMobileProductsOpen(false);
     setCaseDropdownOpen(false);
     setMobileCaseOpen(false);
 
@@ -81,19 +95,68 @@ export default function UniversalNav() {
             </a>
 
             <div className="hidden items-center gap-1 md:flex">
-              {mainLinks.slice(0, 3).map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(link.href);
-                  }}
-                  className="rounded-lg px-4 py-2 text-sm font-medium text-navy/70 transition-all hover:bg-teal/5 hover:text-teal"
+              <a
+                href={mainLinks[0].href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(mainLinks[0].href);
+                }}
+                className="rounded-lg px-4 py-2 text-sm font-medium text-navy/70 transition-all hover:bg-teal/5 hover:text-teal"
+              >
+                {mainLinks[0].label}
+              </a>
+
+              <div
+                ref={productsDropdownRef}
+                className="relative"
+                onMouseEnter={() => setProductsDropdownOpen(true)}
+                onMouseLeave={() => setProductsDropdownOpen(false)}
+              >
+                <button
+                  type="button"
+                  aria-expanded={productsDropdownOpen}
+                  aria-haspopup="true"
+                  onClick={() => setProductsDropdownOpen((o) => !o)}
+                  className="flex items-center gap-1 rounded-lg px-4 py-2 text-sm font-medium text-navy/70 transition-all hover:bg-teal/5 hover:text-teal"
                 >
-                  {link.label}
-                </a>
-              ))}
+                  Products
+                  <ChevronDown className={`h-4 w-4 transition-transform ${productsDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {productsDropdownOpen ? (
+                  <div
+                    className="absolute left-0 top-full z-50 min-w-[min(100vw-2rem,18rem)] pt-1"
+                    role="menu"
+                  >
+                    <div className="rounded-xl border border-navy/10 bg-white py-2 shadow-lg">
+                      {PRODUCT_NAV.map((item) => (
+                        <a
+                          key={item.page}
+                          href={hrefPage(item.page)}
+                          role="menuitem"
+                          className="block px-4 py-2.5 text-left text-sm text-navy/85 transition hover:bg-teal/10 hover:text-teal"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handleNavClick(hrefPage(item.page));
+                          }}
+                        >
+                          {item.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+
+              <a
+                href={mainLinks[1].href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(mainLinks[1].href);
+                }}
+                className="rounded-lg px-4 py-2 text-sm font-medium text-navy/70 transition-all hover:bg-teal/5 hover:text-teal"
+              >
+                {mainLinks[1].label}
+              </a>
 
               {CASE_STUDY_NAV.length > 0 ? (
                 <div
@@ -160,7 +223,7 @@ export default function UniversalNav() {
                 </a>
               )}
 
-              {mainLinks.slice(3).map((link) => (
+              {mainLinks.slice(2).map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
@@ -210,19 +273,55 @@ export default function UniversalNav() {
           }`}
         >
           <div className="max-h-[calc(100dvh-5rem)] space-y-1 overflow-y-auto px-4 py-6">
-            {mainLinks.slice(0, 3).map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(link.href);
-                }}
-                className="block rounded-lg px-4 py-3 font-medium text-navy transition-all hover:bg-teal/5 hover:text-teal"
+            <a
+              href={mainLinks[0].href}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick(mainLinks[0].href);
+              }}
+              className="block rounded-lg px-4 py-3 font-medium text-navy transition-all hover:bg-teal/5 hover:text-teal"
+            >
+              {mainLinks[0].label}
+            </a>
+
+            <div className="border-t border-[#e0e0e0] pt-2">
+              <button
+                type="button"
+                onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                className="flex w-full items-center justify-between rounded-lg px-4 py-3 font-medium text-navy hover:bg-teal/5"
               >
-                {link.label}
-              </a>
-            ))}
+                Products
+                <ChevronDown className={`h-4 w-4 transition-transform ${mobileProductsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {mobileProductsOpen ? (
+                <div className="ml-2 border-l-2 border-teal/30 pl-3">
+                  {PRODUCT_NAV.map((item) => (
+                    <a
+                      key={item.page}
+                      href={hrefPage(item.page)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick(hrefPage(item.page));
+                      }}
+                      className="block rounded-lg py-2.5 pl-2 text-sm text-navy/80 hover:text-teal"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+
+            <a
+              href={mainLinks[1].href}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick(mainLinks[1].href);
+              }}
+              className="block rounded-lg px-4 py-3 font-medium text-navy transition-all hover:bg-teal/5 hover:text-teal"
+            >
+              {mainLinks[1].label}
+            </a>
 
             {CASE_STUDY_NAV.length > 0 ? (
               <div className="border-t border-[#e0e0e0] pt-2">
@@ -275,7 +374,7 @@ export default function UniversalNav() {
               </a>
             )}
 
-            {mainLinks.slice(3).map((link) => (
+            {mainLinks.slice(2).map((link) => (
               <a
                 key={link.label}
                 href={link.href}
