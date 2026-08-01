@@ -6,6 +6,7 @@ import {
   Globe,
   Linkedin,
   Mail,
+  MessageSquare,
   Phone,
 } from 'lucide-react';
 
@@ -13,6 +14,7 @@ const VCF_PATH = '/dr-zubia-mughal.vcf';
 const WEBSITE_URL = 'https://drdatadecisionintelligence.com';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/zubia-m-947b3578';
 const PHONE_HREF = 'tel:+14145447777';
+const SMS_HREF = 'sms:+14145447777';
 const EMAIL_HREF = 'mailto:zubiam@drdatadecisionintelligence.com';
 
 const actions = [
@@ -34,6 +36,12 @@ const actions = [
     label: 'Call',
     href: PHONE_HREF,
     icon: Phone,
+    className: 'border-2 border-teal bg-white text-navy hover:bg-teal/5',
+  },
+  {
+    label: 'Text Me',
+    href: SMS_HREF,
+    icon: MessageSquare,
     className: 'border-2 border-teal bg-white text-navy hover:bg-teal/5',
   },
   {

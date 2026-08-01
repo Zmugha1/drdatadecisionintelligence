@@ -14,6 +14,7 @@ type AssistantItem = {
 };
 
 const GREETING = "Hi, I'm Dr. Data. What would you like to know?";
+const SMS_HREF = 'sms:+14145447777';
 
 const ASSISTANT_ITEMS: AssistantItem[] = [
   {
@@ -222,6 +223,12 @@ export default function DrDataAssistant() {
                 className="flex min-h-[3rem] w-full items-center justify-center rounded-xl bg-teal px-4 py-3 font-display text-sm font-semibold text-white transition-colors hover:bg-teal/90 sm:text-base"
               >
                 Book a call with Dr. Zubia
+              </a>
+              <a
+                href={SMS_HREF}
+                className="mt-3 block text-center font-display text-sm font-semibold text-teal transition-colors hover:text-teal/80"
+              >
+                Text Dr. Zubia
               </a>
             </div>
           </div>
