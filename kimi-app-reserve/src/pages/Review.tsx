@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const REVIEW_URL = 'https://g.page/r/CbP1aE_jX1EZEAE/review';
+const REVIEW_URL = 'https://g.page/r/CWwAx5t1V4rtEAE/review';
 
 const Review = () => {
   useEffect(() => {
