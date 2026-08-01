@@ -116,6 +116,19 @@ const Card = () => {
             );
           })}
         </div>
+
+        <div className="mt-10 flex w-full flex-col items-center">
+          <p className="mb-4 text-center font-display text-sm font-semibold text-navy sm:text-base">
+            Scan to save my card
+          </p>
+          <div className="rounded-2xl bg-white p-5 shadow-sm">
+            <img
+              src="/dr-data-card-qr.png"
+              alt="Scan to open Dr. Zubia Mughal's digital card"
+              className="mx-auto w-[65%] min-w-[200px] max-w-[260px]"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
