@@ -28,6 +28,7 @@ import CaseStudyDetail from './pages/CaseStudyDetail';
 import Pulse from './pages/Pulse';
 import { CASE_STUDY_ORDER } from './data/caseStudiesData';
 import { PAGE_PATHS } from './lib/sitePaths';
+import DrDataAssistant from './components/DrDataAssistant';
 
 const PATH_TO_CASE_STUDY: Record<string, string> = {
   '/case-studies/milwaukee': 'case-study-milwaukee',
@@ -75,65 +76,74 @@ function App({ initialPath }: { initialPath?: string } = {}) {
     return () => window.removeEventListener('popstate', sync);
   }, []);
 
-  if (CASE_STUDY_ORDER.includes(page)) {
-    return <CaseStudyDetail pageKey={page} />;
-  }
+  const renderPage = () => {
+    if (CASE_STUDY_ORDER.includes(page)) {
+      return <CaseStudyDetail pageKey={page} />;
+    }
 
-  switch (page) {
-    case 'about':
-      return <About />;
-    case 'case-studies':
-      return <CaseStudies />;
-    case 'blog':
-      return <Blog />;
-    case 'governance':
-      return <Governance />;
-    case 'products':
-      return <Products />;
-    case 'careers':
-      return <Careers />;
-    case 'faq':
-      return <FAQ />;
-    case 'private-hub':
-      return <PrivateHub />;
-    case 'lead-ai':
-      return <LeadAI />;
-    case 'bidding-ai':
-      return <BiddingAI />;
-    case 'coaching-ai':
-      return <CoachingAI />;
-    case 'agentpulse':
-      return <AgentPulse />;
-    case 'card':
-      return <Card />;
-    case 'review':
-      return <Review />;
-    case 'bni-referral':
-      return <BNIReferral />;
-    case 'ai-readiness':
-      return <AIReadinessAssessment />;
-    case 'ask-chatgpt':
-      return <AskChatGPT />;
-    case 'ask-claude':
-      return <AskClaude />;
-    case 'blog-data-to-money':
-      return <BlogPostDataToMoney />;
-    case 'blog-data-readiness':
-      return <BlogPostDataReadiness />;
-    case 'blog-coaching-compass':
-      return <BlogPostCoachingCompass />;
-    case 'blog-follow-up-email':
-      return <BlogPostFollowUpEmail />;
-    case 'data-to-demo':
-      return <DataToDemo />;
-    case 'small-business':
-      return <SmallBusiness />;
-    case 'pulse':
-      return <Pulse />;
-    case 'home':
-    default:
-      return <Home />;
-  }
+    switch (page) {
+      case 'about':
+        return <About />;
+      case 'case-studies':
+        return <CaseStudies />;
+      case 'blog':
+        return <Blog />;
+      case 'governance':
+        return <Governance />;
+      case 'products':
+        return <Products />;
+      case 'careers':
+        return <Careers />;
+      case 'faq':
+        return <FAQ />;
+      case 'private-hub':
+        return <PrivateHub />;
+      case 'lead-ai':
+        return <LeadAI />;
+      case 'bidding-ai':
+        return <BiddingAI />;
+      case 'coaching-ai':
+        return <CoachingAI />;
+      case 'agentpulse':
+        return <AgentPulse />;
+      case 'card':
+        return <Card />;
+      case 'review':
+        return <Review />;
+      case 'bni-referral':
+        return <BNIReferral />;
+      case 'ai-readiness':
+        return <AIReadinessAssessment />;
+      case 'ask-chatgpt':
+        return <AskChatGPT />;
+      case 'ask-claude':
+        return <AskClaude />;
+      case 'blog-data-to-money':
+        return <BlogPostDataToMoney />;
+      case 'blog-data-readiness':
+        return <BlogPostDataReadiness />;
+      case 'blog-coaching-compass':
+        return <BlogPostCoachingCompass />;
+      case 'blog-follow-up-email':
+        return <BlogPostFollowUpEmail />;
+      case 'data-to-demo':
+        return <DataToDemo />;
+      case 'small-business':
+        return <SmallBusiness />;
+      case 'pulse':
+        return <Pulse />;
+      case 'home':
+      default:
+        return <Home />;
+    }
+  };
+
+  return (
+    <>
+      {renderPage()}
+      <DrDataAssistant />
+    </>
+  );
 }
 
 export default App;
