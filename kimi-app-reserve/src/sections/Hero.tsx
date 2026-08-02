@@ -148,7 +148,7 @@ export default function Hero() {
               className="border-2 border-navy text-navy hover:bg-navy hover:text-white font-display font-semibold px-8 py-6 text-base rounded-lg transition-all duration-200"
               onClick={() => { window.location.href = hrefPage('products'); }}
             >
-              See what I build
+              See what we build
             </Button>
           </div>
         </div>
