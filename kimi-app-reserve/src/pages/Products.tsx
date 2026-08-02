@@ -25,6 +25,38 @@ type ProductGroup = {
   products: Product[];
 };
 
+type Bundle = {
+  title: string;
+  audience: string;
+  body: string;
+  includes: string;
+  accent: 'teal' | 'coral';
+};
+
+const bundles: Bundle[] = [
+  {
+    title: 'The Builder Suite',
+    audience: 'For contractors, trades, and anyone who quotes work on site.',
+    body: 'Find the job before your competitors, quote it on the spot from your own numbers, and never lose a contact. Bidding AI, Lead AI, and Front Desk AI, working together from the driveway to the deal.',
+    includes: 'Bidding AI, Lead AI, Front Desk AI',
+    accent: 'teal',
+  },
+  {
+    title: 'The Advisor Suite',
+    audience: 'For coaches, consultants, and professional services who handle confidential work.',
+    body: 'Private AI for people who cannot risk client data in the cloud. Turn your method into software, read and organize sensitive documents, and make every first impression count. Coaching AI, Document AI, and Front Desk AI, private by design.',
+    includes: 'Coaching AI, Document AI, Front Desk AI',
+    accent: 'coral',
+  },
+  {
+    title: 'The Growth Suite',
+    audience: 'For real estate, sales-driven businesses, and anyone who runs on leads.',
+    body: 'Capture every lead, nurture it in your voice, and know exactly who to work today. Dr. Data Pulse, your marketing engine, and Front Desk AI, turning contacts into closed deals.',
+    includes: 'Dr. Data Pulse, Content AI, SEO & GEO AI, Review AI, Follow-Up AI, Front Desk AI',
+    accent: 'teal',
+  },
+];
+
 const productGroups: ProductGroup[] = [
   {
     title: 'Dr. Data Private AI',
@@ -237,10 +269,49 @@ export default function Products() {
       <section className="px-4 pb-20 pt-6 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <h1 className="mb-4 text-center font-display text-4xl font-bold text-navy sm:text-5xl">What We Build</h1>
-          <p className="mx-auto mb-8 max-w-3xl text-center text-lg leading-relaxed text-navy/80">
+          <p className="mx-auto mb-12 max-w-3xl text-center text-lg leading-relaxed text-navy/80">
             Private AI apps for Milwaukee small business. Each one takes a job off your plate. Your data stays where it
             belongs.
           </p>
+
+          <div className="mb-16">
+            <h2 className="mb-8 text-center font-display text-3xl font-bold text-navy sm:text-4xl">
+              Start here. Pick your suite.
+            </h2>
+
+            <div className="mb-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
+              {bundles.map((bundle) => {
+                const styles = accentStyles[bundle.accent];
+                return (
+                  <div
+                    key={bundle.title}
+                    className={`relative overflow-hidden rounded-xl border-l-4 ${styles.border} bg-white p-6 shadow-card transition-all duration-300 hover:shadow-card-hover sm:p-8`}
+                  >
+                    <p className={`mb-3 text-sm font-semibold ${styles.text}`}>{bundle.audience}</p>
+                    <h3 className="mb-4 font-display text-xl font-bold text-navy sm:text-2xl">{bundle.title}</h3>
+                    <p className="mb-4 text-base leading-relaxed text-navy/80">{bundle.body}</p>
+                    <p className="text-sm font-medium text-navy/60">{bundle.includes}</p>
+                  </div>
+                );
+              })}
+            </div>
+
+            <p className="mx-auto mb-6 max-w-2xl text-center text-lg leading-relaxed text-navy/80">
+              Not sure which fits? Book a discovery call and we&apos;ll build the right mix for your business.
+            </p>
+
+            <div className="text-center">
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg bg-coral px-8 py-4 font-display font-semibold text-white transition-colors hover:bg-coral/90"
+              >
+                Book a Discovery Call
+                <ArrowRight size={18} />
+              </a>
+            </div>
+          </div>
 
           <div className="mx-auto mb-12 max-w-3xl text-center">
             <h2 className="mb-4 font-display text-2xl font-bold text-navy sm:text-3xl">
