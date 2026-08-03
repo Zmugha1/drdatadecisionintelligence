@@ -21,6 +21,7 @@ function buildFooterLinks() {
       links: [
         { label: 'About', href: hrefPage('about') },
         { label: 'Private Hub', href: hrefPage('private-hub') },
+        { label: 'AI Enablement', href: hrefPage('ai-enablement') },
         { label: 'Careers', href: hrefPage('careers') },
         { label: 'Blog', href: hrefPage('blog') },
         { label: 'Find your zone', href: 'https://drdatadecisionintelligence.com/find-your-zone/' },

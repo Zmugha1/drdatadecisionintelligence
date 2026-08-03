@@ -19,6 +19,7 @@ export const PAGE_PATHS: Record<string, string> = {
   'coaching-ai': '/coaching-ai',
   agentpulse: '/agentpulse',
   'front-desk-ai': '/front-desk-ai',
+  'ai-enablement': '/ai-enablement',
   card: '/card',
   review: '/review',
 };

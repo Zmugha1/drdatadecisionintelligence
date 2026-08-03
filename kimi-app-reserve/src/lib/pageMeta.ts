@@ -70,6 +70,12 @@ export const PAGE_META: Record<string, PageMeta> = {
       'Front Desk AI greets every visitor, shares your contact in one tap, turns happy clients into Google reviews, and captures every lead into a system you own. Your front desk, always on.',
     path: '/front-desk-ai/',
   },
+  'ai-enablement': {
+    title: 'AI Enablement for Small Business | Milwaukee and Chicago | Dr. Data',
+    description:
+      'You already pay for AI. Your team isn\'t using it, or they\'re using the wrong one. Dr. Data configures your Google Workspace and Claude, trains your people by role, and delivers an AI Enablement and Transformation Roadmap. AI enablement and corporate AI training for Wisconsin and Illinois.',
+    path: '/ai-enablement/',
+  },
   careers: {
     title: 'Careers | Dr. Data',
     description:

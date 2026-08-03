@@ -13,6 +13,7 @@ import BiddingAI from './pages/BiddingAI';
 import CoachingAI from './pages/CoachingAI';
 import AgentPulse from './pages/AgentPulse';
 import FrontDeskAI from './pages/FrontDeskAI';
+import AIEnablement from './pages/AIEnablement';
 import Card from './pages/Card';
 import Review from './pages/Review';
 import BNIReferral from './pages/BNIReferral';
@@ -109,6 +110,8 @@ function App({ initialPath }: { initialPath?: string } = {}) {
       return <AgentPulse />;
     case 'front-desk-ai':
       return <FrontDeskAI />;
+    case 'ai-enablement':
+      return <AIEnablement />;
     case 'card':
         return <Card />;
       case 'review':

@@ -15,6 +15,7 @@ const PRODUCT_NAV = [
 const mainLinks = [
   { label: 'Home', href: hrefPage('home') },
   { label: 'Private Hub', href: hrefPage('private-hub') },
+  { label: 'AI Enablement', href: hrefPage('ai-enablement') },
   { label: 'About', href: hrefPage('about') },
   { label: 'Careers', href: hrefPage('careers') },
   { label: 'Blog', href: hrefPage('blog') },
@@ -160,6 +161,17 @@ export default function UniversalNav() {
                 {mainLinks[1].label}
               </a>
 
+              <a
+                href={mainLinks[2].href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(mainLinks[2].href);
+                }}
+                className="rounded-lg px-4 py-2 text-sm font-medium text-navy/70 transition-all hover:bg-teal/5 hover:text-teal"
+              >
+                {mainLinks[2].label}
+              </a>
+
               {CASE_STUDY_NAV.length > 0 ? (
                 <div
                   ref={caseDropdownRef}
@@ -225,7 +237,7 @@ export default function UniversalNav() {
                 </a>
               )}
 
-              {mainLinks.slice(2).map((link) => (
+              {mainLinks.slice(3).map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
@@ -325,6 +337,17 @@ export default function UniversalNav() {
               {mainLinks[1].label}
             </a>
 
+            <a
+              href={mainLinks[2].href}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick(mainLinks[2].href);
+              }}
+              className="block rounded-lg px-4 py-3 font-medium text-navy transition-all hover:bg-teal/5 hover:text-teal"
+            >
+              {mainLinks[2].label}
+            </a>
+
             {CASE_STUDY_NAV.length > 0 ? (
               <div className="border-t border-[#e0e0e0] pt-2">
                 <button
@@ -376,7 +399,7 @@ export default function UniversalNav() {
               </a>
             )}
 
-            {mainLinks.slice(2).map((link) => (
+            {mainLinks.slice(3).map((link) => (
               <a
                 key={link.label}
                 href={link.href}
