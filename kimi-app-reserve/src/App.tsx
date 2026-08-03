@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import Home from './pages/Home';
 import About from './pages/About';
-import CaseStudies from './pages/CaseStudies';
 import Blog from './pages/Blog';
 import Governance from './pages/Governance';
 import FAQ from './pages/FAQ';
@@ -26,19 +25,9 @@ import BlogPostCoachingCompass from './pages/BlogPost-CoachingCompass';
 import BlogPostFollowUpEmail from './pages/BlogPost-FollowUpEmail';
 import DataToDemo from './pages/DataToDemo';
 import SmallBusiness from './pages/SmallBusiness';
-import CaseStudyDetail from './pages/CaseStudyDetail';
 import Pulse from './pages/Pulse';
-import { CASE_STUDY_ORDER } from './data/caseStudiesData';
 import { PAGE_PATHS } from './lib/sitePaths';
 import DrDataAssistant from './components/DrDataAssistant';
-
-const PATH_TO_CASE_STUDY: Record<string, string> = {
-  '/case-studies/milwaukee': 'case-study-milwaukee',
-  '/case-studies/austin': 'case-study-austin',
-  '/case-studies/madison': 'case-study-madison',
-  '/case-studies/chicago': 'case-study-chicago',
-  '/case-studies/new-york': 'case-study-new-york',
-};
 
 function resolvePageFromLocation(location?: { pathname: string; search: string }): string {
   const pathname = location?.pathname ?? window.location.pathname;
@@ -54,7 +43,6 @@ function resolvePageFromLocation(location?: { pathname: string; search: string }
   if (path === '/blog/follow-up-email') return 'blog-follow-up-email';
   if (path === '/data-to-demo') return 'data-to-demo';
   if (path === '/small-business') return 'small-business';
-  if (PATH_TO_CASE_STUDY[path]) return PATH_TO_CASE_STUDY[path];
   const cleanPathPage = Object.keys(PAGE_PATHS).find((page) => PAGE_PATHS[page] === path);
   if (cleanPathPage) return cleanPathPage;
   const pageParam = new URLSearchParams(search).get('page');
@@ -79,15 +67,9 @@ function App({ initialPath }: { initialPath?: string } = {}) {
   }, []);
 
   const renderPage = () => {
-    if (CASE_STUDY_ORDER.includes(page)) {
-      return <CaseStudyDetail pageKey={page} />;
-    }
-
     switch (page) {
       case 'about':
         return <About />;
-      case 'case-studies':
-        return <CaseStudies />;
       case 'blog':
         return <Blog />;
       case 'governance':

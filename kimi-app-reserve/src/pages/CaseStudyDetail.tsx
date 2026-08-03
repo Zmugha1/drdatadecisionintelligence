@@ -252,8 +252,8 @@ export default function CaseStudyDetail({ pageKey }: Props) {
         <section className="px-4 py-20 pt-6 sm:px-6">
           <div className="mx-auto max-w-lg text-center">
             <p className="text-navy/80">Case study not found.</p>
-            <a href={hrefPage('case-studies')} className="mt-4 inline-block font-semibold text-teal hover:underline">
-              Back to all case studies
+            <a href={hrefPage('home')} className="mt-4 inline-block font-semibold text-teal hover:underline">
+              Back to home
             </a>
           </div>
         </section>
@@ -280,11 +280,11 @@ export default function CaseStudyDetail({ pageKey }: Props) {
       <section className="px-4 pb-16 pt-6 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
           <a
-            href={hrefPage('case-studies')}
+            href={hrefPage('home')}
             className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-teal transition hover:underline"
           >
             <ArrowLeft className="h-4 w-4" />
-            All case studies
+            Home
           </a>
 
           <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">

@@ -13,7 +13,6 @@ function buildFooterLinks() {
         { label: 'Coaching AI', href: hrefPage('coaching-ai') },
         { label: 'AgentPulse', href: hrefPage('agentpulse') },
         { label: 'Front Desk AI', href: hrefPage('front-desk-ai') },
-        { label: 'Case Studies', href: hrefPage('case-studies') },
       ],
     },
     {

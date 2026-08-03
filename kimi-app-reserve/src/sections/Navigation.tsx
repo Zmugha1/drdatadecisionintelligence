@@ -16,7 +16,6 @@ const Navigation = () => {
     { label: 'Home', href: '/', page: 'home' },
     { label: 'Private Hub', href: '/?page=private-hub', page: 'private-hub' },
     { label: 'Services', href: '/#services', page: null },
-    { label: 'Case Studies', href: '/?page=case-studies', page: 'case-studies' },
     { label: 'About', href: '/?page=about', page: 'about' },
     { label: 'Blog', href: '/?page=blog', page: 'blog' },
     { label: 'Governance', href: '/?page=governance', page: 'governance' },
