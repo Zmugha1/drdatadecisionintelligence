@@ -23,6 +23,9 @@ import BlogPostDataToMoney from './pages/BlogPost-DataToMoney';
 import BlogPostDataReadiness from './pages/BlogPost-DataReadiness';
 import BlogPostCoachingCompass from './pages/BlogPost-CoachingCompass';
 import BlogPostFollowUpEmail from './pages/BlogPost-FollowUpEmail';
+import BlogPostWhyMilwaukeeLawFirmsMovingAiOffCloud from './pages/BlogPost-WhyMilwaukeeLawFirmsMovingAiOffCloud';
+import BlogPostOnPremiseAiCostSmallBusiness2026 from './pages/BlogPost-OnPremiseAiCostSmallBusiness2026';
+import BlogPostMilwaukeeMspPrivateAiServices from './pages/BlogPost-MilwaukeeMspPrivateAiServices';
 import DataToDemo from './pages/DataToDemo';
 import SmallBusiness from './pages/SmallBusiness';
 import Pulse from './pages/Pulse';
@@ -41,6 +44,9 @@ function resolvePageFromLocation(location?: { pathname: string; search: string }
   if (path === '/blog/data-readiness') return 'blog-data-readiness';
   if (path === '/blog/coaching-compass') return 'blog-coaching-compass';
   if (path === '/blog/follow-up-email') return 'blog-follow-up-email';
+  if (path === '/blog/why-milwaukee-law-firms-moving-ai-off-cloud') return 'blog-why-milwaukee-law-firms-moving-ai-off-cloud';
+  if (path === '/blog/on-premise-ai-cost-small-business-2026') return 'blog-on-premise-ai-cost-small-business-2026';
+  if (path === '/blog/milwaukee-msp-private-ai-services') return 'blog-milwaukee-msp-private-ai-services';
   if (path === '/data-to-demo') return 'data-to-demo';
   if (path === '/small-business') return 'small-business';
   const cleanPathPage = Object.keys(PAGE_PATHS).find((page) => PAGE_PATHS[page] === path);
@@ -114,6 +120,12 @@ function App({ initialPath }: { initialPath?: string } = {}) {
         return <BlogPostCoachingCompass />;
       case 'blog-follow-up-email':
         return <BlogPostFollowUpEmail />;
+      case 'blog-why-milwaukee-law-firms-moving-ai-off-cloud':
+        return <BlogPostWhyMilwaukeeLawFirmsMovingAiOffCloud />;
+      case 'blog-on-premise-ai-cost-small-business-2026':
+        return <BlogPostOnPremiseAiCostSmallBusiness2026 />;
+      case 'blog-milwaukee-msp-private-ai-services':
+        return <BlogPostMilwaukeeMspPrivateAiServices />;
       case 'data-to-demo':
         return <DataToDemo />;
       case 'small-business':

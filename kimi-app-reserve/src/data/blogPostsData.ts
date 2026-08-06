@@ -38,6 +38,42 @@ export const BLOG_INDEX_INTRO =
 
 export const BLOG_POSTS: BlogPostIndex[] = [
   {
+    id: 'why-milwaukee-law-firms-moving-ai-off-cloud',
+    date: 'August 4, 2026',
+    readTime: '6 min read',
+    categoryLabel: 'AI Strategy',
+    title: 'Why Milwaukee Law Firms Are Moving AI Off the Cloud',
+    excerpt:
+      'Every firm is being pitched AI. Then the managing partner asks where the client data goes, and the conversation ends. Here is the private answer.',
+    tags: ['Private AI', 'Law Firms', 'Milwaukee'],
+    filter: 'ai-strategy',
+    pageKey: 'blog-why-milwaukee-law-firms-moving-ai-off-cloud',
+  },
+  {
+    id: 'on-premise-ai-cost-small-business-2026',
+    date: 'August 4, 2026',
+    readTime: '7 min read',
+    categoryLabel: 'AI Strategy',
+    title: 'What On-Premise AI Actually Costs for a Small Business in 2026',
+    excerpt:
+      'Ask what private AI costs and you get a shrug or a scary number. Here is the real breakdown: hardware, build, upkeep, versus rent that never ends.',
+    tags: ['On-Premise AI', 'Small Business', 'Cost'],
+    filter: 'ai-strategy',
+    pageKey: 'blog-on-premise-ai-cost-small-business-2026',
+  },
+  {
+    id: 'milwaukee-msp-private-ai-services',
+    date: 'August 4, 2026',
+    readTime: '6 min read',
+    categoryLabel: 'AI Strategy',
+    title: 'How Milwaukee MSPs Can Add Private AI to Their Services',
+    excerpt:
+      'Your clients are asking about AI. You do not want to send them to the cloud, and you cannot build models yourself. Here is the third option.',
+    tags: ['MSP', 'Private AI', 'Milwaukee'],
+    filter: 'ai-strategy',
+    pageKey: 'blog-milwaukee-msp-private-ai-services',
+  },
+  {
     id: 'follow-up-email',
     date: 'March 28, 2026',
     readTime: '12 min read',

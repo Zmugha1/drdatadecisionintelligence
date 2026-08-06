@@ -97,6 +97,24 @@ export const PAGE_META: Record<string, PageMeta> = {
     description: 'Writing on private AI, data readiness, and decision intelligence for small business owners who want AI without giving up control of their data.',
     path: '/blog/',
   },
+  'blog-why-milwaukee-law-firms-moving-ai-off-cloud': {
+    title: 'Why Milwaukee Law Firms Are Moving AI Off the Cloud | Dr. Data',
+    description:
+      'Milwaukee law firms are moving AI on-premise to protect privilege and client confidentiality. Here is why private, local AI is the answer to the cloud-data problem.',
+    path: '/blog/why-milwaukee-law-firms-moving-ai-off-cloud',
+  },
+  'blog-on-premise-ai-cost-small-business-2026': {
+    title: 'What On-Premise AI Actually Costs for a Small Business in 2026 | Dr. Data',
+    description:
+      'A clear, honest cost breakdown of private on-premise AI versus cloud subscriptions for small business in 2026. Hardware, build, and upkeep, with no scary numbers.',
+    path: '/blog/on-premise-ai-cost-small-business-2026',
+  },
+  'blog-milwaukee-msp-private-ai-services': {
+    title: 'How Milwaukee MSPs Can Add Private AI to Their Services | Dr. Data',
+    description:
+      'Milwaukee MSPs can offer private AI to their clients without building models themselves. Here is how the partnership works: you own the client and hardware, we build the AI.',
+    path: '/blog/milwaukee-msp-private-ai-services',
+  },
   card: {
     title: 'Dr. Zubia Mughal, Ed.D. | Dr. Data Decision Intelligence',
     description:
