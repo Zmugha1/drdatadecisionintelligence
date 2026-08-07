@@ -139,6 +139,136 @@ const CoachingAI = () => {
 
       <section className="bg-cream px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
+          <h2 className="mb-4 text-center font-display text-3xl font-bold text-navy sm:text-4xl">
+            Case Study: From buried in prep to booked out
+          </h2>
+          <p className="mx-auto mb-12 max-w-3xl text-center text-lg leading-relaxed text-navy/70 sm:text-xl">
+            How a Milwaukee franchise business coach reclaimed her week, sharpened her coaching, and grew her practice in
+            six months. Private AI, her brand, her machine.
+          </p>
+
+          <p className="mb-6 text-center text-sm font-semibold uppercase tracking-wide text-teal">By the numbers</p>
+          <div className="mb-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-xl border border-navy/10 bg-white p-6 text-center shadow-sm">
+              <p className="font-display text-3xl font-bold text-teal sm:text-4xl">7 hrs</p>
+              <p className="mt-2 text-sm leading-relaxed text-navy/70">reclaimed every week</p>
+            </div>
+            <div className="rounded-xl border border-navy/10 bg-white p-6 text-center shadow-sm">
+              <p className="font-display text-3xl font-bold text-coral sm:text-4xl">6.4 → 8.9</p>
+              <p className="mt-2 text-sm leading-relaxed text-navy/70">coaching score in six months</p>
+            </div>
+            <div className="rounded-xl border border-navy/10 bg-white p-6 text-center shadow-sm">
+              <p className="font-display text-3xl font-bold text-navy sm:text-4xl">5</p>
+              <p className="mt-2 text-sm leading-relaxed text-navy/70">new clients added</p>
+            </div>
+            <div className="rounded-xl border border-navy/10 bg-white p-6 text-center shadow-sm">
+              <p className="font-display text-3xl font-bold text-teal sm:text-4xl">100%</p>
+              <p className="mt-2 text-sm leading-relaxed text-navy/70">of client data stayed on her own laptop</p>
+            </div>
+          </div>
+
+          <div className="mx-auto max-w-3xl space-y-10 text-base leading-relaxed text-navy/70 sm:text-lg">
+            <div>
+              <h3 className="mb-4 font-display text-xl font-bold text-navy sm:text-2xl">Situation</h3>
+              <p>
+                A franchise business coach in the Milwaukee area. Eighteen active clients, all business owners. She ran
+                DISC and motivational-driver assessments on every one, so the behavioral insight already existed. It just
+                lived in PDFs she had to dig through before each call. Her week was eaten by preparation. Notes in one
+                place, transcripts in another, client history in her head. She recorded her calls but had no way to mine
+                them. And when she wanted a second read on a session, she pasted client details into a public AI chatbot,
+                which meant her clients&apos; private conversations were leaving her control. Worst of all, she had no way
+                to measure her own coaching.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="mb-4 font-display text-xl font-bold text-navy sm:text-2xl">Task</h3>
+              <p>
+                Five goals: cut prep time in half, coach deeper using the DISC data she already collected, measure and lift
+                her own coaching quality, keep every client&apos;s data private, and grow the practice without working more
+                hours.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="mb-4 font-display text-xl font-bold text-navy sm:text-2xl">Action</h3>
+              <p>
+                Dr. Data built her a private, local-first Coach AI, branded as her own practice. Over six months it pulled
+                every client&apos;s DISC profile, motivational drivers, and full history into one intelligence card,
+                ingested her session transcripts automatically, gave her at-a-glance prep cards, added an on-demand analyst
+                that read a client&apos;s whole history and surfaced the hesitations under the words and exactly what to
+                explore next in her own coaching framework, and graded her sessions against her five coaching competencies.
+                It ran entirely on her machine, masked before anything reached the cloud. Across the engagement it analyzed
+                more than 90 of her sessions.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="mb-4 font-display text-xl font-bold text-navy sm:text-2xl">Result</h3>
+              <div className="space-y-4">
+                <p>
+                  <strong className="text-navy">Time:</strong> Prep per session dropped from 45 minutes to 12, a 73% cut.
+                  Weekly prep and admin fell from 10 hours to 3. Seven hours back every week, roughly 180 hours over six
+                  months.
+                </p>
+                <p>
+                  <strong className="text-navy">Coaching quality:</strong> Overall coaching score climbed from 6.4 to 8.9,
+                  up 39%. Her two weakest areas moved most: Review rose from 5.1 to 8.6, Action from 5.8 to 8.7. More than
+                  90 sessions analyzed and scored.
+                </p>
+                <p>
+                  <strong className="text-navy">Growth:</strong> The reclaimed hours became capacity. She added 5 new
+                  clients in six months, about $6,000 a month in new recurring revenue at full ramp, a $72,000 annual run
+                  rate.
+                </p>
+                <p>
+                  <strong className="text-navy">Retention:</strong> Client retention rose from 79% to 92%. She replaced
+                  four disconnected tools with one, cutting about $180 a month in subscriptions.
+                </p>
+                <p>
+                  <strong className="text-navy">Privacy:</strong> 100% of her client data stayed on her laptop.
+                </p>
+                <p>
+                  <strong className="text-navy">Return:</strong> Six-month investment about $3,100. It paid for itself in
+                  the first month on new client revenue alone. First-year return more than 10x.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="mb-4 font-display text-xl font-bold text-navy sm:text-2xl">The takeaway</h3>
+              <p>
+                She did not work more hours. She stopped losing them. The behavioral data she already collected finally
+                worked for her. Her coaching got sharper because she could finally see it. And none of it ever left her
+                building.
+              </p>
+              <p className="mt-6 text-center text-lg font-bold text-teal sm:text-xl">
+                That is Coaching AI. Your method. Your clients. Your machine.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-coral px-10 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:bg-coral/90 hover:shadow-xl"
+            >
+              <Calendar className="h-5 w-5" />
+              Book a walkthrough
+            </a>
+          </div>
+
+          <p className="mx-auto mt-10 max-w-3xl text-center text-xs italic leading-relaxed text-navy/55">
+            Representative engagement based on a real six-month build. Client anonymized at her request. Figures are
+            estimates.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl">
           <div className="rounded-3xl bg-gradient-to-br from-navy to-navy/90 p-8 text-center sm:p-12">
             <div className="mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-teal">
               <Heart className="h-8 w-8 text-white" />
