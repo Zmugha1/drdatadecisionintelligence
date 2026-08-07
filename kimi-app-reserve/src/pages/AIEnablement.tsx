@@ -37,7 +37,7 @@ const sections = [
   },
   {
     title: 'Why us',
-    body: 'Our background is not IT. It is workforce development, an Ed.D. in how people actually adopt new ways of working. We configure the tool, we teach the people by role, and when the tool is not enough, we build the private system that is. At AWS, we moved AI adoption from 12 percent to 73 percent. That is the difference between buying AI and using it, and it is the entire job.',
+    body: 'Our background is not IT. It is workforce development, an Ed.D. in how people actually adopt new ways of working. We configure the tool, we teach the people by role, and when the tool is not enough, we build the private system that is. That is the difference between buying AI and using it, and it is the entire job.',
   },
   {
     title: 'The AI Enablement Sprint',
@@ -52,6 +52,24 @@ const leadershipBullets = [
   'Own it or rent it: when a subscription is fine, and when a private build you own wins.',
   'Bring the team: turn random results into a repeatable habit across your crew.',
   'Measure and scale: a 90-day rollout and governance that sticks.',
+] as const;
+
+const FRAMEWORK_DEMO_URL =
+  'https://ai-adoption-universal-framework-vmc9fssq95qeyexjlhwbsb.streamlit.app/?embed_options=show_toolbar,light_theme,show_colored_line,show_padding,disable_scrolling,show_footer';
+
+const frameworkPhases = [
+  {
+    title: 'Discovery and risk zoning',
+    body: 'Every workflow classified GREEN (ready for AI now), YELLOW (needs configuration or guardrails first), or RED (regulated or confidential, must stay off any public AI). This becomes your one-page sanctioned-use policy.',
+  },
+  {
+    title: 'Mapping skills and gaps',
+    body: 'Connecting what your people do, what tools they use, and where the real gaps are, so training targets are measured, not guessed.',
+  },
+  {
+    title: 'Targeted coaching and measurement',
+    body: 'Short, specific coaching to close identified gaps, with adoption measured through to real behavior change, not just satisfaction scores.',
+  },
 ] as const;
 
 const closingSections = [
@@ -253,6 +271,70 @@ const AIEnablement = () => {
           </div>
         </section>
       ))}
+
+      <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="mb-8 text-center font-display text-3xl font-bold text-navy sm:text-4xl">
+            The framework behind the work
+          </h2>
+          <p className="mx-auto mb-12 max-w-3xl text-lg leading-relaxed text-navy/70">
+            The AI Enablement Sprint is not theory. It comes from real enterprise practice. Dr. Zubia Mughal helped
+            architect AI adoption across a 1,500-user enterprise: connecting siloed systems, classifying workflows by
+            risk, and moving adoption from a small fraction of staff to the majority. That same methodology, simplified
+            for small and mid-market business, is what we deliver today.
+          </p>
+
+          <h3 className="mb-8 text-center font-display text-2xl font-bold text-navy sm:text-3xl">
+            How the framework works
+          </h3>
+          <div className="mx-auto mb-12 max-w-3xl space-y-8">
+            {frameworkPhases.map((phase) => (
+              <div key={phase.title}>
+                <h4 className="mb-3 font-display text-lg font-bold text-teal sm:text-xl">{phase.title}</h4>
+                <p className="text-base leading-relaxed text-navy/70 sm:text-lg">{phase.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="mx-auto mb-16 max-w-3xl text-center text-lg leading-relaxed text-navy/70">
+            This is the backbone of both the AI Enablement Sprint and the AI-Ready Leadership program. Every engagement
+            ends with your own risk classification, a one-page AI use policy, and a 90-day adoption plan.
+          </p>
+
+          <div className="rounded-2xl border border-navy/10 bg-cream/50 p-6 sm:p-8">
+            <h3 className="mb-4 text-center font-display text-2xl font-bold text-navy sm:text-3xl">
+              Try the framework yourself
+            </h3>
+            <p className="mx-auto mb-8 max-w-2xl text-center text-base leading-relaxed text-navy/70 sm:text-lg">
+              Walk through the three phases, classify your own workflows, and get a prioritized recommendation. This is
+              the same interactive framework we use inside engagements.
+            </p>
+
+            <div className="overflow-hidden rounded-xl border border-navy/10 bg-white shadow-sm">
+              <iframe
+                src={FRAMEWORK_DEMO_URL}
+                title="AI Adoption Framework interactive demo"
+                className="w-full min-h-[650px] border-0"
+                loading="lazy"
+                allow="fullscreen"
+              />
+            </div>
+
+            <p className="mt-4 text-center text-sm text-navy/60">
+              If the demo does not load,{' '}
+              <a
+                href={FRAMEWORK_DEMO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-teal underline-offset-4 hover:underline"
+              >
+                open it in a new tab
+              </a>
+              . Streamlit apps can sleep and need a moment to wake.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <section className="bg-cream px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
