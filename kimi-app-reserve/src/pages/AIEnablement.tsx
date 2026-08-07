@@ -54,9 +54,6 @@ const leadershipBullets = [
   'Measure and scale: a 90-day rollout and governance that sticks.',
 ] as const;
 
-const FRAMEWORK_DEMO_URL =
-  'https://ai-adoption-universal-framework-vmc9fssq95qeyexjlhwbsb.streamlit.app/?embed_options=show_toolbar,light_theme,show_colored_line,show_padding,disable_scrolling,show_footer';
-
 const frameworkPhases = [
   {
     title: 'Discovery and risk zoning',
@@ -303,35 +300,54 @@ const AIEnablement = () => {
 
           <div className="rounded-2xl border border-navy/10 bg-cream/50 p-6 sm:p-8">
             <h3 className="mb-4 text-center font-display text-2xl font-bold text-navy sm:text-3xl">
-              Try the framework yourself
+              See the framework in action
             </h3>
             <p className="mx-auto mb-8 max-w-2xl text-center text-base leading-relaxed text-navy/70 sm:text-lg">
-              Walk through the three phases, classify your own workflows, and get a prioritized recommendation. This is
-              the same interactive framework we use inside engagements.
+              This is the methodology and the interactive tool we use inside engagements.
             </p>
 
-            <div className="overflow-hidden rounded-xl border border-navy/10 bg-white shadow-sm">
-              <iframe
-                src={FRAMEWORK_DEMO_URL}
-                title="AI Adoption Framework interactive demo"
-                className="w-full min-h-[650px] border-0"
-                loading="lazy"
-                allow="fullscreen"
-              />
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+              <figure>
+                <img
+                  src="/ai-adoption-enablement.png"
+                  alt="AI Adoption Maturity Matrix"
+                  className="w-full rounded-xl border border-navy/10 shadow-sm"
+                  loading="lazy"
+                />
+                <figcaption className="mt-3 text-center text-sm leading-relaxed text-navy/65 sm:text-base">
+                  The maturity model: where your organization is today, and the path to governed, autonomous AI.
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="/decision-workflow-mapper.png"
+                  alt="Decision Workflow Mapper: map executive decisions to AI risk zones"
+                  className="w-full rounded-xl border border-navy/10 shadow-sm"
+                  loading="lazy"
+                />
+                <figcaption className="mt-3 text-center text-sm leading-relaxed text-navy/65 sm:text-base">
+                  The workflow mapper: classify your decisions GREEN, YELLOW, or RED, and get a one-page AI use policy.
+                </figcaption>
+              </figure>
             </div>
 
-            <p className="mt-4 text-center text-sm text-navy/60">
-              If the demo does not load,{' '}
+            <p className="mx-auto mt-10 max-w-2xl text-center text-base leading-relaxed text-navy/70 sm:text-lg">
+              Want to run this on your own business? Book a walkthrough and we will map your workflows, classify your
+              AI risk, and build your adoption plan with you.
+            </p>
+
+            <div className="mt-8 text-center">
               <a
-                href={FRAMEWORK_DEMO_URL}
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-medium text-teal underline-offset-4 hover:underline"
+                className="inline-flex items-center gap-2 rounded-full bg-coral px-10 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:bg-coral/90 hover:shadow-xl"
               >
-                open it in a new tab
+                <Calendar className="h-5 w-5" />
+                Book a walkthrough
               </a>
-              . Streamlit apps can sleep and need a moment to wake.
-            </p>
+            </div>
           </div>
         </div>
       </section>
