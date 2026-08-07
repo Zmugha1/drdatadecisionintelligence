@@ -177,11 +177,16 @@ const AIEnablement = () => {
         </section>
       ))}
 
-      <section className="bg-cream px-4 py-20 sm:px-6 lg:px-8">
+      <section className="border-y border-teal/20 bg-mint/40 px-4 py-24 sm:px-6 lg:px-8 lg:py-28">
         <div className="mx-auto max-w-3xl">
-          <h2 className="mb-8 text-center font-display text-3xl font-bold text-navy sm:text-4xl">
-            Rather lead it yourself? Train your leaders.
-          </h2>
+          <div className="mb-10 text-center">
+            <p className="mb-6 inline-flex items-center rounded-full border border-teal/30 bg-teal/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-teal">
+              Leadership AI Training
+            </p>
+            <h2 className="font-display text-4xl font-bold leading-tight text-navy sm:text-5xl">
+              Rather lead it yourself? Train your leaders.
+            </h2>
+          </div>
           <p className="mb-8 text-lg leading-relaxed text-navy/70">
             Some owners want it done for them. Others want to lead the change themselves. For them, we run AI-Ready
             Leadership: a small-cohort program that teaches owners and executives how to adopt AI safely, keep their
