@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { Linkedin } from 'lucide-react';
 import { hrefHomeHash, hrefPage } from '@/lib/sitePaths';
 
+const MBA_MEMBER_URL =
+  'https://www.mbabuilds.org/online-member-directory/dr-data-decision-intelligence';
+
 function buildFooterLinks() {
   return [
     {
@@ -150,6 +153,35 @@ export default function Footer() {
               </ul>
             </div>
           ))}
+        </div>
+
+        <div
+          className={`mb-10 transition-all duration-500 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+          }`}
+          style={{ transitionDelay: '550ms' }}
+        >
+          <p className="mb-3 text-center text-xs font-medium uppercase tracking-wide text-white/45">
+            Proud member of
+          </p>
+          <div className="flex justify-center">
+            <a
+              href={MBA_MEMBER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex max-w-full flex-col items-center gap-2 rounded-xl bg-cream px-4 py-3 shadow-sm transition-colors hover:bg-white sm:flex-row sm:gap-4 sm:px-5"
+            >
+              <img
+                src="/mba-logo.png"
+                alt="Metro Builders Association member"
+                className="h-12 w-auto max-h-[56px] object-contain"
+                loading="lazy"
+              />
+              <span className="max-w-xs text-center text-xs leading-snug text-navy/65 group-hover:text-navy sm:text-left">
+                Proud member of the Metro Builders Association
+              </span>
+            </a>
+          </div>
         </div>
 
         {/* Bottom Section */}
