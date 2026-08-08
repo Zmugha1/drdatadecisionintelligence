@@ -5,6 +5,9 @@ import { hrefHomeHash, hrefPage } from '@/lib/sitePaths';
 const MBA_MEMBER_URL =
   'https://www.mbabuilds.org/online-member-directory/dr-data-decision-intelligence';
 
+const BNI_MEMBER_URL =
+  'https://bniamerica.com/en-US/memberdetails?encryptedMemberId=k9lwzhwnIt3QbMu851Wksg%3D%3D&cmsv3=true&name=Zubia+Mughal';
+
 function buildFooterLinks() {
   return [
     {
@@ -164,7 +167,7 @@ export default function Footer() {
           <p className="mb-3 text-center text-xs font-medium uppercase tracking-wide text-white/45">
             Proud member of
           </p>
-          <div className="flex justify-center">
+          <div className="flex flex-wrap items-stretch justify-center gap-4">
             <a
               href={MBA_MEMBER_URL}
               target="_blank"
@@ -179,6 +182,18 @@ export default function Footer() {
               />
               <span className="max-w-xs text-center text-xs leading-snug text-navy/65 group-hover:text-navy sm:text-left">
                 Proud member of the Metro Builders Association
+              </span>
+            </a>
+
+            <a
+              href={BNI_MEMBER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex max-w-full items-center justify-center rounded-xl bg-cream px-4 py-3 shadow-sm transition-colors hover:bg-white sm:px-5"
+            >
+              {/* Text credential until approved BNI logo usage; swap for <img> when permitted */}
+              <span className="max-w-xs text-center text-xs leading-snug text-navy/65 group-hover:text-navy">
+                Proud Member of Wisconsin BNI
               </span>
             </a>
           </div>
